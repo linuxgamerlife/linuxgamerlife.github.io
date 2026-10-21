@@ -8,7 +8,7 @@ Live at **https://linuxgamerlife.github.io** (eventually `linuxgamerlife.net`).
 
 | Path | What it does |
 | --- | --- |
-| `index.html` | Home: hero, goals, featured apps, toolkit and community calls to action |
+| `index.html` | Home: hero, personal timeline, goals, video series, a short projects note and community |
 | `projects.html` | All projects, filterable by category, with GitHub and Copr links |
 | `toolkit.html` | LGL Toolkit install guide, per-app commands and copy buttons |
 | `videos.html` | The seven video series |

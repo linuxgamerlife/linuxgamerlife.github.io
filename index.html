@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Linux Gamer Life | Linux gaming, desktop setups and small useful apps</title>
-<meta name="description" content="Linux Gamer Life documents the switch from Windows to Linux: Linux gaming, Fedora and Wayland desktops, and small open-source apps built to solve real problems.">
+<meta name="description" content="One gamer's switch from Windows to Linux: the wins, the mistakes, gaming on Fedora, and what it is really like learning Linux day to day.">
 <meta name="author" content="Linux Gamer Life">
 <meta name="theme-color" content="#08050f">
 <link rel="canonical" href="https://linuxgamerlife.github.io/">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Linux Gamer Life">
 <meta property="og:title" content="Linux Gamer Life">
-<meta property="og:description" content="Linux gaming, Fedora and Wayland desktops, and small open-source apps built to solve real problems.">
+<meta property="og:description" content="One gamer's switch from Windows to Linux, documented honestly: the wins, the mistakes and what it is really like.">
 <meta property="og:url" content="https://linuxgamerlife.github.io/">
 <meta property="og:image" content="https://linuxgamerlife.github.io/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -29,7 +29,7 @@
   "name": "Linux Gamer Life",
   "url": "https://linuxgamerlife.github.io/",
   "author": { "@type": "Person", "name": "Linux Gamer Life", "url": "https://linuxgamerlife.net" },
-  "description": "Linux gaming, desktop setups and small open-source apps."
+  "description": "One gamer's switch from Windows to Linux, documented honestly."
 }
 </script>
 </head>
@@ -53,7 +53,7 @@
         <li><a href="community.html" data-nav="community">Community</a></li>
         <li><a href="about.html" data-nav="about">About</a></li>
       </ul>
-      <a class="btn btn--primary btn--sm nav__cta" href="toolkit.html">Install the toolkit</a>
+      <a class="btn btn--primary btn--sm nav__cta" href="https://www.youtube.com/@LinuxGamerLife" target="_blank" rel="noopener">Watch on YouTube</a>
     </nav>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
@@ -75,12 +75,12 @@
           </h1>
           <p class="hero__lede">
             I spent decades gaming on Windows, then moved everything to Linux in 2025.
-            <strong>Linux Gamer Life</strong> is where I document what works, what breaks,
-            and the small tools I build when something needs fixing.
+            <strong>Linux Gamer Life</strong> is where I share the journey: what works,
+            what breaks, and what I learn along the way.
           </p>
           <div class="btn-row">
-            <a class="btn btn--primary" href="projects.html">
-              Explore the projects
+            <a class="btn btn--primary" href="about.html">
+              Read my story
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
             </a>
             <a class="btn btn--ghost" href="https://www.youtube.com/@LinuxGamerLife" target="_blank" rel="noopener">
@@ -90,47 +90,72 @@
           </div>
           <div class="chip-row">
             <span class="chip">Fedora</span>
-            <span class="chip chip--violet">KineticWE</span>
+            <a class="chip chip--violet chip--link" href="https://gitlab.com/theblackdon/kineticwe" target="_blank" rel="noopener">KineticWE</a>
             <span class="chip chip--violet">Noctalia</span>
             <span class="chip">Wayland</span>
           </div>
         </div>
 
-        <div class="terminal reveal" aria-label="Example install commands">
-          <div class="terminal__bar">
-            <span class="dot dot--a"></span>
-            <span class="dot dot--b"></span>
-            <span class="dot dot--c"></span>
-            <span class="terminal__title">lgl@fedora: ~</span>
+        <aside class="now-card reveal" aria-label="What I am using right now">
+          <div class="now-card__head">
+            <img class="now-card__avatar" src="assets/img/logo.svg" alt="" width="46" height="46">
+            <div>
+              <div class="now-card__name">Linux Gamer Life</div>
+              <div class="now-card__handle">@linuxgamerlife</div>
+            </div>
+            <span class="now-card__status">Still learning</span>
           </div>
-          <div class="terminal__body" id="hero-commands">
-            <pre id="hero-copy" hidden>sudo dnf copr enable linuxgamerlife/lgl-toolkit
-sudo dnf install lgl-system-loadout
-lgl-system-loadout</pre>
-            <div><span class="comment"># one repo for every LGL app</span></div>
-            <div><span class="prompt">$</span> <span class="cmd">sudo dnf copr enable linuxgamerlife/lgl-toolkit</span></div>
-            <div class="line--long"><span class="prompt">$</span> <span class="cmd">sudo dnf install lgl-system-loadout</span></div>
-            <div><span class="ok">✓</span> <span class="comment">repo enabled · ready to install</span></div>
-            <div>&nbsp;</div>
-            <div><span class="prompt">$</span> <span class="cmd">lgl-system-loadout</span></div>
-            <div class="line--long"><span class="comment">pick a loadout → gaming / creator / dev</span></div>
-            <div><span class="ok">✓</span> <span class="comment">system ready</span></div>
-          </div>
-          <div class="terminal__foot">
-            <span>Fedora 44-45 · x86_64 + aarch64</span>
-            <button class="copy-btn" type="button" data-copy="#hero-copy" aria-label="Copy the install commands">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <span class="copy-btn__label">Copy</span>
-            </button>
-          </div>
-        </div>
+          <dl class="now-list">
+            <div><dt>Distro</dt><dd>Fedora</dd></div>
+            <div><dt>Desktop</dt><dd><a href="https://gitlab.com/theblackdon/kineticwe" target="_blank" rel="noopener">KineticWE</a> + Noctalia</dd></div>
+            <div><dt>Session</dt><dd>Wayland</dd></div>
+            <div><dt>Switched</dt><dd>2025</dd></div>
+            <div><dt>Based</dt><dd>United Kingdom</dd></div>
+          </dl>
+          <p class="now-card__foot">Not a developer. Just a gamer who documents the fixes.</p>
+        </aside>
       </div>
 
-      <div class="stats reveal">
-        <div class="stat"><div class="stat__value" data-stat="repos">26</div><div class="stat__label">Public repos</div></div>
-        <div class="stat"><div class="stat__value" data-stat="copr_projects">11</div><div class="stat__label">Copr projects</div></div>
-        <div class="stat"><div class="stat__value" data-stat="apps_packaged">10</div><div class="stat__label">Apps packaged</div></div>
-        <div class="stat"><div class="stat__value" data-stat="stars">104</div><div class="stat__label">GitHub stars</div></div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="section" aria-labelledby="story-title">
+    <div class="container">
+      <div class="story-grid">
+        <div class="reveal">
+          <p class="eyebrow">The journey</p>
+          <h2 class="section__title" id="story-title">Thirty years of Windows. Then one clean install.</h2>
+          <p class="lede">I am not a Linux professional, and I am not a developer. I am a gamer who got curious, moved his whole setup to Linux, and started filming what happened.</p>
+          <p class="pull-quote">"I am learning as I go, picking up tips from others, and improving my setup along the way."</p>
+          <div class="btn-row">
+            <a class="btn" href="about.html">Read the full story
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+        <ol class="timeline reveal" data-delay="1">
+          <li>
+            <span class="timeline__year">Before</span>
+            <h3>Three decades on Windows</h3>
+            <p>Gaming, tinkering and the odd fresh install, always with Windows underneath.</p>
+          </li>
+          <li>
+            <span class="timeline__year">2025</span>
+            <h3>The switch</h3>
+            <p>Left Windows behind completely. Not a dual boot, not a spare machine. Everything moved.</p>
+          </li>
+          <li>
+            <span class="timeline__year">Now</span>
+            <h3>Fedora and KineticWE</h3>
+            <p>Fedora as the base, KineticWE and Noctalia on Wayland, with a Mac around for the rare thing that still needs one.</p>
+          </li>
+          <li>
+            <span class="timeline__year">Sharing</span>
+            <h3>Filming the process</h3>
+            <p>Videos about the wins, the mistakes, the games and the fixes. The tools are a side effect of solving my own problems.</p>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
@@ -141,7 +166,7 @@ lgl-system-loadout</pre>
       <div class="section__head reveal">
         <p class="eyebrow">Why this exists</p>
         <h2 class="section__title" id="goals-title">Four things I care about</h2>
-        <p class="lede">Everything I make comes back to these. They keep the channel, the scripts and the apps pointed in the same direction.</p>
+        <p class="lede">Everything I do comes back to these. They keep the channel and the projects pointed in the same direction.</p>
       </div>
       <div class="grid grid--4">
         <article class="card goal reveal">
@@ -164,94 +189,6 @@ lgl-system-loadout</pre>
           <h3 class="goal__title">Indie games</h3>
           <p class="goal__text">Showing how well indie and AA games run on Linux, and giving the people who make them more visibility.</p>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured apps -->
-  <section class="section" aria-labelledby="apps-title">
-    <div class="container">
-      <div class="section__head reveal">
-        <p class="eyebrow">Built for the desktop</p>
-        <h2 class="section__title" id="apps-title">Small apps that do one job</h2>
-        <p class="lede">Made to solve a real problem on my own system, then packaged properly so they are easy to install and keep updated.</p>
-      </div>
-      <div class="grid grid--3">
-        <article class="card reveal">
-          <div class="card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="m8 10 2 2-2 2M12.5 14H16"/></svg>
-          </div>
-          <h3 class="card__title">LGL System Loadout</h3>
-          <p class="card__text">A guided Fedora setup wizard. Choose gaming, content creation or development, then let it install the lot without touching the terminal.</p>
-          <div class="card__meta">
-            <span class="tag tag--accent">40 ★</span>
-            <span class="tag">Fedora</span>
-            <span class="tag">Qt6</span>
-          </div>
-          <div class="btn-row" style="margin-top:1.2rem">
-            <a class="link-arrow" href="https://github.com/linuxgamerlife/lgl-system-loadout" target="_blank" rel="noopener">View on GitHub
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-            </a>
-          </div>
-        </article>
-        <article class="card reveal" data-delay="1">
-          <div class="card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg>
-          </div>
-          <h3 class="card__title">LGL Papercutter</h3>
-          <p class="card__text">Resize, position, zoom and crop wallpapers for any display, including portrait monitors and awkward multi-screen arrangements.</p>
-          <div class="card__meta">
-            <span class="tag tag--accent">15 ★</span>
-            <span class="tag">Wallpapers</span>
-            <span class="tag">Qt6</span>
-          </div>
-          <div class="btn-row" style="margin-top:1.2rem">
-            <a class="link-arrow" href="https://github.com/linuxgamerlife/lgl-papercutter" target="_blank" rel="noopener">View on GitHub
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-            </a>
-          </div>
-        </article>
-        <article class="card reveal" data-delay="2">
-          <div class="card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><path d="M10 10h4v4h-4z"/></svg>
-          </div>
-          <h3 class="card__title">LGL Scheduler Manager</h3>
-          <p class="card__text">Switch sched-ext BPF CPU schedulers from a proper window, with scxctl underneath and no terminal incantations required.</p>
-          <div class="card__meta">
-            <span class="tag">sched-ext</span>
-            <span class="tag">Performance</span>
-            <span class="tag">Qt6</span>
-          </div>
-          <div class="btn-row" style="margin-top:1.2rem">
-            <a class="link-arrow" href="https://github.com/linuxgamerlife/lgl-scheduler-manager" target="_blank" rel="noopener">View on GitHub
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-            </a>
-          </div>
-        </article>
-      </div>
-      <div class="btn-row reveal">
-        <a class="btn" href="projects.html">Browse all projects
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Toolkit band -->
-  <section class="section section--tight" aria-labelledby="toolkit-title">
-    <div class="container">
-      <div class="cta-band reveal">
-        <div class="cta-band__inner">
-          <div>
-            <p class="eyebrow">One repo, every app</p>
-            <h2 id="toolkit-title">Install the LGL Toolkit once.</h2>
-            <p>Colour picker, emoji picker, wallpaper editor, DNF inspector, scheduler manager and more, all delivered through normal Fedora updates.</p>
-          </div>
-          <div class="btn-row" style="margin:0">
-            <a class="btn btn--primary" href="toolkit.html">See the install guide</a>
-            <a class="btn btn--ghost" href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/lgl-toolkit/" target="_blank" rel="noopener">Browse Copr</a>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -280,6 +217,27 @@ lgl-system-loadout</pre>
           <h3 class="series__title">Indie Spotlight</h3>
           <p class="series__desc">Indie and AA games, tested on Linux and shown off properly.</p>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Made along the way -->
+  <section class="section section--tight" aria-labelledby="making-title">
+    <div class="container">
+      <div class="panel making reveal">
+        <div>
+          <p class="eyebrow">Made along the way</p>
+          <h2 class="section__title" id="making-title" style="font-size:clamp(1.5rem,3.2vw,2rem)">I build things for my own setup.</h2>
+          <p class="lede" style="margin-top:0.8rem;font-size:0.95rem">I am not a developer. These are small tools I made because I needed them, shared in the hope they save someone else a job. They are MIT licensed and used at your own risk.</p>
+          <div class="btn-row">
+            <a class="btn btn--sm" href="projects.html">See what I have made</a>
+          </div>
+        </div>
+        <ul class="making-list">
+          <li><a href="https://github.com/linuxgamerlife/lgl-papercutter" target="_blank" rel="noopener">Papercutter <span>wallpaper editor</span></a></li>
+          <li><a href="https://github.com/linuxgamerlife/lgl-system-loadout" target="_blank" rel="noopener">System Loadout <span>Fedora setup wizard</span></a></li>
+          <li><a href="https://github.com/linuxgamerlife/lgl-scheduler-manager" target="_blank" rel="noopener">Scheduler Manager <span>sched-ext front end</span></a></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -343,18 +301,16 @@ lgl-system-loadout</pre>
         <ul>
           <li><a href="about.html#ai">AI use statement</a></li>
           <li><a href="about.html#disclaimer">Disclaimer</a></li>
-          <li><a href="https://github.com/linuxgamerlife/linuxgamerlife.github.io" target="_blank" rel="noopener">Site source</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
       <p>© <span data-year>2026</span> Linux Gamer Life · Instructions are used at your own risk. Always read and understand a command before running it.</p>
-      <p class="mono">Made on Linux · <span class="muted">Fedora + Noctalia</span></p>
+      <p class="mono">Made on Linux · Fedora + <a href="https://gitlab.com/theblackdon/kineticwe" target="_blank" rel="noopener">KineticWE</a></p>
     </div>
   </div>
 </footer>
 
-<script src="data/projects.js"></script>
 <script src="assets/js/site.js" defer></script>
 </body>
 </html>
