@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LGL Toolkit — install guide — Linux Gamer Life</title>
+<meta name="description" content="Install the LGL Toolkit on Fedora: one Copr repo, then colour picker, emoji picker, wallpaper editor, DNF helper, scheduler manager and more.">
+<meta name="theme-color" content="#08050f">
+<link rel="canonical" href="https://linuxgamerlife.github.io/toolkit.html">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Linux Gamer Life">
+<meta property="og:title" content="LGL Toolkit — install guide">
+<meta property="og:description" content="One Copr repo for every LGL desktop app on Fedora.">
+<meta property="og:url" content="https://linuxgamerlife.github.io/toolkit.html">
+<meta property="og:image" content="https://linuxgamerlife.github.io/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="toolkit">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="Linux Gamer Life — home">
+      <img src="assets/img/logo.svg" alt="" width="34" height="34">
+      <span class="brand__text">
+        <span class="brand__name">Linux Gamer Life</span>
+        <span class="brand__sub">Linux · Gaming · Creating</span>
+      </span>
+    </a>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <ul class="nav__links">
+        <li><a href="projects.html" data-nav="projects">Projects</a></li>
+        <li><a href="toolkit.html" data-nav="toolkit" aria-current="page">Toolkit</a></li>
+        <li><a href="videos.html" data-nav="videos">Videos</a></li>
+        <li><a href="community.html" data-nav="community">Community</a></li>
+        <li><a href="about.html" data-nav="about">About</a></li>
+      </ul>
+      <a class="btn btn--primary btn--sm nav__cta" href="#enable">Install the toolkit</a>
+    </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="container">
+      <p class="eyebrow">Fedora · Copr · dnf</p>
+      <h1 class="page-head__title">The <span class="grad">LGL Toolkit.</span></h1>
+      <p class="lede">
+        A collection of small desktop apps for Fedora, all in one Copr repository. Enable the
+        repo once, install only what you need, and let normal system updates keep them current.
+      </p>
+      <div class="chip-row">
+        <span class="chip">Fedora 44</span>
+        <span class="chip">Fedora 45</span>
+        <span class="chip chip--violet">Rawhide</span>
+        <span class="chip chip--violet">x86_64 + aarch64</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="enable">
+    <div class="container">
+      <div class="panel reveal">
+        <div class="section__head" style="margin-bottom:1.3rem">
+          <p class="eyebrow">Step one</p>
+          <h2 class="section__title" style="font-size:clamp(1.4rem,3vw,1.9rem)">Enable the repository</h2>
+          <p class="lede" style="font-size:0.95rem">This adds the Copr repo and imports its signing key. You only need to do it once.</p>
+        </div>
+
+        <div class="install">
+          <code id="enable-cmd">sudo dnf copr enable linuxgamerlife/lgl-toolkit</code>
+          <button class="copy-btn" type="button" data-copy="#enable-cmd" aria-label="Copy the repository enable command">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span class="copy-btn__label">Copy</span>
+          </button>
+        </div>
+
+        <div class="steps">
+          <div class="step"><b>Run the command above</b> in a terminal and confirm when DNF asks.</div>
+          <div class="step"><b>Install an app</b> from the list below with <span class="mono">sudo dnf install &lt;package&gt;</span>.</div>
+          <div class="step"><b>Keep it updated</b> — <span class="mono">sudo dnf upgrade</span> picks up new releases like any other package.</div>
+        </div>
+
+        <div class="callout" style="margin-top:1.4rem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+          <p><b>Read before running.</b> These commands change system packages. Read them, understand them, and use them at your own risk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" aria-labelledby="apps-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow">In the toolkit</p>
+        <h2 class="section__title" id="apps-title">Pick your apps</h2>
+        <p class="lede">Every package below comes from <span class="mono">linuxgamerlife/lgl-toolkit</span>. The copy button only copies the install line.</p>
+      </div>
+
+      <div class="panel">
+        <div class="app">
+          <span class="app__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="m8 10 2 2-2 2M12.5 14H16"/></svg></span>
+          <div>
+            <h3 class="app__name">LGL System Loadout <span class="badge">Setup</span></h3>
+            <p class="app__desc">A guided setup wizard for fresh Fedora installs. Choose gaming, content creation or development and install a curated set of packages in one go.</p>
+            <p class="app__pkg">package: <b>lgl-system-loadout</b></p>
+            <div class="install" style="margin-top:0.7rem;padding:0.55rem 0.8rem">
+              <code id="pkg-system-loadout">sudo dnf install lgl-system-loadout</code>
+              <button class="copy-btn" type="button" data-copy="#pkg-system-loadout" aria-label="Copy install command for LGL System Loadout"><span class="copy-btn__label">Copy</span></button>
+            </div>
+          </div>
+          <div class="app__links">
+            <a class="project__link" href="https://github.com/linuxgamerlife/lgl-system-loadout" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <div class="app">
+          <span class="app__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/><circle cx="8.5" cy="8.5" r="1.5"/></svg></span>
+          <div>
+            <h3 class="app__name">LGL Papercutter</h3>
+            <p class="app__desc">Crop, resize, zoom and position wallpapers for detected displays, custom resolutions, portrait screens and multi-monitor layouts.</p>
+            <p class="app__pkg">package: <b>lgl-papercutter</b></p>
+            <div class="install" style="margin-top:0.7rem;padding:0.55rem 0.8rem">
+              <code id="pkg-papercutter">sudo dnf install lgl-papercutter</code>
+              <button class="copy-btn" type="button" data-copy="#pkg-papercutter" aria-label="Copy install command for LGL Papercutter"><span class="copy-btn__label">Copy</span></button>
+            </div>
+          </div>
+          <div class="app__links">
+            <a class="project__link" href="https://github.com/linuxgamerlife/lgl-papercutter" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <div class="app">
+          <span class="app__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><path d="M10 10h4v4h-4z"/></svg></span>
+          <div>
+            <h3 class="app__name">LGL Scheduler Manager <span class="badge badge--sep">Extra dependency</span></h3>
+            <p class="app__desc">Manage sched-ext BPF schedulers via <span class="mono">scxctl</span>. Needs <span class="mono">scx-tools</span>, which provides scxctl and scx_loader.</p>
+            <p class="app__pkg">package: <b>lgl-scheduler-manager</b></p>
+            <div class="install" style="margin-top:0.7rem;padding:0.55rem 0.8rem">
+              <code id="pkg-scheduler">sudo dnf install lgl-scheduler-manager</code>
+              <button class="copy-btn" type="button" data-copy="#pkg-scheduler" aria-label="Copy install command for LGL Scheduler Manager"><span class="copy-btn__label">Copy</span></button>
+            </div>
+          </div>
+          <div class="app__links">
+            <a class="project__link" href="https://github.com/linuxgamerlife/lgl-scheduler-manager" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <div class="app">
+          <span class="app__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg></span>
+          <div>
+            <h3 class="app__name">LGL Colour Picker</h3>
+            <p class="app__desc">Sample any colour on screen and copy it in ready-to-paste formats. Small, quick and keyboard friendly.</p>
+            <p class="app__pkg">package: <b>lgl-colour-picker</b></p>
+            <div class="install" style="margin-top:0.7rem;padding:0.55rem 0.8rem">
+              <code id="pkg-colour">sudo dnf install lgl-colour-picker</code>
+              <button class="copy-btn" type="button" data-copy="#pkg-colour" aria-label="Copy install command for LGL Colour Picker"><span class="copy-btn__label">Copy</span></button>
+            </div>
+          </div>
+          <div class="app__links">
+            <a class="project__link" href="https://github.com/linuxgamerlife/lgl-colour-picker" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <div class="app">
+          <span class="app__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 10h.01M15.5 10h.01"/><path d="M8 15.5a5 5 0 0 0 8 0"/></svg></span>
+          <div>
+            <h3 class="app__name">LGL Emoji Picker</h3>
+            <p class="app__desc">Search emoji, browse recent history and copy with native styling and clipboard support on Wayland or X11.</p>
+            <p class="app__pkg">package: <b>lgl-emoji-picker</b></p>
+            <div class="install" style="margin-top:0.7rem;padding:0.55rem 0.8rem">
+              <code id="pkg-emoji">sudo dnf install lgl-emoji-picker</code>
+              <button class="copy-btn" type="button" data-copy="#pkg-emoji" aria-label="Copy install command for LGL Emoji Picker"><span class="copy-btn__label">Copy</span></button>
+            </div>
+          </div>
+          <div class="app__links">
+            <a class="project__link" href="https://github.com/linuxgamerlife/lgl-emoji-picker" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <div class="app">
+          <span class="app__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M3 7h4"/><path d="M11 8h6M11 12h6M11 16h4"/></svg></span>
+          <div>
+            <h3 class="app__name">LGL DNF Helper</h3>
+            <p class="app__desc">Inspect installed RPM packages, dependencies, related configs, repo origin, history and package impact using DNF5 and RPM data.</p>
+            <p class="app__pkg">package: <b>lgl-dnf-helper</b></p>
+            <div class="install" style="margin-top:0.7rem;padding:0.55rem 0.8rem">
+              <code id="pkg-dnf">sudo dnf install lgl-dnf-helper</code>
+              <button class="copy-btn" type="button" data-copy="#pkg-dnf" aria-label="Copy install command for LGL DNF Helper"><span class="copy-btn__label">Copy</span></button>
+            </div>
+          </div>
+          <div class="app__links">
+            <a class="project__link" href="https://github.com/linuxgamerlife/lgl-dnf-helper" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+
+        <div class="app">
+          <span class="app__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg></span>
+          <div>
+            <h3 class="app__name">LGL Keychron Helper</h3>
+            <p class="app__desc">A Linux desktop wrapper for the official Keychron Launcher. Configure and update supported keyboards without opening a separate browser.</p>
+            <p class="app__pkg">package: <b>lgl-keychron-helper</b></p>
+            <div class="install" style="margin-top:0.7rem;padding:0.55rem 0.8rem">
+              <code id="pkg-keychron">sudo dnf install lgl-keychron-helper</code>
+              <button class="copy-btn" type="button" data-copy="#pkg-keychron" aria-label="Copy install command for LGL Keychron Helper"><span class="copy-btn__label">Copy</span></button>
+            </div>
+          </div>
+          <div class="app__links">
+            <a class="project__link" href="https://github.com/linuxgamerlife/lgl-keychron-helper" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:1.2rem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+        <p><b>Scheduler Manager users:</b> install <span class="mono">scx-tools</span> first with <span class="mono">sudo dnf copr enable bieszczaders/kernel-cachyos-addons &amp;&amp; sudo dnf install scx-tools scx-scheds</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" aria-labelledby="separate-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="eyebrow">Separate repos</p>
+        <h2 class="section__title" id="separate-title">Also packaged</h2>
+        <p class="lede">These projects have their own Copr repository rather than living inside the toolkit.</p>
+      </div>
+      <div class="grid grid--3">
+        <article class="card reveal">
+          <h3 class="card__title">LGL Power Profile Manager</h3>
+          <p class="card__text">Switch tuned profiles from a desktop window — battery, balanced and performance in one click.</p>
+          <div class="install" style="margin-top:0.9rem;padding:0.5rem 0.7rem;font-size:0.68rem">
+            <code id="pkg-power">sudo dnf copr enable linuxgamerlife/lgl-powerprofile-manager</code>
+            <button class="copy-btn" type="button" data-copy="#pkg-power" aria-label="Copy enable command for Power Profile Manager"><span class="copy-btn__label">Copy</span></button>
+          </div>
+          <p class="project__desc" style="margin-top:0.6rem">Then <span class="mono">sudo dnf install lgl-powerprofile-manager</span>.</p>
+          <div class="project__links">
+            <a class="project__link" href="https://github.com/linuxgamerlife/lgl-powerprofile-manager" target="_blank" rel="noopener">GitHub</a>
+            <a class="project__link" href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/lgl-powerprofile-manager/" target="_blank" rel="noopener">Copr</a>
+          </div>
+        </article>
+        <article class="card reveal" data-delay="1">
+          <h3 class="card__title">LGL cliamp</h3>
+          <p class="card__text">A Fedora-tested build of the terminal music player, with a minimal visualiser and mirrored classic peak view.</p>
+          <div class="install" style="margin-top:0.9rem;padding:0.5rem 0.7rem;font-size:0.68rem">
+            <code id="pkg-cliamp">sudo dnf copr enable linuxgamerlife/lgl-cliamp</code>
+            <button class="copy-btn" type="button" data-copy="#pkg-cliamp" aria-label="Copy enable command for LGL cliamp"><span class="copy-btn__label">Copy</span></button>
+          </div>
+          <p class="project__desc" style="margin-top:0.6rem">Then <span class="mono">sudo dnf install lgl-cliamp</span>.</p>
+          <div class="project__links">
+            <a class="project__link" href="https://github.com/linuxgamerlife/lgl-cliamp" target="_blank" rel="noopener">GitHub</a>
+            <a class="project__link" href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/lgl-cliamp/" target="_blank" rel="noopener">Copr</a>
+          </div>
+        </article>
+        <article class="card reveal" data-delay="2">
+          <h3 class="card__title">LGL VM Curator</h3>
+          <p class="card__text">Packaging for vm-curator, a fast Rust TUI for QEMU/KVM virtual machines with working 3D acceleration.</p>
+          <div class="install" style="margin-top:0.9rem;padding:0.5rem 0.7rem;font-size:0.68rem">
+            <code id="pkg-vm">sudo dnf copr enable linuxgamerlife/lgl-vm-curator</code>
+            <button class="copy-btn" type="button" data-copy="#pkg-vm" aria-label="Copy enable command for LGL VM Curator"><span class="copy-btn__label">Copy</span></button>
+          </div>
+          <p class="project__desc" style="margin-top:0.6rem">Then <span class="mono">sudo dnf install lgl-vm-curator</span>.</p>
+          <div class="project__links">
+            <a class="project__link" href="https://github.com/linuxgamerlife/lgl-vm-curator" target="_blank" rel="noopener">GitHub</a>
+            <a class="project__link" href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/lgl-vm-curator/" target="_blank" rel="noopener">Copr</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="index.html" aria-label="Linux Gamer Life — home">
+          <img src="assets/img/logo.svg" alt="" width="34" height="34">
+          <span class="brand__text">
+            <span class="brand__name">Linux Gamer Life</span>
+            <span class="brand__sub">Linux · Gaming · Creating</span>
+          </span>
+        </a>
+        <p>Linux user, gamer and curious builder. Documenting the switch from Windows, one fix at a time.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="toolkit.html">Toolkit</a></li>
+          <li><a href="videos.html">Videos</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="https://github.com/linuxgamerlife" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/" target="_blank" rel="noopener">Fedora Copr</a></li>
+          <li><a href="https://www.youtube.com/@LinuxGamerLife" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://twitch.tv/linuxgamerlife" target="_blank" rel="noopener">Twitch</a></li>
+          <li><a href="https://ko-fi.com/linuxgamerlife" target="_blank" rel="noopener">Ko-fi</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Small print</h4>
+        <ul>
+          <li><a href="about.html#ai">AI use statement</a></li>
+          <li><a href="about.html#disclaimer">Disclaimer</a></li>
+          <li><a href="https://github.com/linuxgamerlife/linuxgamerlife.github.io" target="_blank" rel="noopener">Site source</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span data-year>2026</span> Linux Gamer Life · Instructions are used at your own risk. Always read and understand a command before running it.</p>
+      <p class="mono">Made on Linux · <span class="muted">Fedora + niri</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

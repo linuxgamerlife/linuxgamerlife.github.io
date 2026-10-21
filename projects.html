@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Linux Gamer Life</title>
+<meta name="description" content="Fedora setup scripts, Wayland desktop builds, Qt apps and experiments from Linux Gamer Life — all open source on GitHub, with apps packaged in Copr.">
+<meta name="theme-color" content="#08050f">
+<link rel="canonical" href="https://linuxgamerlife.github.io/projects.html">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Linux Gamer Life">
+<meta property="og:title" content="Projects — Linux Gamer Life">
+<meta property="og:description" content="Fedora setup scripts, Wayland desktop builds, Qt apps and experiments — all open source.">
+<meta property="og:url" content="https://linuxgamerlife.github.io/projects.html">
+<meta property="og:image" content="https://linuxgamerlife.github.io/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-page="projects">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html" aria-label="Linux Gamer Life — home">
+      <img src="assets/img/logo.svg" alt="" width="34" height="34">
+      <span class="brand__text">
+        <span class="brand__name">Linux Gamer Life</span>
+        <span class="brand__sub">Linux · Gaming · Creating</span>
+      </span>
+    </a>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <ul class="nav__links">
+        <li><a href="projects.html" data-nav="projects" aria-current="page">Projects</a></li>
+        <li><a href="toolkit.html" data-nav="toolkit">Toolkit</a></li>
+        <li><a href="videos.html" data-nav="videos">Videos</a></li>
+        <li><a href="community.html" data-nav="community">Community</a></li>
+        <li><a href="about.html" data-nav="about">About</a></li>
+      </ul>
+      <a class="btn btn--primary btn--sm nav__cta" href="toolkit.html">Install the toolkit</a>
+    </nav>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="container">
+      <p class="eyebrow">GitHub · Copr · Open source</p>
+      <h1 class="page-head__title">Tools that fix <span class="grad">real problems.</span></h1>
+      <p class="lede">
+        Setup scripts that turn a minimal install into a working desktop, apps that replace a
+        terminal chore, and a few experiments that exist because I wanted to know if something
+        was possible. Everything is open source.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="https://github.com/linuxgamerlife" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.9c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.7 2.7 1.2 3.3.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+          Browse GitHub
+        </a>
+        <a class="btn" href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/" target="_blank" rel="noopener">Fedora Copr</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" aria-labelledby="projects-title">
+    <div class="container">
+      <h2 class="visually-hidden" id="projects-title">Project list</h2>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" type="button" data-filter="apps" aria-pressed="false">Desktop apps</button>
+        <button class="filter" type="button" data-filter="setup" aria-pressed="false">Setup scripts</button>
+        <button class="filter" type="button" data-filter="desktop" aria-pressed="false">Desktop &amp; theming</button>
+        <button class="filter" type="button" data-filter="experiments" aria-pressed="false">Experiments</button>
+      </div>
+      <p class="projects-count" id="projects-count" aria-live="polite">Loading projects…</p>
+
+      <div class="projects-grid" id="projects-grid">
+        <noscript>
+          <p class="projects-empty">The filterable project list needs JavaScript. Everything is also listed on <a href="https://github.com/linuxgamerlife" target="_blank" rel="noopener">GitHub</a>.</p>
+        </noscript>
+      </div>
+
+      <div class="callout" style="margin-top:2rem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <p>This list is rebuilt nightly from the GitHub and Copr APIs, so new repositories appear on their own. Star counts and dates can lag behind by a day. Descriptions are hand-written — <a class="link-arrow" href="https://github.com/linuxgamerlife/linuxgamerlife.github.io" target="_blank" rel="noopener">the source is open</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div class="cta-band__inner">
+          <div>
+            <p class="eyebrow">Fedora users</p>
+            <h2>Skip the build step.</h2>
+            <p>Ten of these projects are packaged in Copr, so updates arrive with the rest of your system.</p>
+          </div>
+          <div class="btn-row" style="margin:0">
+            <a class="btn btn--primary" href="toolkit.html">Install the toolkit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="index.html" aria-label="Linux Gamer Life — home">
+          <img src="assets/img/logo.svg" alt="" width="34" height="34">
+          <span class="brand__text">
+            <span class="brand__name">Linux Gamer Life</span>
+            <span class="brand__sub">Linux · Gaming · Creating</span>
+          </span>
+        </a>
+        <p>Linux user, gamer and curious builder. Documenting the switch from Windows, one fix at a time.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Site</h4>
+        <ul>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="toolkit.html">Toolkit</a></li>
+          <li><a href="videos.html">Videos</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Elsewhere</h4>
+        <ul>
+          <li><a href="https://github.com/linuxgamerlife" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/" target="_blank" rel="noopener">Fedora Copr</a></li>
+          <li><a href="https://www.youtube.com/@LinuxGamerLife" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://twitch.tv/linuxgamerlife" target="_blank" rel="noopener">Twitch</a></li>
+          <li><a href="https://ko-fi.com/linuxgamerlife" target="_blank" rel="noopener">Ko-fi</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Small print</h4>
+        <ul>
+          <li><a href="about.html#ai">AI use statement</a></li>
+          <li><a href="about.html#disclaimer">Disclaimer</a></li>
+          <li><a href="https://github.com/linuxgamerlife/linuxgamerlife.github.io" target="_blank" rel="noopener">Site source</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span data-year>2026</span> Linux Gamer Life · Instructions are used at your own risk. Always read and understand a command before running it.</p>
+      <p class="mono">Made on Linux · <span class="muted">Fedora + niri</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
