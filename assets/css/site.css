@@ -919,7 +919,6 @@ body::after {
 .btn--primary :is(.mark-yt, .mark-tw, .mark-kick, .mark-gh, .mark-kofi, .mark-x, .mark-copr) { color: currentColor; }
 
 @media (max-width: 1240px) {
-  .watch-prefix { display: none; }
   .nav__links a { padding-inline: 0.55rem; font-size: 0.74rem; }
   .nav__watch { padding: 0.44rem 0.6rem; font-size: 0.63rem; }
   .nav__watch-group { gap: 0.3rem; margin-left: 0.25rem; }
@@ -930,7 +929,6 @@ body::after {
 }
 @media (max-width: 900px) {
   .nav__watch-group { margin: 0.8rem 0 0; flex-wrap: wrap; gap: 0.45rem; }
-  .watch-prefix { display: inline; }
   .nav__watch { flex: 1 1 auto; justify-content: center; padding: 0.65rem 0.8rem; font-size: 0.74rem; }
 }
 
@@ -941,13 +939,8 @@ body::after {
 
 @media (max-width: 1200px) {
   .brand__sub { display: none; }
-  .watch-prefix { display: none; }
   .nav__links a { padding-inline: 0.45rem; font-size: 0.7rem; }
   .nav__watch { padding: 0.42rem 0.55rem; font-size: 0.62rem; }
-}
-
-@media (max-width: 900px) {
-  .watch-prefix { display: inline; }
 }
 
 @media (max-width: 900px) {
