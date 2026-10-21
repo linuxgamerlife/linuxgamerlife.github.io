@@ -1,4 +1,4 @@
-// Supporter roll for the community page. First names only.
+// Supporter roll for the community page. Names shortened to first names, with listed exceptions.
 window.OVERLAY_DATA = {
   "youtube": [
     [
@@ -117,7 +117,7 @@ window.OVERLAY_DATA = {
       5.76667
     ],
     [
-      "J.",
+      "J. Tekk",
       "Channel Hero",
       7.86667
     ],

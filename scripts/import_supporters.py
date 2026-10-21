@@ -21,6 +21,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TARGET = ROOT / "data" / "supporters.js"
 
+# Supporters who should be listed in full rather than shortened to a first name.
+# Keys are the names as they appear in the export.
+KEEP_FULL_NAMES = {
+    "J. Tekk",
+}
+
 
 def load_export(path: Path) -> dict:
     text = path.read_text(encoding="utf-8")
@@ -33,9 +39,11 @@ def load_export(path: Path) -> dict:
         raise SystemExit(f"error: invalid JSON in {path}: {error}") from error
 
 
-def first_name(name: object) -> str:
+def display_name(name: object) -> str:
     value = str(name).strip()
     if not value:
+        return value
+    if value in KEEP_FULL_NAMES:
         return value
     return value.split()[0]
 
@@ -52,17 +60,17 @@ def main() -> None:
     for platform in ("youtube", "twitch"):
         for row in data.get(platform, []):
             if row:
-                row[0] = first_name(row[0])
+                row[0] = display_name(row[0])
 
     payload = json.dumps(data, indent=2, ensure_ascii=False)
     TARGET.write_text(
-        "// Supporter roll for the community page. First names only.\n"
+        "// Supporter roll for the community page. Names shortened to first names, with listed exceptions.\n"
         "window.OVERLAY_DATA = " + payload + ";\n",
         encoding="utf-8",
     )
 
     total = sum(len(data.get(platform, [])) for platform in ("youtube", "twitch"))
-    print(f"wrote {TARGET.relative_to(ROOT)}: {total} supporters, first names only")
+    print(f"wrote {TARGET.relative_to(ROOT)}: {total} supporters, names shortened")
 
 
 if __name__ == "__main__":
