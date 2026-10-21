@@ -1,4 +1,28 @@
-__pycache__/
-*.pyc
+# Local setup and notes: never published
+LOCAL-SETUP.md
+*.local.md
+notes/
+scratch/
+
+# OS and editor cruft
 .DS_Store
 Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local logs and preview output
+*.log
+
+# Never commit credentials
+.env
+.env.*
+*.pem
+*.key
