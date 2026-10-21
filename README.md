@@ -18,6 +18,7 @@ Live at **https://linuxgamerlife.github.io** (eventually `linuxgamerlife.net`).
 | `assets/css/site.css` | The whole design system (tokens at the top) |
 | `assets/js/site.js` | Nav, copy buttons, reveal animations, project and supporter rendering |
 | `data/projects.json` | Generated project snapshot. **Do not edit by hand.** |
+| `data/projects.js` | The same snapshot as a script, so the site also works from `file://` |
 | `data/curation.json` | Hand-written titles, descriptions, categories and tags |
 | `data/supporters.js` | Supporter export used by the overlay and the community page |
 | `scripts/fetch_projects.py` | Rebuilds `data/projects.json` from GitHub + Copr |
@@ -34,8 +35,8 @@ From the repository root:
 python3 -m http.server 8765
 ```
 
-Then open <http://localhost:8765>. Opening the files directly with `file://` mostly
-works too, but the projects page needs a web server to fetch `data/projects.json`.
+Then open <http://localhost:8765>. Opening `index.html` directly from the file manager
+works too: project data is loaded through `data/projects.js` rather than a JSON fetch.
 
 ## Editing content
 

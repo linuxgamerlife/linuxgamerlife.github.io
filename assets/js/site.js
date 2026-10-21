@@ -102,6 +102,24 @@
     node.textContent = String(new Date().getFullYear());
   });
 
+  /* ---------- Project stats ---------- */
+  function updateStats(meta) {
+    if (!meta) return;
+    var values = {
+      repos: meta.repos,
+      copr_projects: meta.copr_projects,
+      apps_packaged: meta.apps_packaged,
+      stars: meta.stars
+    };
+    Object.keys(values).forEach(function (key) {
+      if (!values[key] && values[key] !== 0) return;
+      document.querySelectorAll('[data-stat="' + key + '"]').forEach(function (node) {
+        node.textContent = values[key];
+      });
+    });
+  }
+  if (window.LGL_PROJECTS) updateStats(window.LGL_PROJECTS.meta);
+
   /* ---------- Project catalogue ---------- */
   var grid = document.getElementById("projects-grid");
   if (grid) {
@@ -150,25 +168,25 @@
       });
     });
 
-    fetch("data/projects.json")
-      .then(function (response) {
-        if (!response.ok) throw new Error("HTTP " + response.status);
-        return response.json();
-      })
-      .then(function (data) {
-        all = data.projects || [];
-        var meta = data.meta || {};
-        var stats = { repos: meta.repos, copr_projects: meta.copr_projects, apps_packaged: meta.apps_packaged, stars: meta.stars };
-        Object.keys(stats).forEach(function (key) {
-          document.querySelectorAll('[data-stat="' + key + '"]').forEach(function (node) {
-            if (stats[key]) node.textContent = stats[key];
-          });
+    function applyProjects(data) {
+      all = (data && data.projects) || [];
+      updateStats(data && data.meta);
+      render();
+    }
+
+    if (window.LGL_PROJECTS) {
+      applyProjects(window.LGL_PROJECTS);
+    } else {
+      fetch("data/projects.json")
+        .then(function (response) {
+          if (!response.ok) throw new Error("HTTP " + response.status);
+          return response.json();
+        })
+        .then(applyProjects)
+        .catch(function () {
+          grid.innerHTML = '<p class="projects-empty">The project list could not be loaded. Browse everything on <a class="link-arrow" href="https://github.com/linuxgamerlife" target="_blank" rel="noopener">GitHub</a>.</p>';
         });
-        render();
-      })
-      .catch(function () {
-        grid.innerHTML = '<p class="projects-empty">The project list could not be loaded. Browse everything on <a class="link-arrow" href="https://github.com/linuxgamerlife" target="_blank" rel="noopener">GitHub</a>.</p>';
-      });
+    }
   }
 
   /* ---------- Supporters ---------- */

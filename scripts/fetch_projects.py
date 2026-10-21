@@ -26,6 +26,7 @@ USER = "linuxgamerlife"
 ROOT = Path(__file__).resolve().parent.parent
 CURATION = ROOT / "data" / "curation.json"
 OUTPUT = ROOT / "data" / "projects.json"
+JS_OUTPUT = ROOT / "data" / "projects.js"
 
 CATEGORY_ORDER = ["apps", "setup", "desktop", "experiments"]
 
@@ -164,6 +165,14 @@ def main() -> None:
     }
 
     OUTPUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    # The same data as a plain script, so the site also works when opened
+    # straight from disk (file:// cannot fetch local JSON).
+    JS_OUTPUT.write_text(
+        "window.LGL_PROJECTS = "
+        + json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+        + ";\n",
+        encoding="utf-8",
+    )
 
     for warning in warnings:
         print(f"warning: {warning}")
