@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Linux Gamer Life — site styles
+   Linux Gamer Life site styles
    Dark violet design system derived from the LGL supporter overlay.
    ========================================================================== */
 
@@ -138,9 +138,11 @@ body::after {
 }
 .eyebrow::before {
   content: "";
-  width: 1.5em;
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent), transparent);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
 }
 .eyebrow--plain::before { display: none; }
 .grad {

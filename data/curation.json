@@ -100,35 +100,35 @@
     },
     {
       "repo": "fedora-bootstrap-kde",
-      "title": "Fedora Bootstrap — KDE",
+      "title": "Fedora Bootstrap: KDE",
       "category": "setup",
       "blurb": "Builds a complete KDE Plasma desktop from Fedora Everything Minimal, with gaming, multimedia, virtualisation and creator tooling in one script.",
       "tags": ["Fedora", "KDE Plasma", "Script"]
     },
     {
       "repo": "fedora-bootstrap",
-      "title": "Fedora Bootstrap — Cinnamon",
+      "title": "Fedora Bootstrap: Cinnamon",
       "category": "setup",
       "blurb": "Converts a fresh Fedora Everything Minimal install into the full Linux Gamer Life Cinnamon environment.",
       "tags": ["Fedora", "Cinnamon", "Script"]
     },
     {
       "repo": "fedora-bootstrap-cachyos",
-      "title": "Fedora Bootstrap — CachyOS",
+      "title": "Fedora Bootstrap: CachyOS",
       "category": "setup",
       "blurb": "A Fedora bootstrap with KDE Plasma, the CachyOS kernel and the tools used day to day for gaming and creating.",
       "tags": ["Fedora", "CachyOS", "KDE Plasma"]
     },
     {
       "repo": "arch-bootstrap-kde",
-      "title": "Arch Bootstrap — KDE",
+      "title": "Arch Bootstrap: KDE",
       "category": "setup",
       "blurb": "Installs the Linux Gamer Life KDE Plasma environment on a fresh Arch install, designed to run once from the TTY after archinstall.",
       "tags": ["Arch", "KDE Plasma", "Script"]
     },
     {
       "repo": "opensuse-bootstrap-kde",
-      "title": "openSUSE Bootstrap — KDE",
+      "title": "openSUSE Bootstrap: KDE",
       "category": "setup",
       "blurb": "The openSUSE take on the bootstrap scripts: a minimal starting point turned into a KDE Plasma desktop with the usual LGL tooling.",
       "tags": ["openSUSE", "KDE Plasma", "Script"]

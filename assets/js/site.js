@@ -1,4 +1,4 @@
-/* Linux Gamer Life — shared site behaviour */
+/* Linux Gamer Life shared site behaviour */
 (function () {
   "use strict";
 

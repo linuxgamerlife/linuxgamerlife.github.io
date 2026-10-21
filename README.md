@@ -1,6 +1,6 @@
 # linuxgamerlife.github.io
 
-The Linux Gamer Life website — a static, no-build site for GitHub Pages.
+The Linux Gamer Life website: a static, no-build site for GitHub Pages.
 
 Live at **https://linuxgamerlife.github.io** (eventually `linuxgamerlife.net`).
 
@@ -17,7 +17,7 @@ Live at **https://linuxgamerlife.github.io** (eventually `linuxgamerlife.net`).
 | `404.html` | Not-found page |
 | `assets/css/site.css` | The whole design system (tokens at the top) |
 | `assets/js/site.js` | Nav, copy buttons, reveal animations, project and supporter rendering |
-| `data/projects.json` | Generated project snapshot — **do not edit by hand** |
+| `data/projects.json` | Generated project snapshot. **Do not edit by hand.** |
 | `data/curation.json` | Hand-written titles, descriptions, categories and tags |
 | `data/supporters.js` | Supporter export used by the overlay and the community page |
 | `scripts/fetch_projects.py` | Rebuilds `data/projects.json` from GitHub + Copr |
@@ -39,11 +39,11 @@ works too, but the projects page needs a web server to fetch `data/projects.json
 
 ## Editing content
 
-- **Page copy** — edit the HTML directly.
-- **Colours, spacing, type** — the `:root` block at the top of `assets/css/site.css`.
+- **Page copy**: edit the HTML directly.
+- **Colours, spacing, type**: the `:root` block at the top of `assets/css/site.css`.
   The palette is built around `--accent: #d05eac` (the overlay magenta) and
   `--accent-2: #9a6bff` (violet).
-- **Project descriptions, tags, categories, featured order** — `data/curation.json`.
+- **Project descriptions, tags, categories, featured order**: `data/curation.json`.
   Categories are `apps`, `setup`, `desktop` and `experiments`.
 
 After changing `data/curation.json`, regenerate the snapshot:
@@ -100,7 +100,7 @@ when repositories or Copr projects change, which then triggers a deploy.
    plus `sitemap.xml` and `robots.txt`.
 4. Enable **Enforce HTTPS** in the Pages settings once the certificate is issued.
 
-Keep the Google Site published until the new one is verified — DNS can take a day
+Keep the Google Site published until the new one is verified. DNS can take a day
 to settle.
 
 ## Credits

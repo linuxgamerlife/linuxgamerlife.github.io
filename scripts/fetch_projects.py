@@ -168,7 +168,7 @@ def main() -> None:
     for warning in warnings:
         print(f"warning: {warning}")
     print(
-        f"wrote {OUTPUT.relative_to(ROOT)} — {len(output)} projects, "
+        f"wrote {OUTPUT.relative_to(ROOT)}: {len(output)} projects, "
         f"{gh_meta['repos']} repos, {copr_count} Copr projects"
     )
 
