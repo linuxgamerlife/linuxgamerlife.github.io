@@ -882,3 +882,68 @@ body::after {
   .story-grid, .making { grid-template-columns: 1fr; }
   .now-card { max-width: 560px; }
 }
+
+/* ---------- Watch links in the header ---------- */
+.nav__watch-group { display: flex; align-items: center; gap: 0.35rem; margin-left: 0.35rem; }
+.nav__watch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42em;
+  padding: 0.46rem 0.68rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+.nav__watch:hover { color: var(--ink); border-color: var(--line-strong); background: rgba(255, 255, 255, 0.06); }
+.nav__watch svg { width: 14px; height: 14px; flex: none; }
+.nav__watch--yt svg { color: #ff5c7a; }
+.nav__watch--tw svg { color: #b79cff; }
+.kick-mark {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  color: #53fc18;
+}
+.social .kick-mark { width: 16px; height: 16px; }
+
+@media (max-width: 1240px) {
+  .watch-prefix { display: none; }
+  .nav__links a { padding-inline: 0.55rem; font-size: 0.74rem; }
+  .nav__watch { padding: 0.44rem 0.6rem; font-size: 0.63rem; }
+  .nav__watch-group { gap: 0.3rem; margin-left: 0.25rem; }
+}
+@media (max-width: 1040px) {
+  .nav__links a { padding-inline: 0.45rem; font-size: 0.7rem; }
+  .brand__sub { display: none; }
+}
+@media (max-width: 900px) {
+  .nav__watch-group { margin: 0.8rem 0 0; flex-wrap: wrap; gap: 0.45rem; }
+  .watch-prefix { display: inline; }
+  .nav__watch { flex: 1 1 auto; justify-content: center; padding: 0.65rem 0.8rem; font-size: 0.74rem; }
+}
+
+/* Keep the full navigation on one line at desktop widths */
+.nav__links a { padding-inline: 0.55rem; font-size: 0.76rem; }
+.nav__watch { padding: 0.42rem 0.55rem; font-size: 0.6rem; }
+.nav__watch-group { gap: 0.3rem; margin-left: 0.2rem; }
+
+@media (max-width: 1200px) {
+  .brand__sub { display: none; }
+  .watch-prefix { display: none; }
+  .nav__links a { padding-inline: 0.45rem; font-size: 0.7rem; }
+  .nav__watch { padding: 0.42rem 0.55rem; font-size: 0.62rem; }
+}
+
+@media (max-width: 900px) {
+  .watch-prefix { display: inline; }
+}
+
+@media (max-width: 900px) {
+  .nav { background: #0a0714; box-shadow: 0 24px 40px -20px rgba(0, 0, 0, 0.9); }
+}
