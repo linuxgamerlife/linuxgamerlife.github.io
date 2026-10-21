@@ -902,15 +902,21 @@ body::after {
 }
 .nav__watch:hover { color: var(--ink); border-color: var(--line-strong); background: rgba(255, 255, 255, 0.06); }
 .nav__watch svg { width: 14px; height: 14px; flex: none; }
-.nav__watch--yt svg { color: #ff5c7a; }
-.nav__watch--tw svg { color: #b79cff; }
-.kick-mark {
-  width: 14px;
-  height: 14px;
-  flex: none;
-  color: #53fc18;
-}
-.social .kick-mark { width: 16px; height: 16px; }
+
+/* ---------- Platform marks ---------- */
+/* One brand colour per platform, used wherever its icon appears so the
+   header, hero buttons and social rows all match. Sizing comes from the
+   parent rule (.nav__watch svg, .btn svg, .social svg). */
+.mark-yt { color: #ff5c7a; }
+.mark-tw { color: #b79cff; }
+.mark-kick { color: #53fc18; }
+.mark-gh { color: #e8eaf2; }
+.mark-kofi { color: #ff9186; }
+.mark-x { color: #dfe4f0; }
+.mark-copr { color: var(--accent-2); }
+/* Filled accent buttons use the button text colour so marks stay legible
+   against the gradient. */
+.btn--primary :is(.mark-yt, .mark-tw, .mark-kick, .mark-gh, .mark-kofi, .mark-x, .mark-copr) { color: currentColor; }
 
 @media (max-width: 1240px) {
   .watch-prefix { display: none; }
