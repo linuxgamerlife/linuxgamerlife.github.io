@@ -8,6 +8,7 @@ scratch/
 .DS_Store
 Thumbs.db
 *.swp
+*.kate-swp
 *~
 .idea/
 .vscode/
