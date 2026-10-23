@@ -150,6 +150,8 @@ body::after {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
 }
 .mono { font-family: var(--font-mono); }
 .muted { color: var(--muted); }
