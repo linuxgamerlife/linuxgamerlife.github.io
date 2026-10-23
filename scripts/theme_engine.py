@@ -299,8 +299,138 @@ GREEN_TO_BLUE_RGBA = {
     (2, 8, 5): (2, 6, 13),
 }
 
-_COMBINED_TO_GREEN_HEX = {**PURPLE_TO_GREEN_HEX, **BLUE_TO_GREEN_HEX}
-_COMBINED_TO_GREEN_RGBA = {**PURPLE_TO_GREEN_RGBA, **BLUE_TO_GREEN_RGBA}
+# --------------------------------------------------------------------------
+# Pink to green
+# --------------------------------------------------------------------------
+PINK_TO_GREEN_SPECIALS = [
+    (
+        "   Dark pink design system derived from the LGL desktop palette.",
+        "   Dark forest-green design system derived from the LGL desktop palette.",
+    ),
+    (
+        "background: linear-gradient(100deg, #ffe3ec 0%, var(--accent) 32%, #ffc4a3 72%, #d97a9e 100%);",
+        "background: linear-gradient(100deg, #d9ffec 0%, var(--accent) 32%, #4fe0a2 72%, #2fbf82 100%);",
+    ),
+    (
+        "  background: linear-gradient(100deg, #f4a3b8, #ffc4a3 55%, #d97a9e);\n  color: #2a111a;",
+        "  background: linear-gradient(100deg, #4fe0a2, #6df2ad 55%, #2fbf82);\n  color: #04140c;",
+    ),
+    (
+        "background: linear-gradient(100deg, #ffb8c8, #ffd0b5 55%, #f4a3b8);",
+        "background: linear-gradient(100deg, #6df2ad, #8ff8c4 55%, #4fe0a2);",
+    ),
+]
+
+PINK_TO_GREEN_HEX = {
+    "#17131c": "#040b08",
+    "#1c1722": "#06120d",
+    "#1f1a27": "#07130e",
+    "#2a2235": "#0a1c14",
+    "#fdf2f7": "#ecfff5",
+    "#fff7fb": "#e4fff1",
+    "#cbb6c2": "#a3c2b3",
+    "#a38c9a": "#7d9c8d",
+    "#f4a3b8": "#6df2ad",
+    "#d97a9e": "#2fbf82",
+    "#a34f74": "#12634a",
+    "#ffe3ec": "#c8ffe4",
+    "#ffc4a3": "#4fe0a2",
+    "#ffd0dc": "#b6ffd9",
+    "#ffc4d2": "#a8f5cb",
+    "#f2dbe4": "#cfe9dc",
+    "#f6e4ea": "#d8f5e6",
+    "#9c7d8c": "#6f8f80",
+    "#3a2635": "#173a2a",
+    "#ffb59e": "#6ee7b7",
+    "#ffd9c4": "#9df0cd",
+}
+
+PINK_TO_GREEN_RGBA = {
+    (244, 163, 184): (109, 242, 173),
+    (217, 122, 158): (47, 191, 130),
+    (255, 196, 210): (126, 245, 185),
+    (255, 214, 224): (156, 255, 204),
+    (163, 79, 116): (18, 99, 74),
+    (42, 34, 53): (9, 32, 22),
+    (31, 26, 39): (8, 28, 20),
+    (28, 23, 35): (7, 25, 18),
+    (30, 25, 40): (8, 26, 18),
+    (25, 20, 31): (5, 18, 12),
+    (21, 17, 24): (5, 16, 11),
+    (23, 19, 28): (4, 11, 8),
+    (15, 12, 18): (3, 9, 6),
+    (10, 8, 12): (2, 8, 5),
+    (255, 181, 158): (110, 231, 183),
+}
+
+# --------------------------------------------------------------------------
+# Green to pink
+# --------------------------------------------------------------------------
+GREEN_TO_PINK_SPECIALS = [
+    (
+        "   Dark forest-green design system derived from the LGL desktop palette.",
+        "   Dark pink design system derived from the LGL desktop palette.",
+    ),
+    (
+        "background: linear-gradient(100deg, #d9ffec 0%, var(--accent) 32%, #4fe0a2 72%, #2fbf82 100%);",
+        "background: linear-gradient(100deg, #ffe3ec 0%, var(--accent) 32%, #ffc4a3 72%, #d97a9e 100%);",
+    ),
+    (
+        "  background: linear-gradient(100deg, #4fe0a2, #6df2ad 55%, #2fbf82);\n  color: #04140c;",
+        "  background: linear-gradient(100deg, #f4a3b8, #ffc4a3 55%, #d97a9e);\n  color: #2a111a;",
+    ),
+    (
+        "background: linear-gradient(100deg, #6df2ad, #8ff8c4 55%, #4fe0a2);",
+        "background: linear-gradient(100deg, #ffb8c8, #ffd0b5 55%, #f4a3b8);",
+    ),
+]
+
+GREEN_TO_PINK_HEX = {
+    "#040b08": "#17131c",
+    "#06120d": "#1c1722",
+    "#07130e": "#1f1a27",
+    "#0a1c14": "#2a2235",
+    "#ecfff5": "#fdf2f7",
+    "#e4fff1": "#fff7fb",
+    "#a3c2b3": "#cbb6c2",
+    "#7d9c8d": "#a38c9a",
+    "#6df2ad": "#f4a3b8",
+    "#2fbf82": "#d97a9e",
+    "#12634a": "#a34f74",
+    "#c8ffe4": "#ffe3ec",
+    "#4fe0a2": "#ffc4a3",
+    "#1f9d69": "#d97a9e",
+    "#0f6b4b": "#f4a3b8",
+    "#b6ffd9": "#ffd0dc",
+    "#a8f5cb": "#ffc4d2",
+    "#cfe9dc": "#f2dbe4",
+    "#d8f5e6": "#f6e4ea",
+    "#6f8f80": "#9c7d8c",
+    "#173a2a": "#3a2635",
+    "#6ee7b7": "#ffb59e",
+    "#9df0cd": "#ffd9c4",
+}
+
+GREEN_TO_PINK_RGBA = {
+    (109, 242, 173): (244, 163, 184),
+    (47, 191, 130): (217, 122, 158),
+    (126, 245, 185): (255, 196, 210),
+    (156, 255, 204): (255, 214, 224),
+    (18, 99, 74): (163, 79, 116),
+    (9, 32, 22): (42, 34, 53),
+    (8, 28, 20): (31, 26, 39),
+    (7, 25, 18): (28, 23, 35),
+    (8, 26, 18): (30, 25, 40),
+    (5, 18, 12): (25, 20, 31),
+    (5, 16, 11): (21, 17, 24),
+    (4, 11, 8): (23, 19, 28),
+    (3, 9, 6): (15, 12, 18),
+    (2, 8, 5): (10, 8, 12),
+    (110, 231, 183): (255, 181, 158),
+}
+
+_COMBINED_TO_GREEN_HEX = {**PURPLE_TO_GREEN_HEX, **BLUE_TO_GREEN_HEX, **PINK_TO_GREEN_HEX}
+_COMBINED_TO_GREEN_RGBA = {**PURPLE_TO_GREEN_RGBA, **BLUE_TO_GREEN_RGBA, **PINK_TO_GREEN_RGBA}
 
 
 def _apply(css: str, specials, hex_map, rgba_map) -> str:
@@ -324,7 +454,7 @@ def _apply(css: str, specials, hex_map, rgba_map) -> str:
 
 def to_green(css: str) -> str:
     """Return the stylesheet in the green palette, from any supported theme."""
-    css = _apply(css, PURPLE_TO_GREEN_SPECIALS + BLUE_TO_GREEN_SPECIALS, {}, {})
+    css = _apply(css, PURPLE_TO_GREEN_SPECIALS + BLUE_TO_GREEN_SPECIALS + PINK_TO_GREEN_SPECIALS, {}, {})
     return _apply(css, [], _COMBINED_TO_GREEN_HEX, _COMBINED_TO_GREEN_RGBA)
 
 
@@ -338,3 +468,9 @@ def to_blue(css: str) -> str:
     """Return the stylesheet in the deep blue palette."""
     css = to_green(css)
     return _apply(css, GREEN_TO_BLUE_SPECIALS, GREEN_TO_BLUE_HEX, GREEN_TO_BLUE_RGBA)
+
+
+def to_pink(css: str) -> str:
+    """Return the stylesheet in the light pink palette."""
+    css = to_green(css)
+    return _apply(css, GREEN_TO_PINK_SPECIALS, GREEN_TO_PINK_HEX, GREEN_TO_PINK_RGBA)
