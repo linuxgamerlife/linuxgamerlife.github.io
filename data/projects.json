@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T08:54:13Z",
+  "generated": "2026-10-24T13:40:20Z",
   "meta": {
     "repos": 27,
     "stars": 104,
@@ -15,14 +15,12 @@
       "category": "apps",
       "blurb": "A curated Fedora setup wizard for gaming, content creation and development. Pick your loadout, hit install, and let it build the system for you.",
       "tags": [
-        "Qt6",
         "Fedora",
         "Installer"
       ],
       "featured": true,
       "stars": 40,
       "forks": 5,
-      "language": "C++",
       "updated": "2026-10-23",
       "repo_url": "https://github.com/linuxgamerlife/lgl-system-loadout",
       "copr": {
@@ -36,14 +34,12 @@
       "category": "apps",
       "blurb": "A graphical wallpaper editor for Linux. Resize, position, zoom and crop images to fit any display, including portrait and multi-monitor layouts.",
       "tags": [
-        "Qt6",
         "Wallpapers",
         "Desktop"
       ],
       "featured": true,
       "stars": 15,
       "forks": 1,
-      "language": "C++",
       "updated": "2026-10-20",
       "repo_url": "https://github.com/linuxgamerlife/lgl-papercutter",
       "copr": {
@@ -57,14 +53,12 @@
       "category": "apps",
       "blurb": "Manage sched-ext BPF CPU schedulers from a desktop window instead of the terminal, with scxctl handling the heavy lifting underneath.",
       "tags": [
-        "Qt6",
         "sched-ext",
         "Performance"
       ],
       "featured": true,
       "stars": 4,
       "forks": 1,
-      "language": "C++",
       "updated": "2026-10-21",
       "repo_url": "https://github.com/linuxgamerlife/lgl-scheduler-manager",
       "copr": {
@@ -78,13 +72,11 @@
       "category": "apps",
       "blurb": "Sample any colour on screen and copy it in ready-to-paste formats. A small utility that stays out of the way until you need it.",
       "tags": [
-        "Qt6",
         "Utility"
       ],
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "language": "C++",
       "updated": "2026-10-20",
       "repo_url": "https://github.com/linuxgamerlife/lgl-colour-picker",
       "copr": {
@@ -98,14 +90,12 @@
       "category": "apps",
       "blurb": "Search, browse recent history and copy emoji with native styling and clipboard support, on Wayland or X11.",
       "tags": [
-        "Qt6",
         "Utility",
         "Wayland"
       ],
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "language": "C++",
       "updated": "2026-10-13",
       "repo_url": "https://github.com/linuxgamerlife/lgl-emoji-picker",
       "copr": {
@@ -119,14 +109,12 @@
       "category": "apps",
       "blurb": "Inspect installed RPM packages, dependency relationships, related configs, repo origin and package history without wrestling with DNF5 output.",
       "tags": [
-        "Qt6",
         "Fedora",
         "RPM"
       ],
       "featured": false,
       "stars": 1,
       "forks": 0,
-      "language": "C++",
       "updated": "2026-10-20",
       "repo_url": "https://github.com/linuxgamerlife/lgl-dnf-helper",
       "copr": {
@@ -140,14 +128,12 @@
       "category": "apps",
       "blurb": "Configure supported Keychron keyboards and update firmware on Linux, without opening a separate Chromium browser just for the web launcher.",
       "tags": [
-        "TypeScript",
         "Keychron",
         "Hardware"
       ],
       "featured": false,
       "stars": 4,
       "forks": 0,
-      "language": "TypeScript",
       "updated": "2026-09-06",
       "repo_url": "https://github.com/linuxgamerlife/lgl-keychron-helper",
       "copr": {
@@ -161,14 +147,12 @@
       "category": "apps",
       "blurb": "A simple desktop front end for switching between tuned power profiles, so battery, balanced and performance modes are one click apart.",
       "tags": [
-        "Qt6",
         "tuned",
         "Power"
       ],
       "featured": false,
       "stars": 1,
       "forks": 0,
-      "language": "C++",
       "updated": "2026-06-07",
       "repo_url": "https://github.com/linuxgamerlife/lgl-powerprofile-manager",
       "copr": {
@@ -182,14 +166,12 @@
       "category": "apps",
       "blurb": "A Fedora-tested build of cliamp, the terminal music player inspired by Winamp, with a minimal visualiser and a mirrored classic peak view.",
       "tags": [
-        "Go",
         "Terminal",
         "Music"
       ],
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "language": "Go",
       "updated": "2026-08-04",
       "repo_url": "https://github.com/linuxgamerlife/lgl-cliamp",
       "copr": {
@@ -201,16 +183,14 @@
       "repo": "lgl-vm-curator",
       "title": "LGL VM Curator",
       "category": "apps",
-      "blurb": "Packaging for vm-curator, a fast Rust TUI that builds and manages QEMU/KVM virtual machines with working 3D acceleration.",
+      "blurb": "Packaging for vm-curator, a fast TUI that builds and manages QEMU/KVM virtual machines with working 3D acceleration.",
       "tags": [
-        "Rust",
         "QEMU/KVM",
         "Virtualisation"
       ],
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "language": "Rust",
       "updated": "2026-08-16",
       "repo_url": "https://github.com/linuxgamerlife/lgl-vm-curator",
       "copr": {
@@ -231,7 +211,6 @@
       "featured": false,
       "stars": 11,
       "forks": 1,
-      "language": "Shell",
       "updated": "2026-06-23",
       "repo_url": "https://github.com/linuxgamerlife/lgl-fednirinoc",
       "copr": null
@@ -249,7 +228,6 @@
       "featured": false,
       "stars": 1,
       "forks": 0,
-      "language": "Shell",
       "updated": "2026-05-03",
       "repo_url": "https://github.com/linuxgamerlife/lgl-archnirinoc",
       "copr": null
@@ -267,7 +245,6 @@
       "featured": false,
       "stars": 3,
       "forks": 2,
-      "language": "Shell",
       "updated": "2026-03-22",
       "repo_url": "https://github.com/linuxgamerlife/fedora-bootstrap-kde",
       "copr": null
@@ -285,7 +262,6 @@
       "featured": false,
       "stars": 6,
       "forks": 0,
-      "language": "Shell",
       "updated": "2026-04-07",
       "repo_url": "https://github.com/linuxgamerlife/fedora-bootstrap",
       "copr": null
@@ -303,7 +279,6 @@
       "featured": false,
       "stars": 3,
       "forks": 1,
-      "language": "Shell",
       "updated": "2026-04-07",
       "repo_url": "https://github.com/linuxgamerlife/fedora-bootstrap-cachyos",
       "copr": null
@@ -321,7 +296,6 @@
       "featured": false,
       "stars": 3,
       "forks": 0,
-      "language": "Shell",
       "updated": "2026-02-19",
       "repo_url": "https://github.com/linuxgamerlife/arch-bootstrap-kde",
       "copr": null
@@ -339,7 +313,6 @@
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "language": "Shell",
       "updated": "2026-07-20",
       "repo_url": "https://github.com/linuxgamerlife/opensuse-bootstrap-kde",
       "copr": null
@@ -356,7 +329,6 @@
       "featured": false,
       "stars": 3,
       "forks": 1,
-      "language": "Python",
       "updated": "2026-04-11",
       "repo_url": "https://github.com/linuxgamerlife/debianinstaller",
       "copr": null
@@ -374,7 +346,6 @@
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "language": "Shell",
       "updated": "2026-06-13",
       "repo_url": "https://github.com/linuxgamerlife/lglwm",
       "copr": null
@@ -385,14 +356,12 @@
       "category": "desktop",
       "blurb": "A local start page that keeps Chromium-based browsers in step with Noctalia's current colour palette, so every new tab matches the desktop.",
       "tags": [
-        "CSS",
         "Noctalia",
         "Theming"
       ],
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "language": "CSS",
       "updated": "2026-10-11",
       "repo_url": "https://github.com/linuxgamerlife/lgl-browser-theming",
       "copr": null
@@ -403,14 +372,12 @@
       "category": "desktop",
       "blurb": "A collection of wallpapers used on the channel and in the Linux Gamer Life setups, plus the tooling that prepares them.",
       "tags": [
-        "Python",
         "Wallpapers",
         "Assets"
       ],
       "featured": false,
       "stars": 5,
       "forks": 0,
-      "language": "Python",
       "updated": "2026-09-20",
       "repo_url": "https://github.com/linuxgamerlife/Wallpapers",
       "copr": null
@@ -428,7 +395,6 @@
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "language": null,
       "updated": "2026-09-19",
       "repo_url": "https://github.com/linuxgamerlife/lgl-icons",
       "copr": null
@@ -439,14 +405,12 @@
       "category": "desktop",
       "blurb": "A port of the v4 wallcards plugin to v5, keeping the wallpaper-driven card workflow alive on current versions.",
       "tags": [
-        "Luau",
         "Wallpapers",
         "Plugin"
       ],
       "featured": false,
       "stars": 1,
       "forks": 0,
-      "language": "Luau",
       "updated": "2026-07-31",
       "repo_url": "https://github.com/linuxgamerlife/lgl-wallcards",
       "copr": null
@@ -463,7 +427,6 @@
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "language": null,
       "updated": "2026-10-13",
       "repo_url": "https://github.com/linuxgamerlife/docs",
       "copr": null
@@ -480,7 +443,6 @@
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "language": null,
       "updated": "2026-03-05",
       "repo_url": "https://github.com/linuxgamerlife/random_stuff",
       "copr": null

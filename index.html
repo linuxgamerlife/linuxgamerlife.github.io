@@ -17,10 +17,9 @@
 <meta property="og:url" content="https://linuxgamerlife.github.io/">
 <meta property="og:image" content="https://linuxgamerlife.github.io/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js");</script>
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 <script type="application/ld+json">
 {
@@ -52,7 +51,7 @@
         <li><a href="community.html" data-nav="community">Community</a></li>
         <li><a href="projects.html" data-nav="projects">Projects</a></li>
         <li><a href="toolkit.html" data-nav="toolkit">Toolkit</a></li>
-        <li><a href="mysetup.html" data-nav="mysetup">My Setup</a></li>
+        <li><a href="mysetup.html" data-nav="mysetup">Setup</a></li>
       </ul>
       <div class="nav__watch-group">
         <a class="nav__watch nav__watch--yt" href="https://www.youtube.com/@LinuxGamerLife" target="_blank" rel="noopener">
@@ -77,214 +76,64 @@
 
 <main id="main">
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero__grid">
-        <div>
-          <p class="eyebrow">Fedora · Wayland · Linux gaming</p>
-          <h1 class="hero__title">
-            <span>Left Windows.</span>
-            <span class="grad">Kept the games.</span>
-          </h1>
-          <p class="hero__lede">
+  <section class="tty-wrap">
+    <div class="tty">
+      <div class="tty__bar">
+        <span>LGL://TTY1</span>
+        <span>session 001 / <span id="tty-theme">pink</span> / 2026</span>
+      </div>
+      <div class="tty__screen">
+        <div class="tty__static">
+          <p class="tty__line"><span class="tty__prompt">lgl@fedora:~$</span> whoami</p>
+          <p class="tty__out">linuxgamerlife</p>
+
+          <p class="tty__line"><span class="tty__prompt">lgl@fedora:~$</span> cat manifesto.txt</p>
+          <h1 class="tty__headline">Left Windows.<br>Kept the games.</h1>
+          <p class="tty__out tty__out--lead">
             I spent decades gaming on Windows, then moved everything to Linux in 2025.
             <strong>Linux Gamer Life</strong> is where I share the journey: what works,
             what breaks, and what I learn along the way.
           </p>
-          <div class="btn-row">
-            <a class="btn btn--primary" href="about.html">
-              Read my story
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-            </a>
-            <a class="btn btn--ghost" href="https://www.youtube.com/@LinuxGamerLife" target="_blank" rel="noopener" aria-label="Watch on YouTube">
-              <svg class="mark-yt" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.9-.5-5.8a3 3 0 0 0-2.1-2.1C18.5 3.6 12 3.6 12 3.6s-6.5 0-8.4.5a3 3 0 0 0-2.1 2.1C1 8.1 1 12 1 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 8.4.5 8.4.5s6.5 0 8.4-.5a3 3 0 0 0 2.1-2.1C23 15.9 23 12 23 12zM9.8 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
-              YouTube
-            </a>
-            <a class="btn btn--ghost" href="https://twitch.tv/linuxgamerlife" target="_blank" rel="noopener" aria-label="Watch on Twitch">
-              <svg class="mark-tw" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.3 0 1.7 4.2v18.6h5.6V24h5.2l4.1-4.1h4.6L24 17V0zm17.6 16.2-3.4 3.4h-5.2L9.2 22v-2.4H4.7V2.1h17.2z"/><path d="M12.6 6.1h2.1v6.2h-2.1zm5.7 0H21v6.2h-2.1z"/></svg>
-              Twitch
-            </a>
-            <a class="btn btn--ghost" href="https://kick.com/linuxgamerlife" target="_blank" rel="noopener" aria-label="Watch on Kick">
-              <svg class="mark-kick" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.333 0h8v5.333h2.667V2.667h2.667V0h8v8h-2.667v2.667H17.33v2.666h2.667V16h2.667v8h-8v-2.667h-2.667v-2.666H9.333V24h-8Z"/></svg>
-              Kick
-            </a>
-          </div>
-          <div class="chip-row">
-            <span class="chip">Fedora</span>
-            <a class="chip chip--violet chip--link" href="https://theblackdon.dev/kineticwe" target="_blank" rel="noopener">KineticWE</a>
-            <a class="chip chip--violet chip--link" href="https://noctalia.dev/" target="_blank" rel="noopener">Noctalia</a>
-            <span class="chip">Wayland</span>
-          </div>
+          <p class="tty__line tty__line--links">
+            <button type="button" class="tty-command" data-cmd="about">about</button> <span>/</span>
+            <button type="button" class="tty-command" data-cmd="youtube">youtube</button> <span>/</span>
+            <button type="button" class="tty-command" data-cmd="twitch">twitch</button> <span>/</span>
+            <button type="button" class="tty-command" data-cmd="kick">kick</button>
+          </p>
         </div>
 
-        <aside class="now-card reveal" aria-label="What I am using right now">
-          <div class="now-card__head">
-            <img class="now-card__avatar" src="assets/img/logo.svg" alt="" width="46" height="46">
-            <div>
-              <div class="now-card__name">Linux Gamer Life</div>
-              <div class="now-card__handle">@linuxgamerlife</div>
-            </div>
-            <span class="now-card__status">Still learning</span>
-          </div>
-          <dl class="now-list">
-            <div><dt>Distro</dt><dd>Fedora</dd></div>
-            <div><dt>Desktop</dt><dd><a href="https://theblackdon.dev/kineticwe" target="_blank" rel="noopener">KineticWE</a> + <a href="https://noctalia.dev/" target="_blank" rel="noopener">Noctalia</a></dd></div>
-            <div><dt>Session</dt><dd>Wayland</dd></div>
-            <div><dt>Switched</dt><dd>2025</dd></div>
-            <div><dt>Based</dt><dd>United Kingdom</dd></div>
-          </dl>
-          <p class="now-card__foot">Not a developer. Just a gamer who documents the fixes.</p>
-        </aside>
-      </div>
+        <div class="tty__log" id="tty-log" aria-live="polite"></div>
 
-    </div>
-  </section>
+        <form class="tty__form" id="tty-form">
+          <label class="tty__sr" for="tty-input">Enter a command</label>
+          <span class="tty__prompt" aria-hidden="true">lgl@fedora:~$</span>
+          <input class="tty__input" id="tty-input" name="command" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type help">
+        </form>
 
-  <!-- Story -->
-  <section class="section" aria-labelledby="story-title">
-    <div class="container">
-      <div class="story-grid">
-        <div class="reveal">
-          <p class="eyebrow">The journey</p>
-          <h2 class="section__title" id="story-title">Thirty years of Windows. Then one clean install.</h2>
-          <p class="lede">I am not a Linux professional, and I am not a developer. I am a gamer who got curious, moved his whole setup to Linux, and started recording what happened.</p>
-          <p class="pull-quote">"I am learning as I go, picking up tips from others, and improving my setup along the way."</p>
-          <div class="btn-row">
-            <a class="btn" href="about.html">Read the full story
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-            </a>
-          </div>
-        </div>
-        <ol class="timeline reveal" data-delay="1">
-          <li>
-            <span class="timeline__year">Before</span>
-            <h3>Three decades on Windows</h3>
-            <p>IT Support, Gaming, tinkering and the odd fresh install, always with Windows underneath.</p>
-          </li>
-          <li>
-            <span class="timeline__year">2025</span>
-            <h3>The switch</h3>
-            <p>Left Windows behind completely. Not a dual boot, not a spare machine. Everything moved.</p>
-          </li>
-          <li>
-            <span class="timeline__year">Now</span>
-            <h3>Fedora and KineticWE</h3>
-            <p>Fedora as the base, KineticWE and <a href="https://noctalia.dev/" target="_blank" rel="noopener">Noctalia</a> on Wayland, with a Mac around for the rare thing that still needs one.</p>
-          </li>
-          <li>
-            <span class="timeline__year">Sharing</span>
-            <h3>Recording the process</h3>
-            <p>Videos about the wins, the mistakes, the games and the fixes. The tools are a side effect of solving my own problems.</p>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- What this is -->
-  <section class="section" aria-labelledby="goals-title">
-    <div class="container">
-      <div class="section__head reveal">
-        <p class="eyebrow">Why this exists</p>
-        <h2 class="section__title" id="goals-title">Four things I care about</h2>
-        <p class="lede">Everything I do comes back to these. They keep the channel and the projects pointed in the same direction.</p>
-      </div>
-      <div class="grid grid--4">
-        <article class="card goal reveal">
-          <span class="goal__num">01</span>
-          <h3 class="goal__title">Community</h3>
-          <p class="goal__text">A space where people can share what they have learned and nobody has to figure Linux out alone.</p>
-        </article>
-        <article class="card goal reveal" data-delay="1">
-          <span class="goal__num">02</span>
-          <h3 class="goal__title">The journey</h3>
-          <p class="goal__text">The discoveries, mistakes, challenges and fixes, shown as they happen rather than after the fact.</p>
-        </article>
-        <article class="card goal reveal" data-delay="2">
-          <span class="goal__num">03</span>
-          <h3 class="goal__title">Linux gaming</h3>
-          <p class="goal__text">An honest look at gaming on Linux from a relatively new user: the progress and the problems.</p>
-        </article>
-        <article class="card goal reveal" data-delay="3">
-          <span class="goal__num">04</span>
-          <h3 class="goal__title">Indie games</h3>
-          <p class="goal__text">Showing how well indie and AA games run on Linux, and giving the people who make them more visibility.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Series -->
-  <section class="section" aria-labelledby="series-title">
-    <div class="container">
-      <div class="section__head reveal">
-        <p class="eyebrow">On the channel</p>
-        <h2 class="section__title" id="series-title">Series worth a binge</h2>
-        <p class="lede">Long-form experiments, distro challenges and indie spotlights, all recorded on the Linux desktop.</p>
-      </div>
-      <div class="series-grid">
-        <a class="series reveal" href="videos.html">
-          <div class="series__top"><span class="series__num">SERIES 01</span><span class="series__play"><svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 1.2 10.5 6 2 10.8z"/></svg></span></div>
-          <h3 class="series__title">I Switched…</h3>
-          <p class="series__desc">The story of leaving Windows after decades and what actually changed.</p>
-        </a>
-        <a class="series reveal" data-delay="1" href="videos.html">
-          <div class="series__top"><span class="series__num">SERIES 02</span><span class="series__play"><svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 1.2 10.5 6 2 10.8z"/></svg></span></div>
-          <h3 class="series__title">Linux Distro Challenge</h3>
-          <p class="series__desc">Six distributions, one user, and a fair amount of reinstalling.</p>
-        </a>
-        <a class="series reveal" data-delay="2" href="videos.html">
-          <div class="series__top"><span class="series__num">SERIES 03</span><span class="series__play"><svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 1.2 10.5 6 2 10.8z"/></svg></span></div>
-          <h3 class="series__title">Indie Spotlight</h3>
-          <p class="series__desc">Indie and AA games, tested on Linux and shown off properly.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Made along the way -->
-  <section class="section section--tight" aria-labelledby="making-title">
-    <div class="container">
-      <div class="panel making reveal">
-        <div>
-          <p class="eyebrow">Made along the way</p>
-          <h2 class="section__title" id="making-title" style="font-size:clamp(1.5rem,3.2vw,2rem)">I build things for my own setup.</h2>
-          <p class="lede" style="margin-top:0.8rem;font-size:0.95rem">I am not a developer. These are small tools I made because I needed them, shared in the hope they save someone else a job. They are MIT licensed and used at your own risk.</p>
-          <div class="btn-row">
-            <a class="btn btn--sm" href="projects.html">See what I have made</a>
-          </div>
-        </div>
-        <ul class="making-list">
-          <li><a href="https://github.com/linuxgamerlife/lgl-papercutter" target="_blank" rel="noopener">Papercutter <span>wallpaper editor</span></a></li>
-          <li><a href="https://github.com/linuxgamerlife/lgl-system-loadout" target="_blank" rel="noopener">System Loadout <span>Fedora setup wizard</span></a></li>
-          <li><a href="https://github.com/linuxgamerlife/lgl-scheduler-manager" target="_blank" rel="noopener">Scheduler Manager <span>sched-ext front end</span></a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Community band -->
-  <section class="section section--tight">
-    <div class="container">
-      <div class="cta-band reveal" style="border-color:var(--line)">
-        <div class="cta-band__inner">
-          <div>
-            <p class="eyebrow">The best part</p>
-            <h2>Powered by the community.</h2>
-            <p>Members, subscribers and regulars who watch, comment, correct me and keep the channel going. Every one of them is listed by name.</p>
-          </div>
-          <div class="btn-row" style="margin:0">
-            <a class="btn btn--primary" href="community.html">Meet the supporters</a>
-            <a class="btn btn--ghost" href="https://ko-fi.com/linuxgamerlife" target="_blank" rel="noopener">
-              <svg class="mark-kofi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/><path d="M6 1v3M10 1v3M14 1v3"/></svg>
-              Support on Ko-fi
-            </a>
-          </div>
+        <div class="tty__chips" aria-label="Command shortcuts">
+          <button type="button" data-cmd="about">about</button>
+          <button type="button" data-cmd="journey">journey</button>
+          <button type="button" data-cmd="principles">principles</button>
+          <button type="button" data-cmd="videos">videos</button>
+          <button type="button" data-cmd="projects">projects</button>
+          <button type="button" data-cmd="toolkit">toolkit</button>
+          <button type="button" data-cmd="setup">setup</button>
+          <button type="button" data-cmd="community">community</button>
+          <button type="button" data-cmd="fastfetch">fastfetch</button>
+          <button type="button" data-cmd="theme">theme</button>
+          <button type="button" data-cmd="tdlr">tdlr</button>
+          <button type="button" data-cmd="help">help</button>
         </div>
       </div>
     </div>
   </section>
+
+  <noscript>
+    <div class="tty-noscript">
+      <p>The interactive terminal needs JavaScript. Browse the site directly:</p>
+      <p><a href="about.html">About</a> / <a href="videos.html">Videos</a> / <a href="community.html">Community</a> / <a href="projects.html">Projects</a> / <a href="toolkit.html">Toolkit</a> / <a href="mysetup.html">Setup</a></p>
+    </div>
+  </noscript>
 
 </main>
 
@@ -315,7 +164,7 @@
         <h4>Elsewhere</h4>
         <ul>
           <li><a href="https://github.com/linuxgamerlife" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/" target="_blank" rel="noopener">Fedora Copr</a></li>
+          <li><a href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/" target="_blank" rel="noopener">Copr</a></li>
           <li><a href="https://www.youtube.com/@LinuxGamerLife" target="_blank" rel="noopener">YouTube</a></li>
           <li><a href="https://twitch.tv/linuxgamerlife" target="_blank" rel="noopener">Twitch</a></li>
           <li><a href="https://kick.com/linuxgamerlife" target="_blank" rel="noopener">Kick</a></li>
@@ -323,9 +172,9 @@
         </ul>
       </div>
       <div class="footer__col">
-        <h4>Small print</h4>
+        <h4>Legal</h4>
         <ul>
-          <li><a href="about.html#ai">AI use statement</a></li>
+          <li><a href="about.html#ai">AI</a></li>
           <li><a href="about.html#disclaimer">Disclaimer</a></li>
         </ul>
       </div>
@@ -337,6 +186,12 @@
   </div>
 </footer>
 
+<script src="data/projects.js" defer></script>
+<script src="assets/js/theme.js" defer></script>
+<script src="assets/js/nav.js" defer></script>
+<script src="assets/js/jokes.js" defer></script>
+<script src="assets/js/panels.js" defer></script>
+<script src="assets/js/terminal.js" defer></script>
 <script src="assets/js/site.js" defer></script>
 </body>
 </html>

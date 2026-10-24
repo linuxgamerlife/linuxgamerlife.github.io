@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My setup | Linux Gamer Life</title>
+<title>Setup | Linux Gamer Life</title>
 <meta name="description" content="The PC, gear and services Linux Gamer Life actually uses: the main AM5 build, capture kit, desk, and affiliate links with discount codes.">
 <meta name="theme-color" content="#17131c">
 <link rel="canonical" href="https://linuxgamerlife.github.io/mysetup.html">
@@ -11,15 +11,14 @@
 <link rel="apple-touch-icon" href="assets/img/logo.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Linux Gamer Life">
-<meta property="og:title" content="My setup | Linux Gamer Life">
+<meta property="og:title" content="Setup | Linux Gamer Life">
 <meta property="og:description" content="The PC, gear and services I actually use, with discount codes and affiliate links.">
 <meta property="og:url" content="https://linuxgamerlife.github.io/mysetup.html">
 <meta property="og:image" content="https://linuxgamerlife.github.io/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js");</script>
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body data-page="mysetup">
@@ -41,7 +40,7 @@
         <li><a href="community.html" data-nav="community">Community</a></li>
         <li><a href="projects.html" data-nav="projects">Projects</a></li>
         <li><a href="toolkit.html" data-nav="toolkit">Toolkit</a></li>
-        <li><a href="mysetup.html" data-nav="mysetup">My Setup</a></li>
+        <li><a href="mysetup.html" data-nav="mysetup">Setup</a></li>
       </ul>
       <div class="nav__watch-group">
         <a class="nav__watch nav__watch--yt" href="https://www.youtube.com/@LinuxGamerLife" target="_blank" rel="noopener">
@@ -67,7 +66,15 @@
 <main id="main">
   <section class="page-head">
     <div class="container">
-      <p class="eyebrow">My setup</p>
+      <div class="site-tty" data-site-tty>
+        <form class="site-tty__form">
+          <label class="site-tty__sr" for="site-tty-input">Navigate the site</label>
+          <span class="site-tty__prompt" aria-hidden="true">lgl@fedora:~$</span>
+          <input class="site-tty__input" id="site-tty-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="cd ~/videos">
+        </form>
+        <p class="site-tty__out" aria-live="polite">type help or cd ~/videos</p>
+      </div>
+      <p class="eyebrow">Setup</p>
       <h1 class="page-head__title">The PC, the desk and <span class="grad">the gear I recommend.</span></h1>
       <p class="lede">
         Everything on this page is something I use, have used, or would happily buy again.
@@ -83,7 +90,7 @@
   <section class="section section--tight" aria-labelledby="mainpc-title">
     <div class="container">
       <div class="section__head reveal">
-        <p class="eyebrow">PC2 · main PC</p>
+        <p class="eyebrow">PC2 · main machine</p>
         <h2 class="section__title" id="mainpc-title">The main machine</h2>
         <p class="lede">The current daily driver: a 9950X3D build on AM5, cooled by a 360mm AIO and built into a Fractal case. This is the machine that games, records and compiles everything on the channel. The drives and the rest of the parts are further down the page.</p>
       </div>
@@ -151,8 +158,8 @@
   <section class="section section--tight" aria-labelledby="parts-title">
     <div class="container">
       <div class="section__head reveal">
-        <p class="eyebrow">Other parts</p>
-        <h2 class="section__title" id="parts-title">Also on the bench</h2>
+        <p class="eyebrow">Spare and alternative parts</p>
+        <h2 class="section__title" id="parts-title">Other parts</h2>
         <p class="lede">Parts I have used, tested or keep around for other builds. Amazon links, so check the seller and the exact model before ordering.</p>
       </div>
 
@@ -298,6 +305,7 @@
             <span class="tag tag--accent">Code AGCO7U · 10% off</span>
             <span class="tag">Game</span>
           </div>
+          <button class="btn btn--ghost btn--sm" type="button" data-copy="AGCO7U" style="margin-top:0.6rem;align-self:flex-start">Copy code</button>
           <a class="btn btn--ghost btn--sm" style="margin-top:1rem;align-self:flex-start" href="https://x.la/@linuxgamerlife/dune-awakening-store" target="_blank" rel="noopener sponsored">Get Dune: Awakening</a>
         </article>
 
@@ -309,6 +317,7 @@
             <span class="tag tag--accent">Code QOL9UH · 20% off</span>
             <span class="tag">Game</span>
           </div>
+          <button class="btn btn--ghost btn--sm" type="button" data-copy="QOL9UH" style="margin-top:0.6rem;align-self:flex-start">Copy code</button>
           <a class="btn btn--ghost btn--sm" style="margin-top:1rem;align-self:flex-start" href="https://x.la/@linuxgamerlife/conan-exiles" target="_blank" rel="noopener sponsored">Get Conan Exiles</a>
         </article>
 
@@ -342,6 +351,7 @@
             <span class="tag tag--accent">25% off with LINUXGAMERLIFE</span>
             <span class="tag">Learning</span>
           </div>
+          <button class="btn btn--ghost btn--sm" type="button" data-copy="LINUXGAMERLIFE" style="margin-top:0.6rem;align-self:flex-start">Copy code</button>
           <a class="btn btn--ghost btn--sm" style="margin-top:1rem;align-self:flex-start" href="https://www.boot.dev?promo=LINUXGAMERLIFE" target="_blank" rel="noopener sponsored">Start learning</a>
         </article>
 
@@ -359,7 +369,7 @@
 
       <div class="callout" style="margin-top:2rem">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
-        <p>A code not working, or a part out of stock? <a class="link-arrow" href="community.html">Let me know in the community</a> and I will update the page.</p>
+        <p>A code not working? <a class="link-arrow" href="community.html">Let me know in the community</a> and I will update the page.</p>
       </div>
     </div>
   </section>
@@ -393,7 +403,7 @@
         <h4>Elsewhere</h4>
         <ul>
           <li><a href="https://github.com/linuxgamerlife" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/" target="_blank" rel="noopener">Fedora Copr</a></li>
+          <li><a href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/" target="_blank" rel="noopener">Copr</a></li>
           <li><a href="https://www.youtube.com/@LinuxGamerLife" target="_blank" rel="noopener">YouTube</a></li>
           <li><a href="https://twitch.tv/linuxgamerlife" target="_blank" rel="noopener">Twitch</a></li>
           <li><a href="https://kick.com/linuxgamerlife" target="_blank" rel="noopener">Kick</a></li>
@@ -401,9 +411,9 @@
         </ul>
       </div>
       <div class="footer__col">
-        <h4>Small print</h4>
+        <h4>Legal</h4>
         <ul>
-          <li><a href="about.html#ai">AI use statement</a></li>
+          <li><a href="about.html#ai">AI</a></li>
           <li><a href="about.html#disclaimer">Disclaimer</a></li>
         </ul>
       </div>
@@ -415,6 +425,12 @@
   </div>
 </footer>
 
+<script src="data/projects.js" defer></script>
+<script src="assets/js/theme.js" defer></script>
+<script src="assets/js/nav.js" defer></script>
+<script src="assets/js/jokes.js" defer></script>
+<script src="assets/js/panels.js" defer></script>
+<script src="assets/js/site-terminal.js" defer></script>
 <script src="assets/js/site.js" defer></script>
 </body>
 </html>

@@ -48,7 +48,6 @@ def github_projects(token: str | None) -> tuple[dict[str, dict], dict]:
         by_name[repo["name"]] = {
             "stars": repo.get("stargazers_count", 0),
             "forks": repo.get("forks_count", 0),
-            "language": repo.get("language"),
             "updated": (repo.get("pushed_at") or "")[:10],
             "repo_url": repo.get("html_url"),
             "homepage": repo.get("homepage") or None,
@@ -129,7 +128,6 @@ def main() -> None:
                 "featured": bool(entry.get("featured")),
                 "stars": live.get("stars", 0),
                 "forks": live.get("forks", 0),
-                "language": live.get("language") or entry.get("language"),
                 "updated": live.get("updated") or entry.get("updated"),
                 "repo_url": live.get("repo_url") or f"https://github.com/{USER}/{repo_name}",
                 "copr": copr_ref,

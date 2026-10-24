@@ -7,10 +7,9 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#17131c">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js");</script>
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body data-page="404">
@@ -32,7 +31,7 @@
         <li><a href="community.html" data-nav="community">Community</a></li>
         <li><a href="projects.html" data-nav="projects">Projects</a></li>
         <li><a href="toolkit.html" data-nav="toolkit">Toolkit</a></li>
-        <li><a href="mysetup.html" data-nav="mysetup">My Setup</a></li>
+        <li><a href="mysetup.html" data-nav="mysetup">Setup</a></li>
       </ul>
       <div class="nav__watch-group">
         <a class="nav__watch nav__watch--yt" href="https://www.youtube.com/@LinuxGamerLife" target="_blank" rel="noopener">
@@ -58,6 +57,14 @@
 <main id="main">
   <section class="section" style="padding-block:clamp(4rem,12vw,9rem)">
     <div class="container">
+      <div class="site-tty" data-site-tty>
+        <form class="site-tty__form">
+          <label class="site-tty__sr" for="site-tty-input">Navigate the site</label>
+          <span class="site-tty__prompt" aria-hidden="true">lgl@fedora:~$</span>
+          <input class="site-tty__input" id="site-tty-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="cd ~/videos">
+        </form>
+        <p class="site-tty__out" aria-live="polite">type help or cd ~/videos</p>
+      </div>
       <p class="eyebrow">404 · command not found</p>
       <h1 class="page-head__title">That page is <span class="grad">not installed.</span></h1>
       <p class="lede">The link is broken, the page moved, or a package was removed. Try one of these instead.</p>
@@ -91,6 +98,12 @@
   </div>
 </footer>
 
+<script src="data/projects.js" defer></script>
+<script src="assets/js/theme.js" defer></script>
+<script src="assets/js/nav.js" defer></script>
+<script src="assets/js/jokes.js" defer></script>
+<script src="assets/js/panels.js" defer></script>
+<script src="assets/js/site-terminal.js" defer></script>
 <script src="assets/js/site.js" defer></script>
 </body>
 </html>

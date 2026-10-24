@@ -1,0 +1,288 @@
+/* Shared path navigation for the terminal inputs. */
+(function () {
+  "use strict";
+
+  var PAGES = {
+    home: "index.html",
+    about: "about.html",
+    videos: "videos.html",
+    community: "community.html",
+    projects: "projects.html",
+    toolkit: "toolkit.html",
+    setup: "mysetup.html",
+    mysetup: "mysetup.html",
+    ai: "about.html#ai",
+    disclaimer: "about.html#disclaimer",
+    discounts: "mysetup.html#deals-title",
+    story: "about.html",
+    contact: "about.html#contact",
+    statement: "about.html#ai",
+    mainmachine: "mysetup.html#mainpc-title",
+    legal: "about.html#disclaimer",
+    "..": "index.html",
+    ".": "index.html"
+  };
+
+  function clean(raw) {
+    var value = String(raw || "").trim().toLowerCase();
+    value = value.replace(/^(cd|open|go)\s+/, "");
+    value = value.replace(/^~\/?/, "");
+    value = value.replace(/^\.\//, "");
+    value = value.replace(/\/+$/, "");
+    return value;
+  }
+
+  window.LGLNavigate = function (raw) {
+    var key = clean(raw);
+    if (!key || key === "~") key = "home";
+    if (window.LGLOpenLink && window.LGLOpenLink(key)) return true;
+    var target = PAGES[key];
+    if (!target) return false;
+    window.location.href = target;
+    return true;
+  };
+
+  window.LGLPages = PAGES;
+})();
+
+(function () {
+  "use strict";
+
+  var LINKS = {
+    youtube: "https://www.youtube.com/@LinuxGamerLife",
+    twitch: "https://twitch.tv/linuxgamerlife",
+    kick: "https://kick.com/linuxgamerlife",
+    github: "https://github.com/linuxgamerlife",
+    copr: "https://copr.fedorainfracloud.org/coprs/linuxgamerlife/",
+    kofi: "https://ko-fi.com/linuxgamerlife",
+    "ko-fi": "https://ko-fi.com/linuxgamerlife",
+    x: "https://x.com/linuxgamerlife",
+    gitlab: "https://gitlab.com/theblackdon/kineticwe",
+    kineticwe: "https://gitlab.com/theblackdon/kineticwe",
+    theblackdon: "https://www.youtube.com/@TheBlackDon",
+    finley: "https://www.youtube.com/@finleyardov",
+    keychron: "https://www.keychron.com/?ref=linuxgamerlife",
+    noctalia: "https://noctalia.dev/",
+    fedora: "https://fedoraproject.org/"
+  };
+
+  var PATHS = ["~/videos", "~/projects", "~/about", "~/community", "~/toolkit", "~/setup", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "theblackdon", "finley", "discounts", "keychron"];
+  var NAV_COMMANDS = ["./home", "./about", "./videos", "./community", "./projects", "./toolkit", "./setup", "./youtube", "./twitch", "./kick"];
+
+  function commonPrefix(a, b) {
+    var i = 0;
+    while (i < a.length && i < b.length && a[i].toLowerCase() === b[i].toLowerCase()) i += 1;
+    return a.slice(0, i);
+  }
+
+  window.LGLLinks = LINKS;
+  window.LGLPaths = PATHS;
+  window.LGLNavCommands = NAV_COMMANDS;
+
+  window.LGLOpenLink = function (name) {
+    var url = LINKS[String(name || "").toLowerCase()];
+    if (!url) return false;
+    var opened = window.open(url, "_blank", "noopener");
+    if (!opened) {
+      var a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.click();
+    }
+    return true;
+  };
+
+  window.LGLComplete = function (raw, commands, themes, state) {
+    var value = String(raw || "");
+    var lower = value.trim().toLowerCase();
+    if (!lower) return null;
+
+    if (state && state.value === value && state.matches && state.matches.length) {
+      state.index = (state.index + 1) % state.matches.length;
+      var next = state.matches[state.index];
+      state.value = next;
+      return { value: next, matches: state.matches.slice() };
+    }
+
+    var candidates;
+    if (lower === "theme" || lower.indexOf("theme ") === 0) {
+      candidates = themes.map(function (name) { return "theme " + name; });
+      candidates.push("theme reset");
+    } else if (lower === "cd" || lower.indexOf("cd ") === 0) {
+      candidates = PATHS.map(function (path) { return "cd " + path; });
+    } else {
+      candidates = commands.concat(NAV_COMMANDS);
+    }
+    var matches = candidates.filter(function (item) {
+      return item.toLowerCase().indexOf(lower) === 0;
+    });
+    if (!matches.length) {
+      if (state) {
+        state.value = "";
+        state.matches = [];
+        state.index = -1;
+      }
+      return null;
+    }
+    var completed;
+    var index;
+    if (matches.length === 1) {
+      completed = matches[0];
+      index = 0;
+    } else {
+      var prefix = matches.reduce(commonPrefix);
+      if (prefix.length > value.length && lower !== "theme") {
+        completed = prefix;
+        index = -1;
+      } else {
+        completed = matches[0];
+        index = 0;
+      }
+    }
+    if (state) {
+      state.value = completed;
+      state.matches = matches.slice();
+      state.index = index;
+    }
+    return { value: completed, matches: matches };
+  };
+})();
+
+(function () {
+  "use strict";
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.top = "-1000px";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.select();
+      try {
+        var ok = document.execCommand("copy");
+        document.body.removeChild(area);
+        if (ok) resolve();
+        else reject(new Error("copy failed"));
+      } catch (error) {
+        document.body.removeChild(area);
+        reject(error);
+      }
+    });
+  }
+
+  window.LGLCopy = copyText;
+
+  document.addEventListener("click", function (event) {
+    if (!event.target || !event.target.closest) return;
+    var button = event.target.closest("[data-copy]");
+    if (!button) return;
+    event.preventDefault();
+    var code = button.getAttribute("data-copy");
+    var original = button.textContent;
+    copyText(code).then(function () {
+      button.textContent = "copied";
+      button.classList.add("is-copied");
+      window.setTimeout(function () {
+        button.textContent = original;
+        button.classList.remove("is-copied");
+      }, 1600);
+    }).catch(function () {
+      button.textContent = "copy failed";
+      window.setTimeout(function () {
+        button.textContent = original;
+      }, 1600);
+    });
+  });
+})();
+
+(function () {
+  "use strict";
+
+  var LSPCI_DEVICES = [
+    "Host bridge: AMD Raphael/Granite Ridge Root Complex",
+    "VGA compatible controller: AMD Radeon RX 9070 XT (Navi 48)",
+    "Audio device: AMD Navi 48 HDMI/DP Audio",
+    "Non-Volatile memory controller: WD Black SN850X NVMe",
+    "Non-Volatile memory controller: WD Black SN850X NVMe",
+    "Non-Volatile memory controller: WD_BLACK SN7100 NVMe",
+    "Ethernet controller: Realtek RTL8126 5GbE",
+    "Network controller: Realtek RTL8922AE Wi-Fi 7",
+    "Non-Volatile memory controller: WD SN770/SN5000 NVMe",
+    "USB controller: AMD 800 Series USB 3.x",
+    "SATA controller: AMD 600 Series SATA",
+    "PCI bridge: ASMedia ASM4242 USB4",
+    "USB controller: ASMedia ASM4242 USB 3.2",
+    "USB controller: ASMedia ASM4242 USB4 / Thunderbolt 3",
+    "VGA compatible controller: AMD Radeon 610M (iGPU)",
+    "Audio device: AMD Ryzen HD Audio"
+  ];
+
+  function hex(max, digits) {
+    return Math.floor(Math.random() * max).toString(16).padStart(digits, "0");
+  }
+
+  window.LGLLspci = function () {
+    var used = {};
+    var lines = LSPCI_DEVICES.map(function (device) {
+      var address;
+      do {
+        address = hex(256, 2) + ":" + hex(32, 2) + "." + hex(8, 1);
+      } while (used[address]);
+      used[address] = true;
+      return address + " " + device;
+    });
+    lines.sort();
+    return lines.join("\n");
+  };
+})();
+
+(function () {
+  "use strict";
+
+  var LSBLK = [
+    "NAME          SIZE LABEL",
+    "zram0           8G zram0",
+    "nvme2n1     931.5G",
+    "nvme0n1     931.5G",
+    "├─nvme0n1p1   512M",
+    "├─nvme0n1p2     2G",
+    "├─nvme0n1p3   629G development",
+    "└─nvme0n1p4   300G fedora_fedora",
+    "nvme1n1       3.6T",
+    "└─nvme1n1p1   3.6T Storage",
+    "nvme3n1       1.8T",
+    "└─nvme3n1p1   1.8T home"
+  ];
+
+  window.LGLLsblk = function () {
+    return LSBLK.join("\n");
+  };
+})();
+
+(function () {
+  "use strict";
+
+  window.LGLFastfetch = function () {
+    return [
+      "lgl@fedora",
+      "-----------",
+      "OS: Fedora Linux 44 (Workstation)",
+      "Host: LGL Desktop",
+      "Kernel: 7.2.11-200.fc44.x86_64",
+      "DE: KineticWE",
+      "WM: KWin (Wayland)",
+      "Shell: zsh 5.9",
+      "Terminal: kitty",
+      "CPU: AMD Ryzen 9 9950X3D",
+      "GPU: AMD Radeon RX 9070 XT",
+      "Memory: 17.4 GiB / 60.0 GiB"
+    ].join("\n");
+  };
+})();

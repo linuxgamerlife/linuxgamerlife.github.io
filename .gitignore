@@ -3,6 +3,8 @@ LOCAL-SETUP.md
 *.local.md
 notes/
 scratch/
+webdesign.md
+
 
 # OS and editor cruft
 .DS_Store
