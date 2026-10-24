@@ -72,7 +72,10 @@
     toolkit: [
       '<p class="tty-modal__cmd">$ cat toolkit.txt</p>',
       '<p class="tty-note">One Copr repo for the LGL desktop apps. Enable it once, then install what you need.</p>',
-      '<p class="tty-code">sudo dnf copr enable linuxgamerlife/lgl-toolkit<br>sudo dnf install lgl-system-loadout</p>',
+      '<div class="tty-code-block">',
+      '<p class="tty-code" id="toolkit-cmd">sudo dnf copr enable linuxgamerlife/lgl-toolkit<br>sudo dnf install lgl-system-loadout</p>',
+      '<button type="button" class="tty-copy" data-copy="#toolkit-cmd">copy</button>',
+      '</div>',
       '<p class="tty-more"># in the toolkit</p>',
       '<div class="tty-list">',
       '<a class="tty-item" href="toolkit.html"><span class="tty-key">01</span><div><h3>System Loadout</h3><p>Fedora setup wizard. <span class="tty-comment">lgl-system-loadout</span></p></div><span class="tty-btn" aria-hidden="true">open</span></a>',

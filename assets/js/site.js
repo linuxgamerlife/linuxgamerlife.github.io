@@ -40,45 +40,6 @@
     if (link) link.setAttribute("aria-current", "page");
   }
 
-  /* ---------- Copy to clipboard ---------- */
-  function copyText(text, button) {
-    var done = function () {
-      var label = button.querySelector(".copy-btn__label");
-      if (!label) return;
-      var original = label.textContent;
-      label.textContent = "Copied";
-      button.classList.add("is-copied");
-      setTimeout(function () {
-        label.textContent = original;
-        button.classList.remove("is-copied");
-      }, 1600);
-    };
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(done, function () { fallback(text, done); });
-    } else {
-      fallback(text, done);
-    }
-  }
-  function fallback(text, done) {
-    var area = document.createElement("textarea");
-    area.value = text;
-    area.setAttribute("readonly", "");
-    area.style.position = "fixed";
-    area.style.opacity = "0";
-    document.body.appendChild(area);
-    area.select();
-    try { document.execCommand("copy"); done(); } catch (error) { /* no-op */ }
-    document.body.removeChild(area);
-  }
-  document.querySelectorAll("[data-copy]").forEach(function (button) {
-    button.addEventListener("click", function () {
-      var selector = button.getAttribute("data-copy");
-      var source = selector ? document.querySelector(selector) : null;
-      var text = source ? source.textContent.trim() : button.getAttribute("data-copy-text");
-      if (text) copyText(text, button);
-    });
-  });
-
   /* ---------- Reveal on scroll ---------- */
   var revealItems = document.querySelectorAll(".reveal");
   if (revealItems.length) {

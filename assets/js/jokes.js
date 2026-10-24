@@ -107,6 +107,8 @@
     var refs = build("sudo", "HACKING INTO THE WEBSITE");
     refs.text.textContent = "this is definitely real.";
     var messages = [
+      "installing php",
+      "ignoring CVEs",
       "scanning the perimeter...",
       "ssh keys found",
       "disabling SSO",

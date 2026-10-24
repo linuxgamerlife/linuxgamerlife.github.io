@@ -184,19 +184,34 @@
     var button = event.target.closest("[data-copy]");
     if (!button) return;
     event.preventDefault();
-    var code = button.getAttribute("data-copy");
-    var original = button.textContent;
-    copyText(code).then(function () {
-      button.textContent = "copied";
+
+    var value = button.getAttribute("data-copy");
+    var source = null;
+    if (value && /^[#.]/.test(value)) {
+      try {
+        source = document.querySelector(value);
+      } catch (error) {
+        source = null;
+      }
+    }
+    var text = source ? source.innerText.trim() : (value || button.getAttribute("data-copy-text") || "");
+    if (!text) return;
+
+    var label = button.querySelector(".copy-btn__label");
+    var target = label || button;
+    var original = target.textContent;
+    copyText(text).then(function () {
+      target.textContent = "Copied";
       button.classList.add("is-copied");
       window.setTimeout(function () {
-        button.textContent = original;
+        target.textContent = original;
         button.classList.remove("is-copied");
       }, 1600);
     }).catch(function () {
-      button.textContent = "copy failed";
+      target.textContent = "Copy failed";
       window.setTimeout(function () {
-        button.textContent = original;
+        target.textContent = original;
+        button.classList.remove("is-copied");
       }, 1600);
     });
   });

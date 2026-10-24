@@ -109,7 +109,7 @@
         <div class="steps">
           <div class="step"><b>Run the command above</b> in a terminal and confirm when DNF asks.</div>
           <div class="step"><b>Install an app</b> from the list below with <span class="mono">sudo dnf install &lt;package&gt;</span>.</div>
-          <div class="step"><b>Keep it updated</b>: <span class="mono">sudo dnf upgrade</span> picks up new releases like any other package.</div>
+          <div class="step"><b>Keep it updated</b>: <span class="mono" id="upgrade-cmd">sudo dnf upgrade</span> picks up new releases like any other package. <button class="copy-btn" type="button" data-copy="#upgrade-cmd" aria-label="Copy the upgrade command"><span class="copy-btn__label">Copy</span></button></div>
         </div>
 
         <div class="callout" style="margin-top:1.4rem">
@@ -244,7 +244,7 @@
 
       <div class="callout" style="margin-top:1.2rem">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
-        <p><b>Scheduler Manager users:</b> install <span class="mono">scx-tools</span> first with <span class="mono">sudo dnf copr enable bieszczaders/kernel-cachyos-addons &amp;&amp; sudo dnf install scx-tools scx-scheds</span>.</p>
+        <p><b>Scheduler Manager users:</b> install <span class="mono">scx-tools</span> first with <span class="mono" id="scx-cmd">sudo dnf copr enable bieszczaders/kernel-cachyos-addons &amp;&amp; sudo dnf install scx-tools scx-scheds</span> <button class="copy-btn" type="button" data-copy="#scx-cmd" aria-label="Copy the scx-tools install command"><span class="copy-btn__label">Copy</span></button>.</p>
       </div>
     </div>
   </section>
@@ -264,7 +264,7 @@
             <code id="pkg-power">sudo dnf copr enable linuxgamerlife/lgl-powerprofile-manager</code>
             <button class="copy-btn" type="button" data-copy="#pkg-power" aria-label="Copy enable command for Power Profile Manager"><span class="copy-btn__label">Copy</span></button>
           </div>
-          <p class="project__desc" style="margin-top:0.6rem">Then <span class="mono">sudo dnf install lgl-powerprofile-manager</span>.</p>
+          <p class="project__desc" style="margin-top:0.6rem">Then <span class="mono" id="install-lgl-powerprofile-manager">sudo dnf install lgl-powerprofile-manager</span> <button class="copy-btn" type="button" data-copy="#install-lgl-powerprofile-manager" aria-label="Copy install command for Power Profile Manager"><span class="copy-btn__label">Copy</span></button></p>
           <div class="project__links">
             <a class="project__link" href="https://github.com/linuxgamerlife/lgl-powerprofile-manager" target="_blank" rel="noopener">GitHub</a>
             <a class="project__link" href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/lgl-powerprofile-manager/" target="_blank" rel="noopener">Copr</a>
@@ -277,7 +277,7 @@
             <code id="pkg-cliamp">sudo dnf copr enable linuxgamerlife/lgl-cliamp</code>
             <button class="copy-btn" type="button" data-copy="#pkg-cliamp" aria-label="Copy enable command for LGL cliamp"><span class="copy-btn__label">Copy</span></button>
           </div>
-          <p class="project__desc" style="margin-top:0.6rem">Then <span class="mono">sudo dnf install lgl-cliamp</span>.</p>
+          <p class="project__desc" style="margin-top:0.6rem">Then <span class="mono" id="install-lgl-cliamp">sudo dnf install lgl-cliamp</span> <button class="copy-btn" type="button" data-copy="#install-lgl-cliamp" aria-label="Copy install command for LGL cliamp"><span class="copy-btn__label">Copy</span></button></p>
           <div class="project__links">
             <a class="project__link" href="https://github.com/linuxgamerlife/lgl-cliamp" target="_blank" rel="noopener">GitHub</a>
             <a class="project__link" href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/lgl-cliamp/" target="_blank" rel="noopener">Copr</a>
@@ -290,7 +290,7 @@
             <code id="pkg-vm">sudo dnf copr enable linuxgamerlife/lgl-vm-curator</code>
             <button class="copy-btn" type="button" data-copy="#pkg-vm" aria-label="Copy enable command for LGL VM Curator"><span class="copy-btn__label">Copy</span></button>
           </div>
-          <p class="project__desc" style="margin-top:0.6rem">Then <span class="mono">sudo dnf install lgl-vm-curator</span>.</p>
+          <p class="project__desc" style="margin-top:0.6rem">Then <span class="mono" id="install-lgl-vm-curator">sudo dnf install lgl-vm-curator</span> <button class="copy-btn" type="button" data-copy="#install-lgl-vm-curator" aria-label="Copy install command for LGL VM Curator"><span class="copy-btn__label">Copy</span></button></p>
           <div class="project__links">
             <a class="project__link" href="https://github.com/linuxgamerlife/lgl-vm-curator" target="_blank" rel="noopener">GitHub</a>
             <a class="project__link" href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/lgl-vm-curator/" target="_blank" rel="noopener">Copr</a>
