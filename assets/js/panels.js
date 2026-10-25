@@ -16,9 +16,49 @@
 
     ai: [
       '<p class="tty-modal__cmd">$ cat ai.txt</p>',
-      '<p class="tty-note">AI tools are part of my workflow, and I am open about it. They help me draft code, understand error messages, and get past the parts of a project where I would otherwise stall. Some of the projects here are heavily AI-assisted; the Debian installer experiment is openly described as vibecoded.</p>',
-      '<p class="tty-note">What AI does not do is decide what gets published. Every script and app is run on my own systems, read through, and adjusted until I understand what it is doing. If something is untested or experimental, I say so. AI is a tool for getting started, not a substitute for testing or judgement, especially when a command is going to change your system.</p>',
-      '<p class="tty-links"><button type="button" class="tty-command" data-cmd="statement">statement</button></p>'
+      '<p class="tty-note">I am committed to being open and responsible about how generative AI is used. My goal is to create honest, helpful, and high-quality content that people can trust.</p>',
+      '<p class="tty-note">AI is used as a support tool to improve workflow, accessibility, and creativity, while the ideas, opinions, and final output always remain my own.</p>',
+      '<p class="tty-note">I believe it is important to be transparent about where and how AI fits into the creative process. Used properly, it can enhance communication and make content clearer and more accessible. Used carelessly, it can damage trust.</p>',
+      '<p class="tty-note">This statement exists to make that boundary clear.</p>',
+
+      '<h3 class="tty-ai__heading">Statement</h3>',
+      '<p class="tty-note">This channel uses Generative AI as a support tool for writing, accessibility, and small creative tasks.</p>',
+      '<p class="tty-note">It does not replace my experience, opinions, or judgement. Everything is reviewed and shaped by me before being published.</p>',
+
+      '<h3 class="tty-ai__heading">Text</h3>',
+      '<p class="tty-note">AI may be used to help draft scripts, descriptions, and community posts.</p>',
+      '<p class="tty-note">It may also be used to improve clarity for beginner-focused explanations, create subtitles and captions, assist with translations, summarise complex topics in plain English, and help brainstorm video ideas, titles, and thumbnail text.</p>',
+
+      '<h3 class="tty-ai__heading">Images</h3>',
+      '<p class="tty-note">Some content on the channel contains AI-generated imagery, mainly the Tux alternative and occasionally parts of a thumbnail.</p>',
+      '<p class="tty-note">I manually create the thumbnails and use licensed content from Vecteezy where appropriate.</p>',
+      '<p class="tty-note">My channel icon was created using AI with a real photo of me as reference, combined with inspiration from my favourite game, ARC Raiders, to create a stylised identity image.</p>',
+      '<p class="tty-note">Any AI-generated imagery is used for creative or illustrative purposes only and is not intended to mislead.</p>',
+
+      '<h3 class="tty-ai__heading">Audio</h3>',
+      '<p class="tty-note">I occasionally use AI for audio.</p>',
+      '<p class="tty-note">When it is used, it is limited to occasional supporting voice-over lines, small additions or background music.</p>',
+      '<p class="tty-note">All main narration and core audio content always comes from me.</p>',
+      '<p class="tty-note">Most music used on the channel is licensed through Epidemic Sound. Suno has been used for several tracks and may be used again if something highly specific is required.</p>',
+      '<p class="tty-note">I also use Suno for member announcement audio, but only if they are happy for me to do so.</p>',
+
+      '<h3 class="tty-ai__heading">Video</h3>',
+      '<p class="tty-note">AI is not used to generate video content on this channel.</p>',
+      '<p class="tty-note">All video footage, editing, and final production are created manually by me.</p>',
+      '<p class="tty-note">AI is used carefully and transparently to support creativity and workflow efficiency, while the final creative direction, technical accuracy, and personal perspective always remain my own.</p>',
+
+      '<h3 class="tty-ai__heading">Development</h3>',
+      '<p class="tty-note">AI is used extensively for my website, my apps and the projects on this site. My apps are created to help improve my workflow. If others use them and they help, that is awesome.</p>',
+      '<p class="tty-note">As I am not a developer, I may rely heavily on AI to generate this code. I test the scripts and applications before using them, but I may not fully understand every part of how the code works internally.</p>',
+      '<p class="tty-note">AI-generated code is used as a practical tool to build and experiment with solutions on Linux systems.</p>',
+      '<p class="tty-note">Any code shared publicly reflects tools that I have personally tested and found useful.</p>',
+
+      '<h3 class="tty-ai__heading">Conclusion</h3>',
+      '<p class="tty-note">AI is a tool that helps improve workflow, accessibility, and creativity.</p>',
+      '<p class="tty-note">The ideas, opinions, experiences, and responsibility for everything published on this channel remain my own.</p>',
+      '<p class="tty-note">Transparency matters, and I believe being open about how AI is used is an important part of maintaining trust with the community.</p>',
+
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/ai">cd ~/ai</button> <span class="tty-comment"># full statement page</span></p>'
     ].join(""),
 
     disclaimer: [

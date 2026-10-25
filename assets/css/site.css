@@ -1368,6 +1368,14 @@ body[data-page="home"] .footer__bottom { border-top: 1px solid var(--line); }
 .tty-comment { color: var(--faint); }
 .tty-note { max-width: 72ch; color: var(--muted); font-size: 0.94rem; line-height: 1.7; }
 .tty-note + .tty-note { margin-top: 0.9rem; }
+.tty-ai__heading {
+  margin: 1.4rem 0 0.5rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 .tty-community + .tty-note { margin-top: 1rem; }
 .tty-community {
   color: var(--ink);
