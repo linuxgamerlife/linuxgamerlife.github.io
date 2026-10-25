@@ -202,4 +202,11 @@
       totals.innerHTML = "<span><b>" + people.length + "</b> supporters</span><span><b>" + yt + "</b> on YouTube</span><span><b>" + tw + "</b> on Twitch</span>";
     }
   }
+
+  /* ---------- Web app ---------- */
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("sw.js").catch(function () {});
+    });
+  }
 })();
