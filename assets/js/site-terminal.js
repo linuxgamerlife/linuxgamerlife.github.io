@@ -10,7 +10,7 @@
   var out = bar.querySelector(".site-tty__out");
   if (!form || !input || !out) return;
 
-  var COMMANDS = ["help", "ls", "lsblk", "lspci", "clear", "theme", "cd", "about", "journey", "principles", "videos", "community", "projects", "toolkit", "setup", "home", "discounts", "ai", "disclaimer", "tdlr", "story", "contact", "statement", "mainmachine", "legal", "sudo", "rm", "mkdir", "pwd", "echo", "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"]
+  var COMMANDS = ["help", "ls", "lsblk", "lspci", "clear", "theme", "cd", "about", "journey", "principles", "videos", "community", "projects", "toolkit", "setup", "home", "discounts", "ai", "disclaimer", "tdlr", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal", "sudo", "rm", "mkdir", "pwd", "echo", "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"]
     .concat(Object.keys(window.LGLLinks || {}));
   var pendingSudo = false;
   var history = [];
@@ -84,7 +84,7 @@
       return;
     }
     if (lower === "help") {
-      say("about  journey  principles  videos  community  projects  toolkit  setup  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  legal\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\nls  cd ~/videos  cd ~/projects  cd ~/about  cd ~/community  cd ~/toolkit  cd ~/setup  cd ~\ntheme <name>  twitch  youtube  kick  github  copr  kofi  x  kineticwe  noctalia  fedora  theblackdon  finley  keychron  lsblk  lspci  sudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch");
+      say("about  journey  principles  videos  community  projects  toolkit  setup  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\nls  cd ~/videos  cd ~/projects  cd ~/about  cd ~/community  cd ~/toolkit  cd ~/setup  cd ~\ntheme <name>  twitch  youtube  kick  github  copr  kofi  x  kineticwe  noctalia  fedora  theblackdon  finley  keychron  lsblk  lspci  sudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch");
       return;
     }
     if (lower === "ls") {

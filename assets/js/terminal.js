@@ -10,7 +10,7 @@
   var COMMANDS = [
     "about", "journey", "principles", "videos", "projects",
     "toolkit", "setup", "community", "discounts", "ai", "disclaimer", "tdlr",
-    "story", "contact", "statement", "mainmachine", "legal",
+    "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
     "ls", "lsblk", "lspci", "fastfetch", "theme", "clear", "exit", "help"
   ];
   var history = [];
@@ -78,7 +78,7 @@
       ["lgl@fedora", ""],
       ["-----------", ""],
       ["OS", "Fedora Linux 44 (Workstation)"],
-      ["Host", "LGL Desktop"],
+      ["Host", "PC1"],
       ["Kernel", "7.2.11-200.fc44.x86_64"],
       ["DE", "KineticWE"],
       ["WM", "KWin (Wayland)"],

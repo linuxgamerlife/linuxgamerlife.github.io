@@ -119,10 +119,14 @@
       '<div><dt>Memory</dt><dd>64 GB</dd></div>',
       '<div><dt>Session</dt><dd>Wayland / KineticWE</dd></div>',
       '<div><dt>Shell</dt><dd>zsh / kitty</dd></div>',
+      '<div><dt>Machines</dt><dd>PC1 / PC2 / NSM / Mac mini</dd></div>',
       '</dl>',
       '<p class="tty-links">',
       '<button type="button" class="tty-command" data-cmd="cd ~/setup">cd ~/setup</button> <span>/</span> ',
-      '<button type="button" class="tty-command" data-cmd="mainmachine">mainmachine</button>',
+      '<button type="button" class="tty-command" data-cmd="mainmachine">mainmachine</button> <span>/</span> ',
+      '<button type="button" class="tty-command" data-cmd="testmachine">testmachine</button> <span>/</span> ',
+      '<button type="button" class="tty-command" data-cmd="nsm">nsm</button> <span>/</span> ',
+      '<button type="button" class="tty-command" data-cmd="macmini">macmini</button>',
       '</p>'
     ].join(""),
 
@@ -351,7 +355,7 @@
 
   function complete() {
     var commands = CONTENT.concat([
-      "tldr", "exit", "theme", "cd", "story", "contact", "statement", "mainmachine", "legal",
+      "tldr", "exit", "theme", "cd", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
       "help", "ls", "lsblk", "lspci", "clear", "sudo", "rm", "mkdir", "pwd", "echo",
       "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"
     ]).concat(Object.keys(window.LGLLinks || {}));
@@ -458,7 +462,7 @@
       return;
     }
     if (name === "help") {
-      status("about  journey  principles  videos  projects  toolkit  setup  community  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  legal\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\ncd ~/videos  theme <name>  ls  lsblk  lspci\nsudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch  exit");
+      status("about  journey  principles  videos  projects  toolkit  setup  community  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\ncd ~/videos  theme <name>  ls  lsblk  lspci\nsudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch  exit");
       return;
     }
     if (name === "ls") {

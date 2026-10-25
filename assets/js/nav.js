@@ -18,6 +18,11 @@
     contact: "about.html#contact",
     statement: "about.html#ai",
     mainmachine: "mysetup.html#mainpc-title",
+    testmachine: "mysetup.html#parts-title",
+    nsm: "mysetup.html#nsm-title",
+    macmini: "mysetup.html#mac-title",
+    pc1: "mysetup.html#mainpc-title",
+    pc2: "mysetup.html#parts-title",
     legal: "about.html#disclaimer",
     "..": "index.html",
     ".": "index.html"
@@ -66,7 +71,7 @@
     fedora: "https://fedoraproject.org/"
   };
 
-  var PATHS = ["~/videos", "~/projects", "~/about", "~/community", "~/toolkit", "~/setup", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "theblackdon", "finley", "discounts", "keychron"];
+  var PATHS = ["~/videos", "~/projects", "~/about", "~/community", "~/toolkit", "~/setup", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "testmachine", "nsm", "macmini", "pc1", "pc2", "theblackdon", "finley", "discounts", "keychron"];
   var NAV_COMMANDS = ["./home", "./about", "./videos", "./community", "./projects", "./toolkit", "./setup", "./youtube", "./twitch", "./kick"];
 
   function commonPrefix(a, b) {
@@ -289,7 +294,7 @@
       "lgl@fedora",
       "-----------",
       "OS: Fedora Linux 44 (Workstation)",
-      "Host: LGL Desktop",
+      "Host: PC1",
       "Kernel: 7.2.11-200.fc44.x86_64",
       "DE: KineticWE",
       "WM: KWin (Wayland)",
