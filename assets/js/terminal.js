@@ -8,7 +8,7 @@
   if (!form || !input || !log) return;
 
   var COMMANDS = [
-    "about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nix", "nixos", "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "projects",
+    "about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nix", "nixos", "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11", "projects",
     "toolkit", "setup", "community", "discounts", "ai", "disclaimer", "tdlr",
     "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
     "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floor",

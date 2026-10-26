@@ -372,7 +372,9 @@
     nobara: { title: "Nobara Linux", url: "https://youtu.be/5K3nasa9RHw", label: "youtu.be" },
     steamos: { title: "SteamOS", url: "https://youtu.be/sIJ4LdsG42E", label: "youtu.be" },
     cachyos: { title: "CachyOS", url: "https://youtu.be/SVEnq_8AUK8", label: "youtu.be" },
-    ubuntu: { title: "Ubuntu", url: "https://youtu.be/x7thWaJ6t2I", label: "youtu.be" }
+    ubuntu: { title: "Ubuntu", url: "https://youtu.be/x7thWaJ6t2I", label: "youtu.be" },
+    wayland: { title: "X11 vs Wayland", url: "https://youtu.be/WZXW7mfcf8Q", label: "youtu.be" },
+    x11: { title: "X11 vs Wayland", url: "https://youtu.be/WZXW7mfcf8Q", label: "youtu.be" }
   };
 
   var ALIASES = {
