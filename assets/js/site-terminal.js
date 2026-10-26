@@ -101,7 +101,7 @@
       return;
     }
     if (lower === "help") {
-      say("about  journey  principles  videos  community  projects  toolkit  setup  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\ndoas  brave  vivaldi  helium  zen  firefox  waterfox  floor\nsolus  opensuse  debian  arch  void  nix  nixos  gentoo\nplaytron  regata/regataos  bazzite  pika/pikaos  garuda  nobara  steam/steamos  cachy/cachyos\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\nls  cd ~/videos  cd ~/projects  cd ~/about  cd ~/community  cd ~/toolkit  cd ~/setup  cd ~\ntheme <name>  twitch  youtube  kick  github  copr  kofi  x  kineticwe  noctalia  fedora  theblackdon  finley  keychron  lsblk  lspci  sudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch");
+      say("about  journey  principles  videos  community  projects  toolkit  setup  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\ndoas  brave  vivaldi  helium  zen  firefox  waterfox  floor\nsolus  opensuse  debian  arch  void  nix  nixos  gentoo\nplaytron  regata/regataos  bazzite  pika/pikaos  garuda  nobara  steam/steamos  cachy/cachyos\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\nls  cd ~/videos  cd ~/projects  cd ~/about  cd ~/community  cd ~/toolkit  cd ~/setup  cd ~\ntheme <name>  twitch  youtube  kick  github  copr  kofi  x  kineticwe  kineticos  kwe  kwe2  noctalia  fedora  theblackdon  finley  keychron  lsblk  lspci  sudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch");
       return;
     }
     if (lower === "ls") {

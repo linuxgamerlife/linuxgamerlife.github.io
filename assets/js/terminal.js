@@ -236,7 +236,7 @@
         COMMANDS.filter(function (item) { return item !== "help"; }).forEach(function (item) { line(item); });
         line("cd ~/videos  cd ~/projects  cd ~/about  cd ~");
         line("./about  ./videos  ./community  ./projects  ./toolkit  ./setup");
-        line("twitch youtube kick github copr kofi x kineticwe noctalia fedora theblackdon finley");
+        line("twitch youtube kick github copr kofi x kineticwe kineticos kwe kwe2 noctalia fedora theblackdon finley");
         line("keychron  lsblk  lspci  sudo  rm  mkdir  pwd  echo");
         line("help");
         break;
