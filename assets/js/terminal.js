@@ -11,6 +11,7 @@
     "about", "journey", "principles", "videos", "projects",
     "toolkit", "setup", "community", "discounts", "ai", "disclaimer", "tdlr",
     "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
+    "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floor",
     "ls", "lsblk", "lspci", "fastfetch", "theme", "clear", "exit", "help"
   ];
   var history = [];
@@ -40,13 +41,13 @@
     return p;
   }
 
-  function linkLine(label, href, external) {
+  function linkLine(label, href, external, linkText) {
     var p = document.createElement("p");
     p.className = "tty-log-line";
     p.appendChild(document.createTextNode(label + " "));
     var a = document.createElement("a");
     a.href = href;
-    a.textContent = href.replace(/^https?:\/\//, "");
+    a.textContent = linkText || href.replace(/^https?:\/\//, "").replace(/\/$/, "");
     if (external) {
       a.target = "_blank";
       a.rel = "noopener";
@@ -194,6 +195,17 @@
     }
     if (name === "echo") {
       line(argument);
+      return;
+    }
+
+    if (name === "doas") {
+      line(window.LGLDoas || "Sorry, cinnamon rolls are out of stock. Please come back later.");
+      return;
+    }
+
+    var browser = window.LGLBrowsers && window.LGLBrowsers[name];
+    if (browser) {
+      linkLine(browser.text, browser.url, true, browser.label);
       return;
     }
 

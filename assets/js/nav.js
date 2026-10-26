@@ -306,3 +306,47 @@
     ].join("\n");
   };
 })();
+
+(function () {
+  "use strict";
+
+  window.LGLDoas = "Sorry, cinnamon rolls are out of stock. Please come back later.";
+
+  window.LGLBrowsers = {
+    brave: {
+      text: "Brave sucks :P",
+      url: "https://brave.com/",
+      label: "brave.com"
+    },
+    vivaldi: {
+      text: "the browser of choice",
+      url: "https://vivaldi.com/",
+      label: "vivaldi.com"
+    },
+    helium: {
+      text: "the other best browser",
+      url: "https://helium.computer/",
+      label: "helium.computer"
+    },
+    zen: {
+      text: "Not so zen when you want to go horizontal",
+      url: "https://zen-browser.app/",
+      label: "zen-browser.app"
+    },
+    firefox: {
+      text: "nice",
+      url: "https://www.mozilla.org/firefox/",
+      label: "mozilla.org/firefox"
+    },
+    waterfox: {
+      text: "ok i guess",
+      url: "https://www.waterfox.net/",
+      label: "waterfox.net"
+    },
+    floor: {
+      text: "different I guess?",
+      url: "https://floorp.app/",
+      label: "floorp.app"
+    }
+  };
+})();

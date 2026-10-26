@@ -10,7 +10,7 @@
   var out = bar.querySelector(".site-tty__out");
   if (!form || !input || !out) return;
 
-  var COMMANDS = ["help", "ls", "lsblk", "lspci", "clear", "theme", "cd", "about", "journey", "principles", "videos", "community", "projects", "toolkit", "setup", "home", "discounts", "ai", "disclaimer", "tdlr", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal", "sudo", "rm", "mkdir", "pwd", "echo", "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"]
+  var COMMANDS = ["help", "ls", "lsblk", "lspci", "clear", "theme", "cd", "about", "journey", "principles", "videos", "community", "projects", "toolkit", "setup", "home", "discounts", "ai", "disclaimer", "tdlr", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal", "sudo", "rm", "mkdir", "pwd", "echo", "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floor", "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"]
     .concat(Object.keys(window.LGLLinks || {}));
   var pendingSudo = false;
   var history = [];
@@ -19,6 +19,16 @@
 
   function say(text) {
     out.textContent = text;
+  }
+
+  function sayLink(text, url, label) {
+    out.textContent = text + " ";
+    var link = document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = label;
+    out.appendChild(link);
   }
 
   function run(raw) {
@@ -69,6 +79,12 @@
     if (FUNNY[lower]) { say(FUNNY[lower]); return; }
     if (lower === "pwd") { say("/home/lgl"); return; }
     if (lower === "echo" || lower.indexOf("echo ") === 0) { say(value.slice(5).trim()); return; }
+    if (lower === "doas") { say(window.LGLDoas || "Sorry, cinnamon rolls are out of stock. Please come back later."); return; }
+    if (window.LGLBrowsers && window.LGLBrowsers[lower]) {
+      var browser = window.LGLBrowsers[lower];
+      sayLink(browser.text, browser.url, browser.label);
+      return;
+    }
     if (lower === "whoami") { say("linuxgamerlife"); return; }
     if (lower === "cat" || lower.indexOf("cat ") === 0) {
       var file = value.slice(4).trim();
@@ -84,7 +100,7 @@
       return;
     }
     if (lower === "help") {
-      say("about  journey  principles  videos  community  projects  toolkit  setup  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\nls  cd ~/videos  cd ~/projects  cd ~/about  cd ~/community  cd ~/toolkit  cd ~/setup  cd ~\ntheme <name>  twitch  youtube  kick  github  copr  kofi  x  kineticwe  noctalia  fedora  theblackdon  finley  keychron  lsblk  lspci  sudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch");
+      say("about  journey  principles  videos  community  projects  toolkit  setup  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\ndoas  brave  vivaldi  helium  zen  firefox  waterfox  floor\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\nls  cd ~/videos  cd ~/projects  cd ~/about  cd ~/community  cd ~/toolkit  cd ~/setup  cd ~\ntheme <name>  twitch  youtube  kick  github  copr  kofi  x  kineticwe  noctalia  fedora  theblackdon  finley  keychron  lsblk  lspci  sudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch");
       return;
     }
     if (lower === "ls") {

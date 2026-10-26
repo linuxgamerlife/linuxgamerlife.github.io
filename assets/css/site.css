@@ -2172,3 +2172,13 @@ body[data-page="mysetup"] .page-head .container::before { content: "lgl@fedora:~
 
 .tty-log-line { white-space: pre-wrap; }
 .site-tty__out { white-space: pre-wrap; }
+
+/* Links printed by the compact and popup terminals */
+.site-tty__out a,
+.tty-modal__status a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.site-tty__out a:hover,
+.tty-modal__status a:hover { color: var(--ink); }

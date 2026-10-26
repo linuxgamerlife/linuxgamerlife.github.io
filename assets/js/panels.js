@@ -309,6 +309,18 @@
     statusEl.textContent = text;
   }
 
+  function statusLink(text, url, label) {
+    ensureModal();
+    statusEl.hidden = false;
+    statusEl.textContent = text + " ";
+    var link = document.createElement("a");
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = label;
+    statusEl.appendChild(link);
+  }
+
   function renderProjects() {
     var list = body.querySelector("[data-projects-list]");
     var count = body.querySelector("[data-projects-count]");
@@ -397,6 +409,7 @@
     var commands = CONTENT.concat([
       "tldr", "exit", "theme", "cd", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
       "help", "ls", "lsblk", "lspci", "clear", "sudo", "rm", "mkdir", "pwd", "echo",
+      "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floor",
       "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"
     ]).concat(Object.keys(window.LGLLinks || {}));
     var result = window.LGLComplete(input.value, commands, Object.keys(window.LGLTheme.themes), completionState);
@@ -476,6 +489,15 @@
       status(argument);
       return;
     }
+    if (name === "doas") {
+      status(window.LGLDoas || "Sorry, cinnamon rolls are out of stock. Please come back later.");
+      return;
+    }
+    if (window.LGLBrowsers && window.LGLBrowsers[name]) {
+      var browser = window.LGLBrowsers[name];
+      statusLink(browser.text, browser.url, browser.label);
+      return;
+    }
     if (name === "whoami") {
       status("linuxgamerlife");
       return;
@@ -502,7 +524,7 @@
       return;
     }
     if (name === "help") {
-      status("about  journey  principles  videos  projects  toolkit  setup  community  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\ncd ~/videos  theme <name>  ls  lsblk  lspci\nsudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch  exit");
+      status("about  journey  principles  videos  projects  toolkit  setup  community  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\ndoas  brave  vivaldi  helium  zen  firefox  waterfox  floor\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\ncd ~/videos  theme <name>  ls  lsblk  lspci\nsudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch  exit");
       return;
     }
     if (name === "ls") {
