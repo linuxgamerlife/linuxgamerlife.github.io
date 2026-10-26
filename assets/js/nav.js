@@ -371,7 +371,8 @@
     garuda: { title: "Garuda Linux", url: "https://youtu.be/7t3ly_gU5Mg", label: "youtu.be" },
     nobara: { title: "Nobara Linux", url: "https://youtu.be/5K3nasa9RHw", label: "youtu.be" },
     steamos: { title: "SteamOS", url: "https://youtu.be/sIJ4LdsG42E", label: "youtu.be" },
-    cachyos: { title: "CachyOS", url: "https://youtu.be/SVEnq_8AUK8", label: "youtu.be" }
+    cachyos: { title: "CachyOS", url: "https://youtu.be/SVEnq_8AUK8", label: "youtu.be" },
+    ubuntu: { title: "Ubuntu", url: "https://youtu.be/x7thWaJ6t2I", label: "youtu.be" }
   };
 
   var ALIASES = {

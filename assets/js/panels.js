@@ -339,6 +339,23 @@
       '</div>',
       '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
     ].join(""),
+
+    ubuntu: [
+      '<p class="tty-modal__cmd">$ play ubuntu</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/x7thWaJ6t2I" target="_blank" rel="noopener" aria-label="Watch Ubuntu on YouTube">',
+      '<img src="assets/img/videos/ubuntu.jpg" alt="Ubuntu video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">Ubuntu</h3>',
+      '<p class="video-card__desc">In this video I try Ubuntu.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/x7thWaJ6t2I" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
     projects: [
       '<p class="tty-modal__cmd">$ ls ~/projects</p>',
       '<p class="tty-note">I am not a developer. These are small tools I made because I needed them, shared in the hope they save someone else a job. They are MIT licensed and used at your own risk.</p>',
@@ -427,7 +444,7 @@
     ].join("")
   };
 
-  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "projects", "toolkit", "setup", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
+  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "ubuntu", "projects", "toolkit", "setup", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
   var ALIASES = { tldr: "tdlr", nix: "nixos", regata: "regataos", pika: "pikaos", steam: "steamos", cachy: "cachyos" };
 
   var modal = null;
@@ -649,7 +666,7 @@
       "help", "ls", "lsblk", "lspci", "clear", "sudo", "rm", "mkdir", "pwd", "echo",
       "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floor",
       "solus", "opensuse", "debian", "arch", "void", "nix", "nixos",
-      "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo",
+      "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu",
       "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"
     ]).concat(Object.keys(window.LGLLinks || {}));
     var result = window.LGLComplete(input.value, commands, Object.keys(window.LGLTheme.themes), completionState);
@@ -769,7 +786,7 @@
       return;
     }
     if (name === "help") {
-      status("about  journey  principles  videos  projects  toolkit  setup  community  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\ndoas  brave  vivaldi  helium  zen  firefox  waterfox  floor\nsolus  opensuse  debian  arch  void  nix  nixos  gentoo\nplaytron  regata/regataos  bazzite  pika/pikaos  garuda  nobara  steam/steamos  cachy/cachyos\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\ncd ~/videos  theme <name>  ls  lsblk  lspci\nsudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch  exit");
+      status("about  journey  principles  videos  projects  toolkit  setup  community  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\ndoas  brave  vivaldi  helium  zen  firefox  waterfox  floor\nsolus  opensuse  debian  arch  void  nix  nixos  gentoo\nplaytron  regata/regataos  bazzite  pika/pikaos  garuda  nobara  steam/steamos  cachy/cachyos  ubuntu\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\ncd ~/videos  theme <name>  ls  lsblk  lspci\nsudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch  exit");
       return;
     }
     if (name === "ls") {

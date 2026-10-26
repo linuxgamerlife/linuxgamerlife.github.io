@@ -48,7 +48,8 @@ const CORE = [
   "/assets/img/videos/garuda.jpg",
   "/assets/img/videos/nobara.jpg",
   "/assets/img/videos/steamos.jpg",
-  "/assets/img/videos/cachyos.jpg"
+  "/assets/img/videos/cachyos.jpg",
+  "/assets/img/videos/ubuntu.jpg"
 ];
 
 self.addEventListener("install", (event) => {
