@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-25T09:11:03Z",
+  "generated": "2026-10-26T10:10:51Z",
   "meta": {
     "repos": 27,
     "stars": 104,
@@ -59,7 +59,7 @@
       "featured": true,
       "stars": 4,
       "forks": 1,
-      "updated": "2026-10-21",
+      "updated": "2026-10-25",
       "repo_url": "https://github.com/linuxgamerlife/lgl-scheduler-manager",
       "copr": {
         "project": "linuxgamerlife/lgl-toolkit",
@@ -153,7 +153,7 @@
       "featured": false,
       "stars": 1,
       "forks": 0,
-      "updated": "2026-06-07",
+      "updated": "2026-10-25",
       "repo_url": "https://github.com/linuxgamerlife/lgl-powerprofile-manager",
       "copr": {
         "project": "linuxgamerlife/lgl-powerprofile-manager",
@@ -378,7 +378,7 @@
       "featured": false,
       "stars": 5,
       "forks": 0,
-      "updated": "2026-09-20",
+      "updated": "2026-10-25",
       "repo_url": "https://github.com/linuxgamerlife/Wallpapers",
       "copr": null
     },
