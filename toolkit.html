@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LGL Toolkit install guide | Linux Gamer Life</title>
-<meta name="description" content="Install the LGL Toolkit on Fedora: one Copr repo, then colour picker, emoji picker, wallpaper editor, DNF helper, scheduler manager and more.">
+<meta name="description" content="Install the LGL Toolkit on Fedora: one Copr repo, then colour picker, emoji picker, wallpaper editor, DNF helper, scheduler manager, power profile manager and more.">
 <meta name="theme-color" content="#17131c">
 <link rel="canonical" href="https://linuxgamerlife.github.io/toolkit.html">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
@@ -243,6 +243,22 @@
             <a class="project__link" href="https://github.com/linuxgamerlife/lgl-keychron-helper" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
+
+        <div class="app">
+          <span class="app__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M13 8l-3 4h3l-1 4 3-4h-3z"/></svg></span>
+          <div>
+            <h3 class="app__name">LGL Power Profile Manager</h3>
+            <p class="app__desc">Switch tuned profiles from a desktop window: battery, balanced and performance in one click.</p>
+            <p class="app__pkg">package: <b>lgl-powerprofile-manager</b></p>
+            <div class="install" style="margin-top:0.7rem;padding:0.55rem 0.8rem">
+              <code id="pkg-powerprofile">sudo dnf install lgl-powerprofile-manager</code>
+              <button class="copy-btn" type="button" data-copy="#pkg-powerprofile" aria-label="Copy install command for LGL Power Profile Manager"><span class="copy-btn__label">Copy</span></button>
+            </div>
+          </div>
+          <div class="app__links">
+            <a class="project__link" href="https://github.com/linuxgamerlife/lgl-powerprofile-manager" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
       </div>
 
       <div class="callout" style="margin-top:1.2rem">
@@ -257,22 +273,9 @@
       <div class="section__head reveal">
         <p class="eyebrow">Separate repos</p>
         <h2 class="section__title" id="separate-title">Also packaged</h2>
-        <p class="lede">These projects have their own Copr repository rather than living inside the toolkit.</p>
+        <p class="lede">These two projects have their own Copr repository rather than living inside the toolkit.</p>
       </div>
       <div class="grid grid--3">
-        <article class="card reveal">
-          <h3 class="card__title">LGL Power Profile Manager</h3>
-          <p class="card__text">Switch tuned profiles from a desktop window: battery, balanced and performance in one click.</p>
-          <div class="install" style="margin-top:0.9rem;padding:0.5rem 0.7rem;font-size:0.68rem">
-            <code id="pkg-power">sudo dnf copr enable linuxgamerlife/lgl-powerprofile-manager</code>
-            <button class="copy-btn" type="button" data-copy="#pkg-power" aria-label="Copy enable command for Power Profile Manager"><span class="copy-btn__label">Copy</span></button>
-          </div>
-          <p class="project__desc" style="margin-top:0.6rem">Then <span class="mono" id="install-lgl-powerprofile-manager">sudo dnf install lgl-powerprofile-manager</span> <button class="copy-btn" type="button" data-copy="#install-lgl-powerprofile-manager" aria-label="Copy install command for Power Profile Manager"><span class="copy-btn__label">Copy</span></button></p>
-          <div class="project__links">
-            <a class="project__link" href="https://github.com/linuxgamerlife/lgl-powerprofile-manager" target="_blank" rel="noopener">GitHub</a>
-            <a class="project__link" href="https://copr.fedorainfracloud.org/coprs/linuxgamerlife/lgl-powerprofile-manager/" target="_blank" rel="noopener">Copr</a>
-          </div>
-        </article>
         <article class="card reveal" data-delay="1">
           <h3 class="card__title">LGL cliamp</h3>
           <p class="card__text">A Fedora-tested build of the terminal music player, with a minimal visualiser and mirrored classic peak view.</p>

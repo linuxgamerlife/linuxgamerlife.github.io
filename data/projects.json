@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-26T10:10:51Z",
+  "generated": "2026-10-26T10:27:46Z",
   "meta": {
     "repos": 27,
     "stars": 104,
@@ -156,7 +156,7 @@
       "updated": "2026-10-25",
       "repo_url": "https://github.com/linuxgamerlife/lgl-powerprofile-manager",
       "copr": {
-        "project": "linuxgamerlife/lgl-powerprofile-manager",
+        "project": "linuxgamerlife/lgl-toolkit",
         "package": "lgl-powerprofile-manager"
       }
     },

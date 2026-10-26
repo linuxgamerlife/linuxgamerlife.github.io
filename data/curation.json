@@ -111,7 +111,7 @@
         "Power"
       ],
       "copr": {
-        "project": "linuxgamerlife/lgl-powerprofile-manager",
+        "project": "linuxgamerlife/lgl-toolkit",
         "package": "lgl-powerprofile-manager"
       }
     },
