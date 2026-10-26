@@ -34,7 +34,13 @@ const CORE = [
   "/assets/img/icon-192.png",
   "/assets/img/icon-512.png",
   "/assets/img/icon-maskable-192.png",
-  "/assets/img/icon-maskable-512.png"
+  "/assets/img/icon-maskable-512.png",
+  "/assets/img/videos/solus.jpg",
+  "/assets/img/videos/opensuse.jpg",
+  "/assets/img/videos/debian.jpg",
+  "/assets/img/videos/arch.jpg",
+  "/assets/img/videos/void.jpg",
+  "/assets/img/videos/nixos.jpg"
 ];
 
 self.addEventListener("install", (event) => {

@@ -101,6 +101,108 @@
       '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all series</span></p>'
     ].join(""),
 
+
+    solus: [
+      '<p class="tty-modal__cmd">$ play solus</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/z_SKBA215mA" target="_blank" rel="noopener" aria-label="Watch Solus Linux on YouTube">',
+      '<img src="assets/img/videos/solus.jpg" alt="Solus Linux video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">Solus Linux</h3>',
+      '<p class="video-card__desc">In this episode, I start a Linux challenge with Solus Linux.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/z_SKBA215mA" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
+
+    opensuse: [
+      '<p class="tty-modal__cmd">$ play opensuse</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/UNGx4bOb1v0" target="_blank" rel="noopener" aria-label="Watch openSUSE Tumbleweed on YouTube">',
+      '<img src="assets/img/videos/opensuse.jpg" alt="openSUSE Tumbleweed video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">openSUSE Tumbleweed</h3>',
+      '<p class="video-card__desc">In this video, I dive into OpenSUSE Tumbleweed using the KDE Plasma desktop.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/UNGx4bOb1v0" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
+
+    debian: [
+      '<p class="tty-modal__cmd">$ play debian</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/FZYt7HV4Io8" target="_blank" rel="noopener" aria-label="Watch Debian 13 on YouTube">',
+      '<img src="assets/img/videos/debian.jpg" alt="Debian 13 video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">Debian 13</h3>',
+      '<p class="video-card__desc">In this video I install Debian 13 from start to finish and put it through its paces by setting up Steam.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/FZYt7HV4Io8" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
+
+    arch: [
+      '<p class="tty-modal__cmd">$ play arch</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/0jcEhbwc0cY" target="_blank" rel="noopener" aria-label="Watch Arch Linux on YouTube">',
+      '<img src="assets/img/videos/arch.jpg" alt="Arch Linux video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">Arch Linux</h3>',
+      '<p class="video-card__desc">Can a beginner really install Arch Linux and get Steam gaming with a controller running in one sitting?</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/0jcEhbwc0cY" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
+
+    void: [
+      '<p class="tty-modal__cmd">$ play void</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/svQ2Fjsa7v8" target="_blank" rel="noopener" aria-label="Watch Void Linux on YouTube">',
+      '<img src="assets/img/videos/void.jpg" alt="Void Linux video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">Void Linux</h3>',
+      '<p class="video-card__desc">I try Void Linux to see how easy it is for someone with some technical knowledge to install, update, and run a game on Steam with a controller.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/svQ2Fjsa7v8" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
+
+    nixos: [
+      '<p class="tty-modal__cmd">$ play nixos</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/NrQ3q0JzV58" target="_blank" rel="noopener" aria-label="Watch NixOS on YouTube">',
+      '<img src="assets/img/videos/nixos.jpg" alt="NixOS video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">NixOS</h3>',
+      '<p class="video-card__desc">This time I am taking on the final boss, NixOS.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/NrQ3q0JzV58" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
     projects: [
       '<p class="tty-modal__cmd">$ ls ~/projects</p>',
       '<p class="tty-note">I am not a developer. These are small tools I made because I needed them, shared in the hope they save someone else a job. They are MIT licensed and used at your own risk.</p>',
@@ -189,8 +291,8 @@
     ].join("")
   };
 
-  var CONTENT = ["about", "journey", "principles", "videos", "projects", "toolkit", "setup", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
-  var ALIASES = { tldr: "tdlr" };
+  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "projects", "toolkit", "setup", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
+  var ALIASES = { tldr: "tdlr", nix: "nixos" };
 
   var modal = null;
   var body = null;
@@ -410,6 +512,7 @@
       "tldr", "exit", "theme", "cd", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
       "help", "ls", "lsblk", "lspci", "clear", "sudo", "rm", "mkdir", "pwd", "echo",
       "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floor",
+      "solus", "opensuse", "debian", "arch", "void", "nix", "nixos",
       "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"
     ]).concat(Object.keys(window.LGLLinks || {}));
     var result = window.LGLComplete(input.value, commands, Object.keys(window.LGLTheme.themes), completionState);
@@ -524,7 +627,7 @@
       return;
     }
     if (name === "help") {
-      status("about  journey  principles  videos  projects  toolkit  setup  community  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\ndoas  brave  vivaldi  helium  zen  firefox  waterfox  floor\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\ncd ~/videos  theme <name>  ls  lsblk  lspci\nsudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch  exit");
+      status("about  journey  principles  videos  projects  toolkit  setup  community  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\ndoas  brave  vivaldi  helium  zen  firefox  waterfox  floor\nsolus  opensuse  debian  arch  void  nix  nixos\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\ncd ~/videos  theme <name>  ls  lsblk  lspci\nsudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch  exit");
       return;
     }
     if (name === "ls") {

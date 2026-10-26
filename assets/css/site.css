@@ -2182,3 +2182,68 @@ body[data-page="mysetup"] .page-head .container::before { content: "lgl@fedora:~
 }
 .site-tty__out a:hover,
 .tty-modal__status a:hover { color: var(--ink); }
+
+/* Video panels */
+.video-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 1.2rem;
+  align-items: start;
+  margin: 1rem 0 0;
+}
+.video-card__thumb {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--bg);
+}
+.video-card__thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.video-card__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.video-card__thumb:hover .video-card__play,
+.video-card__thumb:focus-visible .video-card__play { opacity: 1; }
+.video-card__play::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 20px solid var(--ink);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.65));
+}
+.video-card__body { display: grid; gap: 0.55rem; justify-items: start; }
+.video-card__tag {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.video-card__title {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.video-card__desc { margin: 0; color: var(--muted); font-size: 0.94rem; line-height: 1.7; }
+.video-card__body .btn { margin-top: 0.35rem; }
+@media (max-width: 700px) {
+  .video-card { grid-template-columns: 1fr; }
+}
