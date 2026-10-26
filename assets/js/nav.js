@@ -414,3 +414,9 @@
     return false;
   };
 })();
+
+(function () {
+  "use strict";
+
+  window.LGLGentoo = "Only strange people use gentoo. Strange people are awesome though.";
+})();
