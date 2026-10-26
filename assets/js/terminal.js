@@ -8,7 +8,7 @@
   if (!form || !input || !log) return;
 
   var COMMANDS = [
-    "about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nix", "nixos", "projects",
+    "about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nix", "nixos", "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "projects",
     "toolkit", "setup", "community", "discounts", "ai", "disclaimer", "tdlr",
     "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
     "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floor",
@@ -219,6 +219,9 @@
       line("cd: no such directory: " + argument, "is-error");
       return;
     }
+
+    var video = window.LGLVideo && window.LGLVideo(name);
+    if (video) linkLine(video.title + " · video", video.url, true, video.label);
 
     if (window.LGLPanels && window.LGLPanels.open(name)) return;
     if (window.LGLNavigate && window.LGLNavigate(name)) return;

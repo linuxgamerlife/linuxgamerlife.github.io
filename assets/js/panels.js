@@ -203,6 +203,142 @@
       '</div>',
       '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
     ].join(""),
+
+    playtron: [
+      '<p class="tty-modal__cmd">$ play playtron</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/qzA5ATPBDQI" target="_blank" rel="noopener" aria-label="Watch Playtron on YouTube">',
+      '<img src="assets/img/videos/playtron.jpg" alt="Playtron video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">Playtron</h3>',
+      '<p class="video-card__desc">It’s designed with handheld users in mind and includes plans to work with anti-cheat developers to make more games playable. In this episode, I go through the full installation, setup, and first impressions. I also see how it handles Steam.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/qzA5ATPBDQI" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
+
+    regataos: [
+      '<p class="tty-modal__cmd">$ play regataos</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/eQYh7guSwrs" target="_blank" rel="noopener" aria-label="Watch Regata OS on YouTube">',
+      '<img src="assets/img/videos/regataos.jpg" alt="Regata OS video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">Regata OS</h3>',
+      '<p class="video-card__desc">Today we are trying out Regata OS. It is based on openSUSE and promoted as a system for content creation and gaming.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/eQYh7guSwrs" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
+
+    bazzite: [
+      '<p class="tty-modal__cmd">$ play bazzite</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/3I30PZoDpl4" target="_blank" rel="noopener" aria-label="Watch Bazzite on YouTube">',
+      '<img src="assets/img/videos/bazzite.jpg" alt="Bazzite video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">Bazzite</h3>',
+      '<p class="video-card__desc">Bazzite, a Steam Deck style Linux desktop OS designed to bring console like gaming to your PC. I went in expecting a smooth setup, but this one fought me at the very start. Was it user error?</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/3I30PZoDpl4" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
+
+    pikaos: [
+      '<p class="tty-modal__cmd">$ play pikaos</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/1q0Qeu6C6eQ" target="_blank" rel="noopener" aria-label="Watch PikaOS on YouTube">',
+      '<img src="assets/img/videos/pikaos.jpg" alt="PikaOS video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">PikaOS</h3>',
+      '<p class="video-card__desc">PikaOS, one of the most talked-about gaming-focused Linux distributions. I wanted to find out how beginner-friendly it really is, from installation and setup to gaming.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/1q0Qeu6C6eQ" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
+
+    garuda: [
+      '<p class="tty-modal__cmd">$ play garuda</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/7t3ly_gU5Mg" target="_blank" rel="noopener" aria-label="Watch Garuda Linux on YouTube">',
+      '<img src="assets/img/videos/garuda.jpg" alt="Garuda Linux video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">Garuda Linux</h3>',
+      '<p class="video-card__desc">In this video I try Garuda.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/7t3ly_gU5Mg" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
+
+    nobara: [
+      '<p class="tty-modal__cmd">$ play nobara</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/5K3nasa9RHw" target="_blank" rel="noopener" aria-label="Watch Nobara Linux on YouTube">',
+      '<img src="assets/img/videos/nobara.jpg" alt="Nobara Linux video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">Nobara Linux</h3>',
+      '<p class="video-card__desc">In this episode of my Linux gaming distro series, I’m trying Nobara Linux, created by GloriousEggroll.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/5K3nasa9RHw" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
+
+    steamos: [
+      '<p class="tty-modal__cmd">$ play steamos</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/sIJ4LdsG42E" target="_blank" rel="noopener" aria-label="Watch SteamOS on YouTube">',
+      '<img src="assets/img/videos/steamos.jpg" alt="SteamOS video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">SteamOS</h3>',
+      '<p class="video-card__desc">This is where it all started for me. I revisited the first Linux gaming distro I ever tried as a Linux daily driver, the one that originally got me curious about Linux gaming.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/sIJ4LdsG42E" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
+
+    cachyos: [
+      '<p class="tty-modal__cmd">$ play cachyos</p>',
+      '<div class="video-card">',
+      '<a class="video-card__thumb" href="https://youtu.be/SVEnq_8AUK8" target="_blank" rel="noopener" aria-label="Watch CachyOS on YouTube">',
+      '<img src="assets/img/videos/cachyos.jpg" alt="CachyOS video thumbnail" loading="lazy">',
+      '<span class="video-card__play" aria-hidden="true"></span>',
+      '</a>',
+      '<div class="video-card__body">',
+      '<span class="video-card__tag">Linux challenge</span>',
+      '<h3 class="video-card__title">CachyOS</h3>',
+      '<p class="video-card__desc">So many people have been mentioning CachyOS in the comments lately, and one comment even claimed my last Linux gaming distro video was bad because I did not include it in the series. That pushed me to actually look into CachyOS.</p>',
+      '<a class="btn btn--ghost btn--sm" href="https://youtu.be/SVEnq_8AUK8" target="_blank" rel="noopener">Watch on YouTube</a>',
+      '</div>',
+      '</div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all videos</span></p>'
+    ].join(""),
     projects: [
       '<p class="tty-modal__cmd">$ ls ~/projects</p>',
       '<p class="tty-note">I am not a developer. These are small tools I made because I needed them, shared in the hope they save someone else a job. They are MIT licensed and used at your own risk.</p>',
@@ -291,8 +427,8 @@
     ].join("")
   };
 
-  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "projects", "toolkit", "setup", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
-  var ALIASES = { tldr: "tdlr", nix: "nixos" };
+  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "projects", "toolkit", "setup", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
+  var ALIASES = { tldr: "tdlr", nix: "nixos", regata: "regataos", pika: "pikaos", steam: "steamos", cachy: "cachyos" };
 
   var modal = null;
   var body = null;
@@ -513,6 +649,7 @@
       "help", "ls", "lsblk", "lspci", "clear", "sudo", "rm", "mkdir", "pwd", "echo",
       "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floor",
       "solus", "opensuse", "debian", "arch", "void", "nix", "nixos",
+      "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos",
       "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"
     ]).concat(Object.keys(window.LGLLinks || {}));
     var result = window.LGLComplete(input.value, commands, Object.keys(window.LGLTheme.themes), completionState);
@@ -627,7 +764,7 @@
       return;
     }
     if (name === "help") {
-      status("about  journey  principles  videos  projects  toolkit  setup  community  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\ndoas  brave  vivaldi  helium  zen  firefox  waterfox  floor\nsolus  opensuse  debian  arch  void  nix  nixos\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\ncd ~/videos  theme <name>  ls  lsblk  lspci\nsudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch  exit");
+      status("about  journey  principles  videos  projects  toolkit  setup  community  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\ndoas  brave  vivaldi  helium  zen  firefox  waterfox  floor\nsolus  opensuse  debian  arch  void  nix  nixos\nplaytron  regata/regataos  bazzite  pika/pikaos  garuda  nobara  steam/steamos  cachy/cachyos\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\ncd ~/videos  theme <name>  ls  lsblk  lspci\nsudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch  exit");
       return;
     }
     if (name === "ls") {
@@ -664,6 +801,11 @@
       status("cd: no such directory: " + argument);
       return;
     }
+    var video = window.LGLVideo && window.LGLVideo(name);
+    if (video && window.LGLAppendLink) {
+      window.LGLAppendLink(video.title + " · video", video.url, video.label);
+    }
+
     if (TEMPLATES[key]) {
       open(key);
       return;

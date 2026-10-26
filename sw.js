@@ -1,6 +1,6 @@
 /* Linux Gamer Life - offline shell and installability. */
 // Bump CACHE when you need to force a fresh offline cache.
-const CACHE = "lgl-v1";
+const CACHE = "lgl-v2";
 
 const CORE = [
   "/",
@@ -40,7 +40,15 @@ const CORE = [
   "/assets/img/videos/debian.jpg",
   "/assets/img/videos/arch.jpg",
   "/assets/img/videos/void.jpg",
-  "/assets/img/videos/nixos.jpg"
+  "/assets/img/videos/nixos.jpg",
+  "/assets/img/videos/playtron.jpg",
+  "/assets/img/videos/regataos.jpg",
+  "/assets/img/videos/bazzite.jpg",
+  "/assets/img/videos/pikaos.jpg",
+  "/assets/img/videos/garuda.jpg",
+  "/assets/img/videos/nobara.jpg",
+  "/assets/img/videos/steamos.jpg",
+  "/assets/img/videos/cachyos.jpg"
 ];
 
 self.addEventListener("install", (event) => {

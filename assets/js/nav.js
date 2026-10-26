@@ -350,3 +350,67 @@
     }
   };
 })();
+
+(function () {
+  "use strict";
+
+  window.LGLVideos = {
+    solus: { title: "Solus Linux", url: "https://youtu.be/z_SKBA215mA", label: "youtu.be" },
+    opensuse: { title: "openSUSE Tumbleweed", url: "https://youtu.be/UNGx4bOb1v0", label: "youtu.be" },
+    debian: { title: "Debian 13", url: "https://youtu.be/FZYt7HV4Io8", label: "youtu.be" },
+    arch: { title: "Arch Linux", url: "https://youtu.be/0jcEhbwc0cY", label: "youtu.be" },
+    void: { title: "Void Linux", url: "https://youtu.be/svQ2Fjsa7v8", label: "youtu.be" },
+    nixos: { title: "NixOS", url: "https://youtu.be/NrQ3q0JzV58", label: "youtu.be" },
+    playtron: { title: "Playtron", url: "https://youtu.be/qzA5ATPBDQI", label: "youtu.be" },
+    regataos: { title: "Regata OS", url: "https://youtu.be/eQYh7guSwrs", label: "youtu.be" },
+    bazzite: { title: "Bazzite", url: "https://youtu.be/3I30PZoDpl4", label: "youtu.be" },
+    pikaos: { title: "PikaOS", url: "https://youtu.be/1q0Qeu6C6eQ", label: "youtu.be" },
+    garuda: { title: "Garuda Linux", url: "https://youtu.be/7t3ly_gU5Mg", label: "youtu.be" },
+    nobara: { title: "Nobara Linux", url: "https://youtu.be/5K3nasa9RHw", label: "youtu.be" },
+    steamos: { title: "SteamOS", url: "https://youtu.be/sIJ4LdsG42E", label: "youtu.be" },
+    cachyos: { title: "CachyOS", url: "https://youtu.be/SVEnq_8AUK8", label: "youtu.be" }
+  };
+
+  var ALIASES = {
+    nix: "nixos",
+    regata: "regataos",
+    pika: "pikaos",
+    steam: "steamos",
+    cachy: "cachyos"
+  };
+
+  window.LGLVideo = function (name) {
+    return window.LGLVideos[ALIASES[name] || name] || null;
+  };
+
+  window.LGLAppendLink = function (text, url, label) {
+    var log = document.getElementById("tty-log");
+    if (log) {
+      var line = document.createElement("p");
+      line.className = "tty-log-line";
+      line.appendChild(document.createTextNode(text + " "));
+      var link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = label;
+      line.appendChild(link);
+      log.appendChild(line);
+      return true;
+    }
+
+    var out = document.querySelector(".site-tty__out");
+    if (out) {
+      out.textContent = text + " ";
+      var siteLink = document.createElement("a");
+      siteLink.href = url;
+      siteLink.target = "_blank";
+      siteLink.rel = "noopener";
+      siteLink.textContent = label;
+      out.appendChild(siteLink);
+      return true;
+    }
+
+    return false;
+  };
+})();
