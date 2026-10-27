@@ -440,6 +440,18 @@
       '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/toolkit">cd ~/toolkit</button> <span class="tty-comment"># install guide</span></p>'
     ].join(""),
 
+    merch: [
+      '<div class="merch-app__head">',
+      '<div><p class="tty-modal__cmd">$ merch</p><h3>Linux Gamer Life merch</h3><p>A collection of really amazing LGL products.</p></div>',
+      '<a class="btn btn--ghost btn--sm" href="https://merch.linuxgamerlife.net" target="_blank" rel="noopener">Open the full shop</a>',
+      '</div>',
+      '<article class="merch-product">',
+      '<a class="merch-product__image" href="https://merch.linuxgamerlife.net/products/fork-it-and-fix-it" target="_blank" rel="noopener"><img src="assets/img/merch/fork-it-and-fix-it.png" alt="Fork it and Fix it LGL T-shirt" width="1200" height="1600" loading="lazy"></a>',
+      '<div class="merch-product__body"><span class="video-card__tag">Featured product</span><h3>Fork it and Fix it</h3><p class="merch-product__price">$21.00 USD</p><p>I say this a lot. Now you can take it with you everywhere you go!</p><a class="btn btn--ghost btn--sm" href="https://merch.linuxgamerlife.net/products/fork-it-and-fix-it" target="_blank" rel="noopener">View product</a></div>',
+      '</article>',
+      '<p class="tty-more merch-app__link"><a href="https://merch.linuxgamerlife.net" target="_blank" rel="noopener">https://merch.linuxgamerlife.net</a></p>'
+    ].join(""),
+
     discounts: [
       '<p class="tty-modal__cmd">$ cat discounts.txt</p>',
       '<p class="tty-note">Affiliate and referral links. A purchase may earn the channel a commission or credit, at no extra cost to you. Codes, stock and prices can change, so check the final price at the shop.</p>',
@@ -494,7 +506,7 @@
     ].join("")
   };
 
-  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "ubuntu", "wayland", "x11", "projects", "toolkit", "setup", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
+  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "ubuntu", "wayland", "x11", "projects", "toolkit", "merch", "setup", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
   var ALIASES = { tldr: "tdlr", nix: "nixos", regata: "regataos", pika: "pikaos", steam: "steamos", cachy: "cachyos" };
 
   var modal = null;
@@ -912,6 +924,11 @@
       }
       return;
     }
+    if ((name === "cd" && /^(~\/)?merch\/?$/i.test(argument)) || name === "./merch") {
+      window.LGLOpenMerch();
+      statusLink("opening the full shop", window.LGLMerch.url, window.LGLMerch.url);
+      return;
+    }
     if (window.LGLOpenLink && window.LGLOpenLink(name)) {
       status("opening " + name + "...");
       return;
@@ -928,6 +945,9 @@
 
     if (TEMPLATES[key]) {
       open(key);
+      if (key === "merch") {
+        statusLink("shop", window.LGLMerch.url, window.LGLMerch.url);
+      }
       return;
     }
     if (window.LGLNavigate && window.LGLNavigate(name)) return;

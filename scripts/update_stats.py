@@ -177,7 +177,8 @@ def disks() -> list[dict]:
             }
         )
 
-    found.sort(key=lambda item: item["_size"], reverse=True)
+    # Fullest drive first, so the usage bars read top to bottom.
+    found.sort(key=lambda item: (-item["pct"], -item["_size"], item["label"]))
     for item in found:
         item.pop("_size", None)
 

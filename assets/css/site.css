@@ -1632,6 +1632,41 @@ body.tty-modal-open { overflow: hidden; }
   overscroll-behavior: contain;
 }
 
+.merch-app__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.merch-app__head .tty-modal__cmd { margin-bottom: 0.45rem; }
+.merch-app__head h3 { margin: 0; color: var(--ink); font-size: clamp(1.2rem, 3vw, 1.8rem); }
+.merch-app__head p:not(.tty-modal__cmd) { margin: 0.4rem 0 0; color: var(--muted); }
+.merch-app__head .btn { flex: 0 0 auto; }
+.merch-product {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(260px, 1.2fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: clamp(0.8rem, 2vw, 1.2rem);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bg-3) 65%, transparent);
+}
+.merch-product__image { display: block; overflow: hidden; border-radius: 9px; background: #eee; }
+.merch-product__image img { display: block; width: 100%; height: min(52vh, 520px); object-fit: cover; object-position: top; }
+.merch-product__body { display: grid; align-content: center; justify-items: start; gap: 0.75rem; }
+.merch-product__body h3 { margin: 0; color: var(--ink); font-size: clamp(1.45rem, 3vw, 2.2rem); }
+.merch-product__body p { margin: 0; color: var(--muted); line-height: 1.7; }
+.merch-product__body .merch-product__price { color: var(--ink); font-family: var(--font-mono); }
+.merch-app__link { margin-bottom: 0; }
+.merch-app__link a { color: var(--accent); }
+
+@media (max-width: 700px) {
+  .merch-app__head { display: grid; }
+  .merch-product { grid-template-columns: 1fr; }
+  .merch-product__image img { height: min(46vh, 430px); }
+}
+
 /* ==========================================================================
    Site-wide terminal layer
    Shared header, footer, page shells and content styling.

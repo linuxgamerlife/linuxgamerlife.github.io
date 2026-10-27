@@ -9,7 +9,7 @@
 
   var COMMANDS = [
     "about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nix", "nixos", "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11", "projects",
-    "toolkit", "setup", "community", "discounts", "ai", "disclaimer", "tdlr",
+    "toolkit", "merch", "setup", "community", "discounts", "ai", "disclaimer", "tdlr",
     "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
     "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floorp",
     "ls", "lsblk", "lspci", "fastfetch", "theme", "clear", "exit", "help", "man"
@@ -176,6 +176,12 @@
       return;
     }
 
+    if ((name === "cd" && /^(~\/)?merch\/?$/i.test(argument)) || name === "./merch") {
+      window.LGLOpenMerch();
+      linkLine("opening the full shop", window.LGLMerch.url, true, window.LGLMerch.url);
+      return;
+    }
+
     if (name === "sudo") {
       line("We trust you have received the usual lecture from the local System");
       line("Administrator. It usually boils down to these three things:");
@@ -266,7 +272,10 @@
     var video = window.LGLVideo && window.LGLVideo(name);
     if (video) linkLine(video.title + " · video", video.url, true, video.label);
 
-    if (window.LGLPanels && window.LGLPanels.open(name)) return;
+    if (window.LGLPanels && window.LGLPanels.open(name)) {
+      if (name === "merch") linkLine("shop", window.LGLMerch.url, true, window.LGLMerch.url);
+      return;
+    }
     if (window.LGLNavigate && window.LGLNavigate(name)) return;
 
     switch (name) {
@@ -284,7 +293,7 @@
         break;
 
       case "ls":
-        line("about/  journey/  principles/  videos/  projects/  toolkit/  setup/  community/  contact/  discounts/");
+        line("about/  journey/  principles/  videos/  projects/  toolkit/  merch/  setup/  community/  contact/  discounts/");
         line("ai.txt  disclaimer.txt  tdlr.txt  manifesto.txt  themes/");
         break;
 

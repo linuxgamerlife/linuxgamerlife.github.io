@@ -1,6 +1,6 @@
 /* Linux Gamer Life - offline shell and installability. */
 // Bump CACHE when you need to force a fresh offline cache.
-const CACHE = "lgl-v9";
+const CACHE = "lgl-v11";
 
 const CORE = [
   "/",
@@ -53,6 +53,7 @@ const CORE = [
   "/assets/img/icon-512.png",
   "/assets/img/icon-maskable-192.png",
   "/assets/img/icon-maskable-512.png",
+  "/assets/img/merch/fork-it-and-fix-it.png",
   "/assets/img/videos/solus.jpg",
   "/assets/img/videos/opensuse.jpg",
   "/assets/img/videos/debian.jpg",

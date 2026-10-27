@@ -40,6 +40,10 @@
   window.LGLNavigate = function (raw) {
     var key = clean(raw);
     if (!key || key === "~") key = "home";
+    if (key === "merch") {
+      window.LGLOpenMerch();
+      return true;
+    }
     if (window.LGLOpenLink && window.LGLOpenLink(key)) return true;
     var target = PAGES[key];
     if (!target) return false;
@@ -74,8 +78,8 @@
     fedora: "https://fedoraproject.org/"
   };
 
-  var PATHS = ["~/videos", "~/projects", "~/about", "~/community", "~/toolkit", "~/setup", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "testmachine", "nsm", "macmini", "pc1", "pc2", "theblackdon", "finley", "discounts", "keychron"];
-  var NAV_COMMANDS = ["./home", "./about", "./videos", "./community", "./projects", "./toolkit", "./setup", "./youtube", "./twitch", "./kick"];
+  var PATHS = ["~/videos", "~/projects", "~/about", "~/community", "~/toolkit", "~/setup", "~/merch", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "testmachine", "nsm", "macmini", "pc1", "pc2", "theblackdon", "finley", "discounts", "keychron"];
+  var NAV_COMMANDS = ["./home", "./about", "./videos", "./community", "./projects", "./toolkit", "./setup", "./merch", "./youtube", "./twitch", "./kick"];
 
   function commonPrefix(a, b) {
     var i = 0;
@@ -97,6 +101,24 @@
       a.target = "_blank";
       a.rel = "noopener";
       a.click();
+    }
+    return true;
+  };
+
+  window.LGLMerch = {
+    url: "https://merch.linuxgamerlife.net",
+    productUrl: "https://merch.linuxgamerlife.net/products/fork-it-and-fix-it"
+  };
+
+  window.LGLOpenMerch = function () {
+    var url = window.LGLMerch.url;
+    var opened = window.open(url, "_blank", "noopener");
+    if (!opened) {
+      var link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.click();
     }
     return true;
   };
@@ -527,6 +549,16 @@
         "Opens the setup app: PC1, PC2, the NSM and the Mac mini, plus storage, peripherals and recommendations."
       ],
       seeAlso: "man discounts, mysetup.html"
+    },
+    merch: {
+      name: "merch",
+      summary: "browse Linux Gamer Life products",
+      synopsis: "merch | cd merch | ./merch",
+      description: [
+        "A collection of really amazing LGL products.",
+        "Run merch to open the shop app, or use cd merch or ./merch to open the full shop."
+      ],
+      seeAlso: "https://merch.linuxgamerlife.net"
     },
     discounts: {
       name: "discounts",

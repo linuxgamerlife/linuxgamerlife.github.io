@@ -10,7 +10,7 @@
   var out = bar.querySelector(".site-tty__out");
   if (!form || !input || !out) return;
 
-  var COMMANDS = ["help", "ls", "lsblk", "lspci", "clear", "theme", "cd", "about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nix", "nixos", "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11", "community", "projects", "toolkit", "setup", "home", "discounts", "ai", "disclaimer", "tdlr", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal", "sudo", "rm", "mkdir", "pwd", "echo", "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floorp", "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf", "man"]
+  var COMMANDS = ["help", "ls", "lsblk", "lspci", "clear", "theme", "cd", "about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nix", "nixos", "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11", "community", "projects", "toolkit", "merch", "setup", "home", "discounts", "ai", "disclaimer", "tdlr", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal", "sudo", "rm", "mkdir", "pwd", "echo", "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floorp", "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf", "man"]
     .concat(Object.keys(window.LGLLinks || {}));
   var pendingSudo = false;
   var history = [];
@@ -138,6 +138,11 @@
       say(page);
       return;
     }
+    if (lower === "cd merch" || lower === "cd ~/merch" || lower === "./merch") {
+      window.LGLOpenMerch();
+      sayLink("opening the full shop", window.LGLMerch.url, window.LGLMerch.url);
+      return;
+    }
     if (lower === "help") {
       var items = COMMANDS.concat(
         window.LGLNavCommands || [],
@@ -148,7 +153,7 @@
       return;
     }
     if (lower === "ls") {
-      say("about/  journey/  principles/  videos/  community/  projects/  toolkit/  setup/  contact/  discounts/\nai.txt  disclaimer.txt  tdlr.txt  themes/");
+      say("about/  journey/  principles/  videos/  community/  projects/  toolkit/  merch/  setup/  contact/  discounts/\nai.txt  disclaimer.txt  tdlr.txt  themes/");
       return;
     }
     if (lower === "lsblk") {
@@ -193,6 +198,7 @@
     if (window.LGLPanels && window.LGLPanels.open(lower)) {
       var video = window.LGLVideo && window.LGLVideo(lower);
       if (video) sayLink(video.title + " · video", video.url, video.label);
+      else if (lower === "merch") sayLink("shop", window.LGLMerch.url, window.LGLMerch.url);
       else say("opening " + lower + "...");
       return;
     }
