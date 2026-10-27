@@ -3,6 +3,30 @@
   "use strict";
 
   var THEMES = {
+    forest: {
+      logo: "assets/theme/harry-green/logo.svg",
+      apple: "assets/theme/harry-green/apple-touch-icon.png",
+      vars: {
+        "--bg": "#050a07", "--bg-2": "#08110c", "--bg-3": "#0c1911",
+        "--line": "rgba(126, 200, 145, 0.16)", "--line-strong": "rgba(142, 222, 160, 0.36)",
+        "--accent": "#8bd17c", "--accent-2": "#5fa86b", "--accent-3": "#2d6b44",
+        "--accent-soft": "rgba(139, 209, 124, 0.12)",
+        "--ink": "#edf8ef", "--muted": "#a5b9aa", "--faint": "#718879",
+        "--ok": "#8bd17c", "--glow": "0 0 32px -22px rgba(139, 209, 124, 0.35)"
+      }
+    },
+    monochrome: {
+      logo: "assets/theme/monochrome/logo.svg",
+      apple: "assets/theme/monochrome/apple-touch-icon.png",
+      vars: {
+        "--bg": "#050505", "--bg-2": "#0b0b0b", "--bg-3": "#151515",
+        "--line": "rgba(255, 255, 255, 0.14)", "--line-strong": "rgba(255, 255, 255, 0.36)",
+        "--accent": "#f2f2f2", "--accent-2": "#c4c4c4", "--accent-3": "#6f6f6f",
+        "--accent-soft": "rgba(255, 255, 255, 0.1)",
+        "--ink": "#fbfbfb", "--muted": "#b9b9b9", "--faint": "#808080",
+        "--ok": "#f2f2f2", "--glow": "0 0 32px -22px rgba(255, 255, 255, 0.28)"
+      }
+    },
     pink: {
       logo: "assets/theme/light-pink/logo.svg",
       apple: "assets/theme/light-pink/apple-touch-icon.png",
@@ -12,7 +36,7 @@
         "--accent": "#f4a3b8", "--accent-2": "#d97a9e", "--accent-3": "#a34f74",
         "--accent-soft": "rgba(244, 163, 184, 0.14)",
         "--ink": "#fdf2f7", "--muted": "#cbb6c2", "--faint": "#a38c9a",
-        "--ok": "#ffb59e", "--glow": "0 0 48px -12px rgba(217, 122, 158, 0.5)"
+        "--ok": "#ffb59e", "--glow": "0 0 32px -22px rgba(217, 122, 158, 0.35)"
       }
     },
     blue: {
@@ -24,7 +48,7 @@
         "--accent": "#6fb4ff", "--accent-2": "#2f6fd0", "--accent-3": "#123b73",
         "--accent-soft": "rgba(111, 180, 255, 0.14)",
         "--ink": "#eaf4ff", "--muted": "#a4b9d4", "--faint": "#7d93b2",
-        "--ok": "#6ee7b7", "--glow": "0 0 48px -12px rgba(47, 111, 208, 0.5)"
+        "--ok": "#6ee7b7", "--glow": "0 0 32px -22px rgba(47, 111, 208, 0.35)"
       }
     },
     green: {
@@ -36,7 +60,7 @@
         "--accent": "#6df2ad", "--accent-2": "#2fbf82", "--accent-3": "#12634a",
         "--accent-soft": "rgba(109, 242, 173, 0.14)",
         "--ink": "#ecfff5", "--muted": "#a3c2b3", "--faint": "#7d9c8d",
-        "--ok": "#6ee7b7", "--glow": "0 0 48px -12px rgba(47, 191, 130, 0.5)"
+        "--ok": "#6ee7b7", "--glow": "0 0 32px -22px rgba(47, 191, 130, 0.35)"
       }
     },
     purple: {
@@ -48,13 +72,13 @@
         "--accent": "#d05eac", "--accent-2": "#9a6bff", "--accent-3": "#6f4bd8",
         "--accent-soft": "rgba(208, 94, 172, 0.14)",
         "--ink": "#f6f2ff", "--muted": "#b3a8c9", "--faint": "#8a80a3",
-        "--ok": "#6ee7b7", "--glow": "0 0 48px -12px rgba(154, 107, 255, 0.5)"
+        "--ok": "#6ee7b7", "--glow": "0 0 32px -22px rgba(154, 107, 255, 0.35)"
       }
     }
   };
 
-  var bakedTheme = "pink";
-  var currentTheme = "pink";
+  var bakedTheme = "monochrome";
+  var currentTheme = "monochrome";
 
   function detectBakedTheme() {
     var accent = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim().toLowerCase();
@@ -75,6 +99,7 @@
     if (apple) apple.href = theme.apple;
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.content = theme.vars["--bg"];
+    document.documentElement.setAttribute("data-theme", currentTheme);
     var label = document.getElementById("tty-theme");
     if (label) label.textContent = currentTheme;
   }
@@ -86,6 +111,7 @@
       document.documentElement.style.setProperty(key, theme.vars[key]);
     });
     currentTheme = name;
+    document.documentElement.setAttribute("data-theme", name);
     updateAssets(theme);
     if (persist !== false) {
       try {
@@ -98,11 +124,12 @@
 
   function reset() {
     try { localStorage.removeItem("lgl-theme:" + bakedTheme); } catch (error) { /* no-op */ }
-    return apply(bakedTheme, false);
+    return apply("pink", true);
   }
 
   function init() {
     detectBakedTheme();
+    document.documentElement.setAttribute("data-theme", currentTheme);
     try {
       var stored = localStorage.getItem("lgl-theme:" + bakedTheme);
       if (stored && THEMES[stored]) apply(stored, false);

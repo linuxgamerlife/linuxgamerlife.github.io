@@ -114,7 +114,11 @@
     }
 
     var candidates;
-    if (lower === "theme" || lower.indexOf("theme ") === 0) {
+    if (lower === "man" || lower.indexOf("man ") === 0) {
+      candidates = (window.LGLMan ? window.LGLMan.names() : []).map(function (name) {
+        return "man " + name;
+      });
+    } else if (lower === "theme" || lower.indexOf("theme ") === 0) {
       candidates = themes.map(function (name) { return "theme " + name; });
       candidates.push("theme reset");
     } else if (lower === "cd" || lower.indexOf("cd ") === 0) {
@@ -346,7 +350,7 @@
       url: "https://www.waterfox.net/",
       label: "waterfox.net"
     },
-    floor: {
+    floorp: {
       text: "different I guess?",
       url: "https://floorp.app/",
       label: "floorp.app"
@@ -426,3 +430,276 @@
 
   window.LGLGentoo = "Only strange people use gentoo. Strange people are awesome though.";
 })();
+
+/* Manual pages for the terminal `man` command. */
+(function () {
+  "use strict";
+
+  var MAN = {
+    help: {
+      name: "help",
+      summary: "list the available commands",
+      synopsis: "help",
+      description: [
+        "Prints every command in columns.",
+        "Use man <topic> to read about a page, app or command."
+      ],
+      seeAlso: "man man, man theme"
+    },
+    man: {
+      name: "man",
+      summary: "format and display manual pages",
+      synopsis: "man <topic>",
+      description: [
+        "Prints the manual page for a page, app or command. Run man on its own to list every topic."
+      ],
+      seeAlso: "man help, man videos"
+    },
+    videos: {
+      name: "videos",
+      summary: "browse every Linux Gamer Life video series",
+      synopsis: "videos",
+      description: [
+        "Opens the videos app in a panel with all seven series, from I Switched... to Indie Spotlight.",
+        "Every entry links to YouTube, and the panel leaves a link in the terminal after it closes."
+      ],
+      seeAlso: "man journey, man projects, videos.html"
+    },
+    journey: {
+      name: "journey",
+      summary: "follow the move from Windows to Linux",
+      synopsis: "journey",
+      description: [
+        "Opens the LGL journey app: the switch away from Windows in 2025, what changed day to day, and what is still being learned."
+      ],
+      seeAlso: "man about, man videos"
+    },
+    principles: {
+      name: "principles",
+      summary: "what Linux Gamer Life stands for",
+      synopsis: "principles",
+      description: [
+        "Community, the journey, Linux gaming and indie games: the four principles behind the channel and this site."
+      ],
+      seeAlso: "man about, man community"
+    },
+    about: {
+      name: "about",
+      summary: "who is behind Linux Gamer Life",
+      synopsis: "about",
+      description: [
+        "Opens the about app: the short version, the setup, and links to the people and projects behind the site."
+      ],
+      seeAlso: "man journey, man contact"
+    },
+    community: {
+      name: "community",
+      summary: "join the Linux Gamer Life community",
+      synopsis: "community",
+      description: [
+        "Opens the community app with the Discord, YouTube comments and other places to ask questions or share fixes."
+      ],
+      seeAlso: "man about, man contact"
+    },
+    projects: {
+      name: "projects",
+      summary: "small open-source tools built for Linux",
+      synopsis: "projects",
+      description: [
+        "Opens the projects app: the LGL tools and experiments, with links to GitHub and Copr."
+      ],
+      seeAlso: "man toolkit, projects.html"
+    },
+    toolkit: {
+      name: "toolkit",
+      summary: "install the LGL Toolkit from Copr",
+      synopsis: "toolkit",
+      description: [
+        "Opens the toolkit install guide. One Copr repository provides the colour picker, emoji picker, wallpaper editor, DNF helper, scheduler and power profile manager."
+      ],
+      seeAlso: "man projects, toolkit.html"
+    },
+    setup: {
+      name: "setup",
+      summary: "the machines, the desk and the gear",
+      synopsis: "setup",
+      description: [
+        "Opens the setup app: PC1, PC2, the NSM and the Mac mini, plus storage, peripherals and recommendations."
+      ],
+      seeAlso: "man discounts, mysetup.html"
+    },
+    discounts: {
+      name: "discounts",
+      summary: "affiliate links, referrals and discount codes",
+      synopsis: "discounts",
+      description: [
+        "Jumps to the deals section of the setup page. Some links earn the channel a small commission at no extra cost to you."
+      ],
+      seeAlso: "man setup, mysetup.html"
+    },
+    ai: {
+      name: "ai",
+      summary: "how generative AI is used here",
+      synopsis: "ai",
+      description: [
+        "Opens the AI transparency statement: what AI helps with, what it never replaces, and how the final output is reviewed."
+      ],
+      seeAlso: "man disclaimer, ai.html"
+    },
+    disclaimer: {
+      name: "disclaimer",
+      summary: "risk, responsibility and affiliate disclosure",
+      synopsis: "disclaimer",
+      description: [
+        "Opens the disclaimer. Commands and instructions are used at your own risk; always read them before running them."
+      ],
+      seeAlso: "man ai, about.html#disclaimer"
+    },
+    contact: {
+      name: "contact",
+      summary: "get in touch with Linux Gamer Life",
+      synopsis: "contact",
+      description: [
+        "Opens the contact section with email and social links."
+      ],
+      seeAlso: "man about, about.html#contact"
+    },
+    theme: {
+      name: "theme",
+      summary: "switch the live site theme",
+      synopsis: "theme <name> | theme reset",
+      description: [
+        "Changes the theme for the whole site and remembers it for this browser.",
+        "Available themes: forest, monochrome, pink, blue, green and purple. theme reset returns to pink."
+      ],
+      seeAlso: "man help"
+    },
+    home: {
+      name: "home",
+      summary: "return to the home page",
+      synopsis: "home",
+      description: [
+        "Navigates to the home page."
+      ],
+      seeAlso: "man cd"
+    },
+    cd: {
+      name: "cd",
+      summary: "navigate between pages",
+      synopsis: "cd <path>",
+      description: [
+        "Changes page from the terminal. Examples: cd ~/videos, cd ~/projects, cd ~."
+      ],
+      seeAlso: "man home"
+    },
+    ls: {
+      name: "ls",
+      summary: "list pages and files",
+      synopsis: "ls",
+      description: [
+        "Lists the pages and files available in the site's terminal."
+      ],
+      seeAlso: "man cd"
+    }
+  };
+
+  var ALIASES = {
+    story: "about",
+    tdlr: "about",
+    statement: "ai",
+    legal: "disclaimer",
+    mainmachine: "setup",
+    testmachine: "setup",
+    nsm: "setup",
+    macmini: "setup",
+    pc1: "setup",
+    pc2: "setup",
+    nix: "nixos",
+    regata: "regataos",
+    pika: "pikaos",
+    steam: "steamos",
+    cachy: "cachyos"
+  };
+
+  var VIDEOS = window.LGLVideos || {};
+  Object.keys(VIDEOS).forEach(function (key) {
+    var video = VIDEOS[key];
+    MAN[key] = {
+      name: key,
+      summary: "watch " + video.title,
+      synopsis: key,
+      description: [
+        "Opens the " + video.title + " video panel with the thumbnail, a short description and a link to YouTube."
+      ],
+      seeAlso: "man videos, videos.html"
+    };
+  });
+
+  function wrap(text, width) {
+    var words = String(text).split(/\s+/);
+    var lines = [];
+    var line = "";
+    words.forEach(function (word) {
+      if (!line) line = word;
+      else if ((line + " " + word).length <= width) line += " " + word;
+      else {
+        lines.push(line);
+        line = word;
+      }
+    });
+    if (line) lines.push(line);
+    return lines;
+  }
+
+  function get(name) {
+    var key = String(name || "").trim().toLowerCase();
+    key = ALIASES[key] || key;
+    return MAN[key] || null;
+  }
+
+  function render(name) {
+    var page = get(name);
+    if (!page) return null;
+
+    var lines = [page.name.toUpperCase() + "(1) - LGL Manual", ""];
+    lines.push("NAME");
+    lines.push("     " + page.name + " - " + page.summary);
+    lines.push("");
+    lines.push("SYNOPSIS");
+    lines.push("     " + page.synopsis);
+    lines.push("");
+    lines.push("DESCRIPTION");
+    page.description.forEach(function (paragraph) {
+      wrap(paragraph, 64).forEach(function (line) {
+        lines.push("     " + line);
+      });
+      lines.push("");
+    });
+    if (page.seeAlso) {
+      lines.push("SEE ALSO");
+      lines.push("     " + page.seeAlso);
+    }
+    return lines.join("\n").replace(/\n+$/, "");
+  }
+
+  window.LGLMan = {
+    names: function () { return Object.keys(MAN).sort(); },
+    has: function (name) { return !!get(name); },
+    render: render
+  };
+})();
+
+/* Shared delayed countdown for the joke shutdown command. */
+window.LGLCountdown = function (tick, done) {
+  var count = 5;
+  tick(count);
+  var timer = window.setInterval(function () {
+    count -= 1;
+    if (count > 0) {
+      tick(count);
+    } else {
+      window.clearInterval(timer);
+      if (done) done();
+    }
+  }, 750);
+};

@@ -47,31 +47,31 @@
 :root {
   color-scheme: dark;
 
-  --bg: #17131c;
-  --bg-2: #1f1a27;
-  --bg-3: #2a2235;
+  --bg: #050505;
+  --bg-2: #0b0b0b;
+  --bg-3: #151515;
   --surface: rgba(255, 255, 255, 0.038);
   --surface-2: rgba(255, 255, 255, 0.06);
-  --line: rgba(255, 196, 210, 0.16);
-  --line-strong: rgba(255, 214, 224, 0.32);
+  --line: rgba(255, 255, 255, 0.14);
+  --line-strong: rgba(255, 255, 255, 0.36);
 
-  --accent: #f4a3b8;
-  --accent-2: #d97a9e;
-  --accent-3: #a34f74;
-  --accent-soft: rgba(244, 163, 184, 0.14);
+  --accent: #f2f2f2;
+  --accent-2: #c4c4c4;
+  --accent-3: #6f6f6f;
+  --accent-soft: rgba(255, 255, 255, 0.10);
 
-  --ink: #fdf2f7;
-  --muted: #cbb6c2;
-  --faint: #a38c9a;
+  --ink: #fbfbfb;
+  --muted: #b9b9b9;
+  --faint: #808080;
 
-  --ok: #ffb59e;
+  --ok: #f2f2f2;
 
   --radius-sm: 10px;
   --radius: 16px;
   --radius-lg: 22px;
 
   --shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.9);
-  --glow: 0 0 48px -12px rgba(217, 122, 158, 0.5);
+  --glow: 0 0 32px -22px rgba(255, 255, 255, 0.28);
 
   --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -952,6 +952,7 @@ body::after {
 .mark-yt { color: #ff0000; }
 .mark-tw { color: #9146ff; }
 .mark-kick { color: #53fc18; }
+html[data-theme="monochrome"] :is(.mark-yt, .mark-tw, .mark-kick) { filter: grayscale(1); }
 .mark-gh { color: #fff7fb; }
 .mark-kofi { color: #ff9186; }
 .mark-x { color: #fff7fb; }
@@ -1080,7 +1081,7 @@ body[data-page="home"] .footer__bottom { border-top: 1px solid var(--line); }
   margin: 0 auto;
   border: 1px solid var(--line);
   background: color-mix(in srgb, var(--bg-2) 86%, transparent);
-  box-shadow: 0 0 90px -55px var(--accent);
+  box-shadow: 0 24px 60px -45px #000;
 }
 .tty__bar {
   display: flex;
@@ -1168,6 +1169,7 @@ body[data-page="home"] .footer__bottom { border-top: 1px solid var(--line); }
   font-family: var(--font-mono);
   font-size: 0.8rem;
   line-height: 1.65;
+  white-space: pre-wrap;
 }
 .tty-log-line .tty__prompt { margin-right: 0.4em; }
 .tty-log-line a { color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
@@ -1471,21 +1473,48 @@ body.tty-modal-open { overflow: hidden; }
   max-height: 88vh;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
   background: var(--bg-2);
-  box-shadow: 0 0 90px -30px var(--accent);
+  box-shadow: 0 30px 80px -55px #000;
+  overflow: hidden;
 }
 .tty-modal__bar {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.55rem 0.8rem;
+  min-height: 40px;
+  padding: 0.5rem 0.6rem 0.5rem 0.85rem;
   border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-3) 60%, transparent);
   color: var(--faint);
   font-family: var(--font-mono);
   font-size: 0.56rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+#tty-modal-title::before { content: "// "; color: var(--accent); }
+.tty-modal__close {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.tty-modal__close:hover,
+.tty-modal__close:focus-visible {
+  color: var(--ink);
+  border-color: var(--line-strong);
+  background: var(--accent-soft);
 }
 .tty-modal__body {
   overflow: auto;
@@ -1564,6 +1593,17 @@ body.tty-modal-open { overflow: hidden; }
   text-transform: uppercase;
 }
 .tty-facts dd { margin: 0; text-align: right; font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink); }
+
+.tty-help-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+  gap: 0.1rem 1.1rem;
+  margin: 0.2rem 0 0.45rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.7;
+}
 
 .tty-noscript {
   width: min(1180px, calc(100% - 2rem));
@@ -2011,10 +2051,12 @@ body[data-page="mysetup"] .page-head .container::before { content: "lgl@fedora:~
   position: relative;
   width: min(560px, 100%);
   padding: clamp(1.5rem, 4vw, 2.6rem);
-  border: 1px solid var(--accent);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  overflow: hidden;
   background: var(--bg-2);
   text-align: center;
-  box-shadow: 0 0 100px -30px var(--accent);
+  box-shadow: 0 30px 80px -55px #000;
 }
 .joke-modal__label {
   color: var(--accent);
@@ -2099,8 +2141,10 @@ body[data-page="mysetup"] .page-head .container::before { content: "lgl@fedora:~
   position: relative;
   width: min(620px, 100%);
   border: 1px solid var(--line-strong);
+  border-radius: 14px;
   background: var(--bg-2);
-  box-shadow: 0 0 90px -40px var(--accent);
+  box-shadow: 0 30px 80px -55px #000;
+  overflow: hidden;
 }
 .tty-joke__bar {
   display: flex;
@@ -2171,7 +2215,12 @@ body[data-page="mysetup"] .page-head .container::before { content: "lgl@fedora:~
 .tty-joke__close:hover { border-color: var(--accent); }
 
 .tty-log-line { white-space: pre-wrap; }
-.site-tty__out { white-space: pre-wrap; }
+.site-tty__out {
+  white-space: pre-wrap;
+  max-height: 13rem;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
 
 /* Links printed by the compact and popup terminals */
 .site-tty__out a,

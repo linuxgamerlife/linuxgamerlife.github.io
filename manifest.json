@@ -9,9 +9,12 @@
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#17131c",
-  "theme_color": "#17131c",
-  "categories": ["gaming", "technology"],
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "categories": [
+    "gaming",
+    "technology"
+  ],
   "icons": [
     {
       "src": "assets/img/icon-192.png",

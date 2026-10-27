@@ -102,6 +102,20 @@
     ].join(""),
 
 
+    community: [
+      '<p class="tty-modal__cmd">$ community</p>',
+      '<p class="tty-note">Games and technology bring people together, but the community is what keeps it alive. Whether you are here to learn, to help, or just to watch someone break their desktop for science, welcome.</p>',
+      '<div class="tty-list">',
+      '<a class="tty-item" href="https://www.youtube.com/@LinuxGamerLife" target="_blank" rel="noopener"><span class="tty-key">YT</span><div><h3>YouTube</h3><p>Watch, comment and turn a good question into the next video.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '<a class="tty-item" href="https://twitch.tv/linuxgamerlife" target="_blank" rel="noopener"><span class="tty-key">TW</span><div><h3>Twitch</h3><p>Live streams, chat and the occasional desktop disaster.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '<a class="tty-item" href="https://kick.com/linuxgamerlife" target="_blank" rel="noopener"><span class="tty-key">KK</span><div><h3>Kick</h3><p>The same streams, for people who prefer Kick.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '<a class="tty-item" href="https://github.com/linuxgamerlife" target="_blank" rel="noopener"><span class="tty-key">GH</span><div><h3>GitHub</h3><p>Source, issues and the projects behind the toolkit.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '<a class="tty-item" href="https://ko-fi.com/linuxgamerlife" target="_blank" rel="noopener"><span class="tty-key">KO</span><div><h3>Ko-fi</h3><p>One-off support for the hardware and the testing time.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '</div>',
+      '<p class="tty-note">YouTube memberships and Twitch subscriptions also fund the hardware, the software and the time it takes to test things properly.</p>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/community">cd ~/community</button> <span class="tty-comment"># full community page</span></p>'
+    ].join(""),
+
     solus: [
       '<p class="tty-modal__cmd">$ play solus</p>',
       '<div class="video-card">',
@@ -504,7 +518,7 @@
     modal.innerHTML = [
       '<div class="tty-modal__backdrop" data-close></div>',
       '<div class="tty-modal__panel" role="dialog" aria-modal="true" aria-labelledby="tty-modal-title" tabindex="-1">',
-      '<div class="tty-modal__bar"><span id="tty-modal-title">panel</span></div>',
+      '<div class="tty-modal__bar"><span id="tty-modal-title">panel</span><button type="button" class="tty-modal__close" data-close aria-label="Close panel">&times;</button></div>',
       '<div class="tty-modal__body" id="tty-modal-body"></div>',
       '<p class="tty-modal__status" id="tty-modal-status" aria-live="polite" hidden></p>',
       '<form class="tty-modal__form" id="tty-modal-form">',
@@ -587,6 +601,20 @@
         first.focus();
       }
     });
+  }
+
+  function statusGrid(items) {
+    ensureModal();
+    statusEl.hidden = false;
+    statusEl.textContent = "";
+    var grid = document.createElement("span");
+    grid.className = "tty-help-grid";
+    items.forEach(function (item) {
+      var cell = document.createElement("span");
+      cell.textContent = item;
+      grid.appendChild(cell);
+    });
+    statusEl.appendChild(grid);
   }
 
   function status(text) {
@@ -699,8 +727,8 @@
   function complete() {
     var commands = CONTENT.concat([
       "tldr", "exit", "theme", "cd", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
-      "help", "ls", "lsblk", "lspci", "clear", "sudo", "rm", "mkdir", "pwd", "echo",
-      "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floor",
+      "help", "man", "ls", "lsblk", "lspci", "clear", "sudo", "rm", "mkdir", "pwd", "echo",
+      "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floorp",
       "solus", "opensuse", "debian", "arch", "void", "nix", "nixos",
       "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11",
       "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"
@@ -760,10 +788,21 @@
       return;
     }
 
+    if (name === "shutdown") {
+      var shutdownHead = "Your pc will shutdown in ";
+      if (window.LGLCountdown) {
+        window.LGLCountdown(function (count) {
+          status(shutdownHead + count);
+        }, function () {
+          status(shutdownHead + "shutdown: just kidding. this is a website.");
+        });
+      }
+      return;
+    }
+
     var FUNNY = {
       vim: "you are now trapped in vim. :q! ... just kidding.",
       nano: "nano is not installed. this is a website.",
-      shutdown: "nice try.",
       reboot: "nice try.",
       apt: "this is a Fedora household.",
       pacman: "wrong distro, but I respect it.",
@@ -821,8 +860,31 @@
       status("");
       return;
     }
+    if (name === "man" || name.indexOf("man ") === 0) {
+      var topic = value.slice(3).trim();
+      if (!topic) {
+        status("What manual page do you want?");
+        statusGrid(window.LGLMan ? window.LGLMan.names() : []);
+        return;
+      }
+      var page = window.LGLMan ? window.LGLMan.render(topic) : null;
+      if (!page) {
+        status("No manual entry for " + topic);
+        return;
+      }
+      status(page);
+      return;
+    }
     if (name === "help") {
-      status("about  journey  principles  videos  projects  toolkit  setup  community  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\ndoas  brave  vivaldi  helium  zen  firefox  waterfox  floor\nsolus  opensuse  debian  arch  void  nix  nixos  gentoo\nplaytron  regata/regataos  bazzite  pika/pikaos  garuda  nobara  steam/steamos  cachy/cachyos  ubuntu  wayland  x11\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\ncd ~/videos  theme <name>  ls  lsblk  lspci\nsudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch  exit");
+      var items = CONTENT.concat([
+        "tldr", "exit", "theme", "cd", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
+        "help", "man", "ls", "lsblk", "lspci", "clear", "sudo", "rm", "mkdir", "pwd", "echo",
+        "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floorp",
+        "solus", "opensuse", "debian", "arch", "void", "nix", "nixos",
+        "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11",
+        "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"
+      ]);
+      statusGrid(items.filter(function (item, index, all) { return all.indexOf(item) === index; }).sort());
       return;
     }
     if (name === "ls") {

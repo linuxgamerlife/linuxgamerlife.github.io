@@ -1,6 +1,6 @@
 /* Linux Gamer Life - offline shell and installability. */
 // Bump CACHE when you need to force a fresh offline cache.
-const CACHE = "lgl-v2";
+const CACHE = "lgl-v9";
 
 const CORE = [
   "/",
@@ -15,7 +15,9 @@ const CORE = [
   "/404.html",
   "/manifest.json",
   "/assets/css/site.css",
+  "/assets/css/desk.css",
   "/assets/js/theme.js",
+  "/assets/js/desk.js",
   "/assets/js/nav.js",
   "/assets/js/jokes.js",
   "/assets/js/panels.js",
@@ -23,11 +25,27 @@ const CORE = [
   "/assets/js/site-terminal.js",
   "/assets/js/site.js",
   "/data/projects.js",
+  "/data/stats.js",
   "/data/supporters.js",
   "/assets/fonts/inter-latin.woff2",
   "/assets/fonts/inter-latin-ext.woff2",
   "/assets/fonts/jetbrains-mono-latin.woff2",
   "/assets/fonts/jetbrains-mono-latin-ext.woff2",
+  "/assets/theme/monochrome/logo.svg",
+  "/assets/theme/monochrome/logo.png",
+  "/assets/theme/monochrome/apple-touch-icon.png",
+  "/assets/theme/harry-green/logo.svg",
+  "/assets/theme/harry-green/logo.png",
+  "/assets/theme/harry-green/apple-touch-icon.png",
+  "/assets/theme/light-pink/logo.svg",
+  "/assets/theme/light-pink/logo.png",
+  "/assets/theme/light-pink/apple-touch-icon.png",
+  "/assets/theme/deep-blue/logo.svg",
+  "/assets/theme/deep-blue/logo.png",
+  "/assets/theme/deep-blue/apple-touch-icon.png",
+  "/assets/theme/deep-purple/logo.svg",
+  "/assets/theme/deep-purple/logo.png",
+  "/assets/theme/deep-purple/apple-touch-icon.png",
   "/assets/img/logo.svg",
   "/assets/img/logo.png",
   "/assets/img/apple-touch-icon.png",

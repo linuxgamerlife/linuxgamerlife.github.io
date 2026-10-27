@@ -10,7 +10,7 @@
   var out = bar.querySelector(".site-tty__out");
   if (!form || !input || !out) return;
 
-  var COMMANDS = ["help", "ls", "lsblk", "lspci", "clear", "theme", "cd", "about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nix", "nixos", "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11", "community", "projects", "toolkit", "setup", "home", "discounts", "ai", "disclaimer", "tdlr", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal", "sudo", "rm", "mkdir", "pwd", "echo", "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floor", "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"]
+  var COMMANDS = ["help", "ls", "lsblk", "lspci", "clear", "theme", "cd", "about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nix", "nixos", "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11", "community", "projects", "toolkit", "setup", "home", "discounts", "ai", "disclaimer", "tdlr", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal", "sudo", "rm", "mkdir", "pwd", "echo", "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floorp", "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf", "man"]
     .concat(Object.keys(window.LGLLinks || {}));
   var pendingSudo = false;
   var history = [];
@@ -19,6 +19,18 @@
 
   function say(text) {
     out.textContent = text;
+  }
+
+  function sayGrid(items) {
+    out.textContent = "";
+    var grid = document.createElement("span");
+    grid.className = "tty-help-grid";
+    items.forEach(function (item) {
+      var cell = document.createElement("span");
+      cell.textContent = item;
+      grid.appendChild(cell);
+    });
+    out.appendChild(grid);
   }
 
   function sayLink(text, url, label) {
@@ -67,10 +79,21 @@
       else say("mkdir: creating a very large directory... JUST KIDDING.");
       return;
     }
+    if (lower === "shutdown") {
+      var shutdownHead = "Your pc will shutdown in\n";
+      if (window.LGLCountdown) {
+        window.LGLCountdown(function (count) {
+          say(shutdownHead + count);
+        }, function () {
+          say(shutdownHead + "shutdown: just kidding. this is a website.");
+        });
+      }
+      return;
+    }
+
     var FUNNY = {
       vim: "you are now trapped in vim. :q! ... just kidding.",
       nano: "nano is not installed. this is a website.",
-      shutdown: "nice try.",
       reboot: "nice try.",
       apt: "this is a Fedora household.",
       pacman: "wrong distro, but I respect it.",
@@ -100,8 +123,28 @@
       say(window.LGLFastfetch ? window.LGLFastfetch() : "fastfetch: not available");
       return;
     }
+    if (lower === "man" || lower.indexOf("man ") === 0) {
+      var topic = value.slice(3).trim();
+      if (!topic) {
+        say("What manual page do you want?");
+        sayGrid(window.LGLMan ? window.LGLMan.names() : []);
+        return;
+      }
+      var page = window.LGLMan ? window.LGLMan.render(topic) : null;
+      if (!page) {
+        say("No manual entry for " + topic);
+        return;
+      }
+      say(page);
+      return;
+    }
     if (lower === "help") {
-      say("about  journey  principles  videos  community  projects  toolkit  setup  discounts  ai  disclaimer  tdlr\nstory  contact  statement  mainmachine  testmachine  nsm  macmini  legal\ndoas  brave  vivaldi  helium  zen  firefox  waterfox  floor\nsolus  opensuse  debian  arch  void  nix  nixos  gentoo\nplaytron  regata/regataos  bazzite  pika/pikaos  garuda  nobara  steam/steamos  cachy/cachyos  ubuntu  wayland  x11\n./about  ./videos  ./community  ./projects  ./toolkit  ./setup\nls  cd ~/videos  cd ~/projects  cd ~/about  cd ~/community  cd ~/toolkit  cd ~/setup  cd ~\ntheme <name>  twitch  youtube  kick  github  copr  kofi  x  kineticwe  kineticos  kwe  kwe2  noctalia  fedora  theblackdon  finley  keychron  lsblk  lspci  sudo  rm  mkdir  pwd  echo  whoami  cat  fastfetch");
+      var items = COMMANDS.concat(
+        window.LGLNavCommands || [],
+        (window.LGLPaths || []).map(function (path) { return "cd " + path; }),
+        ["theme <name>", "theme reset", "man <topic>"]
+      ).filter(function (item, index, all) { return all.indexOf(item) === index; }).sort();
+      sayGrid(items);
       return;
     }
     if (lower === "ls") {

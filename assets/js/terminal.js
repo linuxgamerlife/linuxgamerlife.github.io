@@ -11,8 +11,8 @@
     "about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nix", "nixos", "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11", "projects",
     "toolkit", "setup", "community", "discounts", "ai", "disclaimer", "tdlr",
     "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
-    "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floor",
-    "ls", "lsblk", "lspci", "fastfetch", "theme", "clear", "exit", "help"
+    "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floorp",
+    "ls", "lsblk", "lspci", "fastfetch", "theme", "clear", "exit", "help", "man"
   ];
   var history = [];
   var historyIndex = -1;
@@ -119,6 +119,17 @@
     if (result.matches.length > 1) line(result.matches.join("  "), "is-comment");
   }
 
+  function helpGrid(items) {
+    var grid = document.createElement("div");
+    grid.className = "tty-help-grid";
+    items.forEach(function (item) {
+      var cell = document.createElement("span");
+      cell.textContent = item;
+      grid.appendChild(cell);
+    });
+    log.appendChild(grid);
+  }
+
   function run(raw) {
     var value = raw.trim();
     if (!value) return;
@@ -149,6 +160,22 @@
       return;
     }
 
+    if (name === "man") {
+      var topic = argument.trim();
+      if (!topic) {
+        line("What manual page do you want?");
+        helpGrid(window.LGLMan ? window.LGLMan.names() : []);
+        return;
+      }
+      var page = window.LGLMan ? window.LGLMan.render(topic) : null;
+      if (!page) {
+        line("No manual entry for " + topic, "is-error");
+        return;
+      }
+      page.split("\n").forEach(function (row) { line(row); });
+      return;
+    }
+
     if (name === "sudo") {
       line("We trust you have received the usual lecture from the local System");
       line("Administrator. It usually boils down to these three things:");
@@ -176,10 +203,21 @@
       return;
     }
 
+    if (name === "shutdown") {
+      line("Your pc will shutdown in");
+      if (window.LGLCountdown) {
+        window.LGLCountdown(function (count) {
+          line(String(count));
+        }, function () {
+          line("shutdown: just kidding. this is a website.", "is-comment");
+        });
+      }
+      return;
+    }
+
     var FUNNY = {
       vim: "you are now trapped in vim. :q! ... just kidding.",
       nano: "nano is not installed. this is a website.",
-      shutdown: "nice try.",
       reboot: "nice try.",
       apt: "this is a Fedora household.",
       pacman: "wrong distro, but I respect it.",
@@ -232,14 +270,14 @@
     if (window.LGLNavigate && window.LGLNavigate(name)) return;
 
     switch (name) {
-      case "help":
-        COMMANDS.filter(function (item) { return item !== "help"; }).forEach(function (item) { line(item); });
-        line("cd ~/videos  cd ~/projects  cd ~/about  cd ~");
-        line("./about  ./videos  ./community  ./projects  ./toolkit  ./setup");
-        line("twitch youtube kick github copr kofi x kineticwe kineticos kwe kwe2 noctalia fedora theblackdon finley");
-        line("keychron  lsblk  lspci  sudo  rm  mkdir  pwd  echo");
-        line("help");
+      case "help": {
+        var items = COMMANDS.concat(EXTRA_COMMANDS).filter(function (item, index, all) {
+          return item !== "help" && all.indexOf(item) === index;
+        });
+        helpGrid(items.sort());
+        line('type "man <topic>" for a manual page.', "is-comment");
         break;
+      }
 
       case "fastfetch":
         printFastfetch();
