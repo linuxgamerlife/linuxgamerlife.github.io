@@ -60,13 +60,14 @@
     },
     {
       page: "community",
-      cmd: "community",
+      href: "community.html",
       label: "Community",
       icon: '<path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>'
     },
     {
       page: "merch",
-      cmd: "merch",
+      href: "https://merch.linuxgamerlife.net",
+      external: true,
       label: "Merch",
       icon: '<path d="M8 4 10 2h4l2 2 4 2-2 5-3-1v11H9V10l-3 1-2-5z"/>'
     },
@@ -177,10 +178,8 @@
   function dockMarkup(currentPage) {
     return DOCK.map(function (item) {
       var current = item.page === currentPage ? ' aria-current="page"' : "";
-      if (item.cmd) {
-        return '<button type="button" class="kwe-dock__item" data-desk-cmd="' + item.cmd + '" title="' + item.label + '" aria-label="' + item.label + '"' + current + ">" + icon(item.icon) + "</button>";
-      }
-      return '<a class="kwe-dock__item" href="' + item.href + '" title="' + item.label + '" aria-label="' + item.label + '"' + current + ">" + icon(item.icon) + "</a>";
+      var external = item.external ? ' target="_blank" rel="noopener"' : "";
+      return '<a class="kwe-dock__item" href="' + item.href + '" title="' + item.label + '" aria-label="' + item.label + '"' + external + current + ">" + icon(item.icon) + "</a>";
     }).join("");
   }
 
@@ -298,14 +297,4 @@
     paintStats();
   });
   startClock();
-
-  document.addEventListener("click", function (event) {
-    var launcher = event.target.closest("[data-desk-cmd]");
-    if (!launcher || !window.LGLPanels) return;
-    var command = launcher.getAttribute("data-desk-cmd");
-    if (!window.LGLPanels.open(command)) return;
-    if (command === "merch" && window.LGLAppendLink) {
-      window.LGLAppendLink("shop", window.LGLMerch.url, window.LGLMerch.url);
-    }
-  });
 })();

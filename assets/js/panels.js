@@ -466,6 +466,69 @@
       '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/setup">cd ~/setup</button> <span class="tty-comment"># full setup and deals</span></p>'
     ].join(""),
 
+    mainmachine: [
+      '<div class="machine-app">',
+      '<div class="machine-app__head"><span class="machine-app__badge" aria-hidden="true">PC1</span><div><p class="tty-modal__cmd">$ mainmachine</p><h3>The main machine</h3><p class="machine-app__lede">The daily driver: a 9950X3D build on AM5 that games, records and compiles everything on the channel.</p></div></div>',
+      '<dl class="tty-facts">',
+      '<div><dt>OS</dt><dd>Fedora Linux 44</dd></div>',
+      '<div><dt>CPU</dt><dd>AMD Ryzen 9 9950X3D</dd></div>',
+      '<div><dt>GPU</dt><dd>Radeon RX 9070 XT</dd></div>',
+      '<div><dt>Memory</dt><dd>64 GB DDR5</dd></div>',
+      '<div><dt>Storage</dt><dd>4TB games / 2TB home / 1TB root</dd></div>',
+      '<div><dt>Session</dt><dd>Wayland / KineticWE</dd></div>',
+      '</dl>',
+      '<p class="machine-app__tags"><span>AM5</span><span>1440p</span><span>KineticWE</span></p>',
+      '<a class="btn btn--ghost btn--sm machine-app__link" href="mysetup.html#mainpc-title">Open in Setup</a>',
+      '</div>'
+    ].join(""),
+
+    testmachine: [
+      '<div class="machine-app">',
+      '<div class="machine-app__head"><span class="machine-app__badge" aria-hidden="true">PC2</span><div><p class="tty-modal__cmd">$ testmachine</p><h3>The test machine</h3><p class="machine-app__lede">An AM4 test bed used for testing, comparisons and the occasional game.</p></div></div>',
+      '<dl class="tty-facts">',
+      '<div><dt>CPU</dt><dd>AMD Ryzen 7 5700X3D</dd></div>',
+      '<div><dt>GPU</dt><dd>Radeon RX 9060 XT</dd></div>',
+      '<div><dt>Memory</dt><dd>64 GB DDR4 3600</dd></div>',
+      '<div><dt>Power</dt><dd>ASUS TUF 750W</dd></div>',
+      '<div><dt>Platform</dt><dd>AM4</dd></div>',
+      '<div><dt>Role</dt><dd>Testing and comparisons</dd></div>',
+      '</dl>',
+      '<p class="machine-app__tags"><span>AM4</span><span>RDNA 4</span><span>Test bed</span></p>',
+      '<a class="btn btn--ghost btn--sm machine-app__link" href="mysetup.html#parts-title">Open in Setup</a>',
+      '</div>'
+    ].join(""),
+
+    nsm: [
+      '<div class="machine-app">',
+      '<div class="machine-app__head"><span class="machine-app__badge" aria-hidden="true">NSM</span><div><p class="tty-modal__cmd">$ nsm</p><h3>The non-steam machine</h3><p class="machine-app__lede">My third build: an old-parts PC running SteamOS for couch gaming. Only Gaben can make a Steam Machine, so this is the NSM.</p></div></div>',
+      '<dl class="tty-facts">',
+      '<div><dt>OS</dt><dd>SteamOS</dd></div>',
+      '<div><dt>CPU</dt><dd>AMD Ryzen 7 3800X</dd></div>',
+      '<div><dt>GPU</dt><dd>Radeon RX 6600 XT</dd></div>',
+      '<div><dt>Memory</dt><dd>32 GB DDR4</dd></div>',
+      '<div><dt>Power</dt><dd>Corsair CX650</dd></div>',
+      '<div><dt>Role</dt><dd>Couch gaming</dd></div>',
+      '</dl>',
+      '<p class="machine-app__tags"><span>SteamOS</span><span>1080p</span><span>Living room</span></p>',
+      '<a class="btn btn--ghost btn--sm machine-app__link" href="mysetup.html#nsm-title">Open in Setup</a>',
+      '</div>'
+    ].join(""),
+
+    macmini: [
+      '<div class="machine-app">',
+      '<div class="machine-app__head"><span class="machine-app__badge" aria-hidden="true">MAC</span><div><p class="tty-modal__cmd">$ macmini</p><h3>The Mac mini</h3><p class="machine-app__lede">The Mac kept around for DaVinci Resolve, Ableton and the occasional task that still needs macOS.</p></div></div>',
+      '<dl class="tty-facts">',
+      '<div><dt>Model</dt><dd>Mac mini (2024)</dd></div>',
+      '<div><dt>Chip</dt><dd>Apple M4</dd></div>',
+      '<div><dt>Memory</dt><dd>24 GB unified</dd></div>',
+      '<div><dt>OS</dt><dd>macOS Golden Gate 27.1</dd></div>',
+      '<div><dt>Role</dt><dd>Resolve and Ableton</dd></div>',
+      '</dl>',
+      '<p class="machine-app__tags"><span>Apple</span><span>M4</span><span>macOS</span></p>',
+      '<a class="btn btn--ghost btn--sm machine-app__link" href="mysetup.html#mac-title">Open in Setup</a>',
+      '</div>'
+    ].join(""),
+
     setup: [
       '<p class="tty-modal__cmd">$ cat setup.txt</p>',
       '<dl class="tty-facts">',
@@ -506,8 +569,20 @@
     ].join("")
   };
 
-  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "ubuntu", "wayland", "x11", "projects", "toolkit", "merch", "setup", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
-  var ALIASES = { tldr: "tdlr", nix: "nixos", regata: "regataos", pika: "pikaos", steam: "steamos", cachy: "cachyos" };
+  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "ubuntu", "wayland", "x11", "projects", "toolkit", "merch", "setup", "mainmachine", "testmachine", "nsm", "macmini", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
+  var ALIASES = {
+    tldr: "tdlr",
+    story: "about",
+    statement: "ai",
+    legal: "disclaimer",
+    pc1: "mainmachine",
+    pc2: "testmachine",
+    nix: "nixos",
+    regata: "regataos",
+    pika: "pikaos",
+    steam: "steamos",
+    cachy: "cachyos"
+  };
 
   var modal = null;
   var body = null;

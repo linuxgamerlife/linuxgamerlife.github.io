@@ -78,8 +78,8 @@
     fedora: "https://fedoraproject.org/"
   };
 
-  var PATHS = ["~/videos", "~/projects", "~/about", "~/community", "~/toolkit", "~/setup", "~/merch", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "testmachine", "nsm", "macmini", "pc1", "pc2", "theblackdon", "finley", "discounts", "keychron"];
-  var NAV_COMMANDS = ["./home", "./about", "./videos", "./community", "./projects", "./toolkit", "./setup", "./merch", "./youtube", "./twitch", "./kick"];
+  var PATHS = ["~/videos", "~/projects", "~/about", "~/community", "~/toolkit", "~/setup", "~/mainmachine", "~/testmachine", "~/nsm", "~/macmini", "~/merch", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "discounts", "pc1", "pc2", "theblackdon", "finley", "keychron"];
+  var NAV_COMMANDS = ["./home", "./about", "./videos", "./community", "./projects", "./toolkit", "./setup", "./mainmachine", "./testmachine", "./nsm", "./macmini", "./merch", "./youtube", "./twitch", "./kick"];
 
   function commonPrefix(a, b) {
     var i = 0;
@@ -548,7 +548,44 @@
       description: [
         "Opens the setup app: PC1, PC2, the NSM and the Mac mini, plus storage, peripherals and recommendations."
       ],
-      seeAlso: "man discounts, mysetup.html"
+      seeAlso: "man mainmachine, man testmachine, man nsm, man macmini"
+    },
+    mainmachine: {
+      name: "mainmachine",
+      summary: "PC1, the main Fedora desktop",
+      synopsis: "mainmachine",
+      description: [
+        "Opens a focused app card for PC1: the 9950X3D and RX 9070 XT daily driver used for gaming, recording and compiling."
+      ],
+      seeAlso: "man setup, mysetup.html#mainpc-title"
+    },
+    testmachine: {
+      name: "testmachine",
+      summary: "PC2, the AM4 test machine",
+      synopsis: "testmachine",
+      description: [
+        "Opens a focused app card for PC2: the Ryzen 7 5700X3D and RX 9060 XT machine used for testing and comparisons."
+      ],
+      seeAlso: "man setup, mysetup.html#parts-title"
+    },
+    nsm: {
+      name: "nsm",
+      summary: "the non-steam machine",
+      synopsis: "nsm",
+      description: [
+        "Opens a focused app card for the NSM: an old-parts SteamOS PC built for couch gaming.",
+        "The name is a joke about Valve making the only real Steam Machine."
+      ],
+      seeAlso: "man setup, mysetup.html#nsm-title"
+    },
+    macmini: {
+      name: "macmini",
+      summary: "the Mac mini for macOS-only jobs",
+      synopsis: "macmini",
+      description: [
+        "Opens a focused app card for the M4 Mac mini used for DaVinci Resolve, Ableton and tasks that still need macOS."
+      ],
+      seeAlso: "man setup, mysetup.html#mac-title"
     },
     merch: {
       name: "merch",
@@ -640,12 +677,8 @@
     tdlr: "about",
     statement: "ai",
     legal: "disclaimer",
-    mainmachine: "setup",
-    testmachine: "setup",
-    nsm: "setup",
-    macmini: "setup",
-    pc1: "setup",
-    pc2: "setup",
+    pc1: "mainmachine",
+    pc2: "testmachine",
     nix: "nixos",
     regata: "regataos",
     pika: "pikaos",

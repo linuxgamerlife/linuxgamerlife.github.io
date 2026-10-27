@@ -23,6 +23,20 @@ chrome: the top bar, PC1 stats rail, floating dock and side panels. The home
 page ships its own shell markup; every other page is wrapped automatically by
 `desk.js` around its `<main>`, so new pages only need the two includes.
 
+## Projects
+
+The projects page is generated, not edited by hand. Add or update the copy in
+`data/curation.json`, then run:
+
+```bash
+python3 scripts/fetch_projects.py
+```
+
+That refreshes GitHub stars, Copr packages and `data/projects.json` /
+`data/projects.js`. A new public repository still needs a curation entry; the
+nightly `Refresh project data` workflow updates metrics but does not invent
+titles or descriptions.
+
 ## Home stats
 
 Run `python3 scripts/update_stats.py` on the machine whose stats you want to

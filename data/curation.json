@@ -231,6 +231,18 @@
       ]
     },
     {
+      "repo": "lgl-noctalia-widgets",
+      "title": "LGL Noctalia Widgets",
+      "category": "desktop",
+      "featured": true,
+      "blurb": "KDE Plasma widgets rebuilt for Noctalia Shell and Noctalia KWE. The set includes AI Usage, DualSense Battery, Modern SysMonitor Plus and Steam Controller Battery, each adapted to Noctalia's Luau plugin APIs with separate KWE and upstream installers.",
+      "tags": [
+        "Noctalia",
+        "KDE Plasma",
+        "Luau"
+      ]
+    },
+    {
       "repo": "lglwm",
       "title": "LGLWM",
       "category": "desktop",

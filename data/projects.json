@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-26T10:27:46Z",
+  "generated": "2026-10-27T22:23:14Z",
   "meta": {
-    "repos": 27,
-    "stars": 104,
-    "forks": 12,
+    "repos": 28,
+    "stars": 105,
+    "forks": 13,
     "copr_projects": 12,
     "apps_packaged": 10,
-    "visible_projects": 25
+    "visible_projects": 26
   },
   "projects": [
     {
@@ -334,6 +334,23 @@
       "copr": null
     },
     {
+      "repo": "lgl-noctalia-widgets",
+      "title": "LGL Noctalia Widgets",
+      "category": "desktop",
+      "blurb": "KDE Plasma widgets rebuilt for Noctalia Shell and Noctalia KWE. The set includes AI Usage, DualSense Battery, Modern SysMonitor Plus and Steam Controller Battery, each adapted to Noctalia's Luau plugin APIs with separate KWE and upstream installers.",
+      "tags": [
+        "Noctalia",
+        "KDE Plasma",
+        "Luau"
+      ],
+      "featured": true,
+      "stars": 0,
+      "forks": 0,
+      "updated": "2026-10-27",
+      "repo_url": "https://github.com/linuxgamerlife/lgl-noctalia-widgets",
+      "copr": null
+    },
+    {
       "repo": "lglwm",
       "title": "LGLWM",
       "category": "desktop",
@@ -376,8 +393,8 @@
         "Assets"
       ],
       "featured": false,
-      "stars": 5,
-      "forks": 0,
+      "stars": 6,
+      "forks": 1,
       "updated": "2026-10-25",
       "repo_url": "https://github.com/linuxgamerlife/Wallpapers",
       "copr": null

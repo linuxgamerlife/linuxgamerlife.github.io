@@ -1661,6 +1661,42 @@ body.tty-modal-open { overflow: hidden; }
 .merch-app__link { margin-bottom: 0; }
 .merch-app__link a { color: var(--accent); }
 
+.machine-app { display: grid; gap: 1rem; }
+.machine-app__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.machine-app__badge {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  min-width: 58px;
+  height: 58px;
+  padding: 0 0.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+.machine-app__head .tty-modal__cmd { margin-bottom: 0.4rem; }
+.machine-app__head h3 { margin: 0; color: var(--ink); font-size: clamp(1.35rem, 3vw, 2rem); }
+.machine-app__lede { margin: 0.45rem 0 0; color: var(--muted); line-height: 1.7; }
+.machine-app__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0; }
+.machine-app__tags span {
+  padding: 0.18rem 0.45rem;
+  border: 1px solid var(--line);
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.machine-app__link { justify-self: start; }
+
 @media (max-width: 700px) {
   .merch-app__head { display: grid; }
   .merch-product { grid-template-columns: 1fr; }
