@@ -14,6 +14,23 @@
   color: var(--ink);
 }
 
+.lo-verify {
+  margin: 0;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--accent) 4%, transparent);
+  color: var(--muted);
+  font-size: 0.65rem;
+  line-height: 1.55;
+}
+.lo-verify code {
+  padding: 0.05rem 0.25rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
 .lo-tools {
   display: flex;
   flex-wrap: wrap;

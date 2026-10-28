@@ -9,21 +9,21 @@ var CATS = [
   {id:"proton",  label:"Proton / Linux"},
   {id:"engine",  label:"Engine flags"},
   {id:"tool",    label:"Tools / Debug"},
-  {id:"general", label:"General"}
+  {id:"general", label:"Game flags"}
 ];
 
 var OPTIONS = [
   /* ---- General, engine-agnostic ---- */
   {k:"-novid", c:["general"], ex:"Skip the intro/logo videos (Valve titles and many others)."},
   {k:"-high", c:["general"], ex:"Run the game with high OS process priority."},
-  {k:"-fullscreen", c:["general"], ex:"Force exclusive fullscreen."},
-  {k:"-windowed", c:["general"], ex:"Start in windowed mode."},
-  {k:"-noborder", c:["general"], ex:"Borderless window; normally paired with -windowed."},
-  {k:"-borderless", c:["general"], cr:true, ex:"Borderless fullscreen on engines that support it."},
-  {k:"-w <width>", c:["general"], ex:"Set window width, e.g. -w 1920."},
-  {k:"-h <height>", c:["general"], ex:"Set window height, e.g. -h 1080."},
-  {k:"-refresh <rate>", c:["general"], ex:"Force refresh rate, e.g. -refresh 144."},
-  {k:"-freq <rate>", c:["general"], cr:true, ex:"Alternative refresh-rate flag on some engines."},
+  {k:"-fullscreen", c:["general"], ex:"Common on some engines, but not a Steam-wide flag. Many games ignore it; use the in-game display setting when available."},
+  {k:"-windowed", c:["general"], ex:"Start in windowed mode on engines that support it. Unity and many custom engines use different flags or only their own settings."},
+  {k:"-noborder", c:["general"], ex:"Borderless window on engines that support -noborder; normally paired with -windowed. Not universal."},
+  {k:"-borderless", c:["general"], cr:true, ex:"Community-reported, not a standard Steam or engine flag. Most games use -noborder, -popupwindow or an in-game option instead."},
+  {k:"-w <width>", c:["general"], ex:"Set window width on Source/Quake-style engines, e.g. -w 1920. Unreal uses -ResX= and Unity uses -screen-width."},
+  {k:"-h <height>", c:["general"], ex:"Set window height on Source/Quake-style engines, e.g. -h 1080. Unreal uses -ResY= and Unity uses -screen-height."},
+  {k:"-refresh <rate>", c:["general"], ex:"Set refresh rate on some Source/Quake-style engines, e.g. -refresh 144. Not universal."},
+  {k:"-freq <rate>", c:["general"], cr:true, ex:"Old, engine-specific refresh flag. Try it only when the game ignores -refresh; it often does nothing."},
   {k:"-threads <n>", c:["general"], ex:"Limit worker threads; only honored by some titles."},
   {k:"-autoconfig", c:["general"], ex:"Re-detect video settings on next launch."},
   {k:"-safe", c:["general"], ex:"Start with safe/minimal display settings."},
@@ -172,14 +172,14 @@ var USE_WHEN = {
   /* General */
   "-novid": {u:"Use on every repeat launch when logo/intro videos waste 10-60 seconds, or when troubleshooting startup.", p:["-nosplash","-console"]},
   "-high": {u:"Use on a desktop where the game is CPU-bound and nothing else needs CPU time; skip it on laptops on battery.", p:["-USEALLAVAILABLECORES","gamemoderun"]},
-  "-fullscreen": {u:"Use when you want exclusive fullscreen for VRR/G-Sync or the lowest input latency, and the game defaults to windowed.", p:["-refresh <rate>","MANGOHUD=1"]},
-  "-windowed": {u:"Use when you alt-tab constantly, stream, or the game crashes entering fullscreen.", p:["-noborder","-w <width>","-h <height>"]},
-  "-noborder": {u:"Use with -windowed for a borderless window that still alt-tabs instantly on multi-monitor setups.", p:["-windowed","-w <width>"]},
-  "-borderless": {u:"Use on engines with a real borderless mode when you want full-screen size but instant alt-tab.", p:["-fullscreen","-refresh <rate>"]},
-  "-w <width>": {u:"Use when the engine ignores in-game resolution or starts at a wrong window size.", p:["-h <height>","-windowed"]},
-  "-h <height>": {u:"Use together with -w when the game refuses the resolution you picked.", p:["-w <width>","-windowed"]},
-  "-refresh <rate>": {u:"Use when a 144/165/240 Hz monitor still runs the game at 60 Hz.", p:["-fullscreen","MANGOHUD=1"]},
-  "-freq <rate>": {u:"Use as the fallback refresh flag on engines that ignore -refresh.", p:["-refresh <rate>"]},
+  "-fullscreen": {u:"Try only if the game or engine documents it and it ignores its own display setting. On Linux/Wayland, exclusive fullscreen is not required for VRR and can behave differently per compositor.", p:["-refresh <rate>","MANGOHUD=1"]},
+  "-windowed": {u:"Try on engines that accept it when you alt-tab or stream. Check the game first: Unity uses -screen-fullscreen 0 and Unreal uses -windowed plus -ResX/-ResY.", p:["-noborder","-w <width>","-h <height>"]},
+  "-noborder": {u:"Use with -windowed on engines that support it. It is common in Source games but not a Steam-wide flag.", p:["-windowed","-w <width>"]},
+  "-borderless": {u:"Community-reported only. Prefer -noborder with -windowed, Unity's -popupwindow, or the game's own borderless setting.", p:["-windowed"]},
+  "-w <width>": {u:"Use on Source/Quake-style engines that ignore in-game resolution or start at the wrong size. Replace <width> with a real number.", p:["-h <height>","-windowed"]},
+  "-h <height>": {u:"Use together with -w on engines that accept it. Replace <height> with a real number.", p:["-w <width>","-windowed"]},
+  "-refresh <rate>": {u:"Try when a high-refresh display still runs at 60 Hz and the engine supports it. Replace <rate> with the real refresh rate, for example 144.", p:["-fullscreen","MANGOHUD=1"]},
+  "-freq <rate>": {u:"Only try this old fallback when -refresh is ignored. It is engine-specific and often has no effect.", p:["-refresh <rate>"]},
   "-threads <n>": {u:"Use on hybrid CPUs or old games that spawn too many threads and stutter; start with physical core count.", p:["-USEALLAVAILABLECORES"]},
   "-autoconfig": {u:"Use after a GPU/driver change, a corrupted config, or a black-screen first launch.", p:["-safe","-windowed"]},
   "-safe": {u:"Use when the game crashes immediately at startup with your normal settings.", p:["-autoconfig","-windowed"]},
@@ -327,7 +327,7 @@ var RENDERERS = {
   "-force-vulkan":"Vulkan", "-force-glcore":"OpenGL Core"
 };
 var WINDOW_MODES = {
-  "-fullscreen":"fullscreen", "-windowed":"windowed", "-WINDOWED":"windowed",
+  "-fullscreen": {u:"Try only if the game or engine documents it and it ignores its own display setting. On Linux/Wayland, exclusive fullscreen is not required for VRR and can behave differently per compositor.", p:["-refresh <rate>","MANGOHUD=1"]},
   "-popupwindow":"borderless", "-screen-fullscreen 0/1":"Unity screen mode"
 };
 var SYNC_MODES = ["PROTON_USE_NTSYNC=1","PROTON_NO_NTSYNC=1"];

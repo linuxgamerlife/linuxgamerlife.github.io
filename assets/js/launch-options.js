@@ -4,6 +4,7 @@
 
   function markup() {
     return '' +
+      '<p class="lo-verify">Steam only handles environment variables and <code>%command%</code>. Flags after it are passed to the game, so support depends on the game and engine.</p>' +
       '<div class="lo-tools">' +
         '<label class="lo-search"><span aria-hidden="true">⌕</span><input type="search" data-lo-search placeholder="Filter by flag, engine, use case or explanation" aria-label="Filter launch options"></label>' +
         '<button type="button" class="lo-btn" data-lo-preset="nvidia" title="Load the NVIDIA/Wayland experimental profile">NVIDIA profile</button>' +
@@ -183,7 +184,9 @@
         if (option.e && option.e.length) {
           option.e.forEach(function (engine) { badges.appendChild(badge(engine, "engine")); });
         } else if (option.role === "flag") {
-          badges.appendChild(badge("Any engine", "general"));
+          var dependent = badge("Engine-dependent", "general");
+          dependent.title = "Steam passes this argument to the game. It only works if that game or engine supports it.";
+          badges.appendChild(dependent);
         }
         if (option.cr) {
           var cr = badge("Community-reported", "community");
