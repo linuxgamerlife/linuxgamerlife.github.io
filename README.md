@@ -37,6 +37,13 @@ That refreshes GitHub stars, Copr packages and `data/projects.json` /
 nightly `Refresh project data` workflow updates metrics but does not invent
 titles or descriptions.
 
+## App windows
+
+Terminal apps open as floating windows. Drag a window by its title bar, resize it
+from the bottom-right corner, and open several at once. Click a window to bring it
+to the front; Escape or the close button closes the focused window. On phones and
+narrow screens the windows fill the viewport.
+
 ## Home stats
 
 Run `python3 scripts/update_stats.py` on the machine whose stats you want to

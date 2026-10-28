@@ -593,116 +593,222 @@
     cachy: "cachyos"
   };
 
-  var modal = null;
-  var body = null;
-  var titleEl = null;
-  var form = null;
-  var input = null;
-  var statusEl = null;
-  var lastFocus = null;
-  var history = [];
-  var historyIndex = -1;
-  var completionState = { value: "", matches: [], index: -1 };
-  var pendingSudo = false;
+  var layer = null;
+  var windows = {};
+  var windowCount = 0;
+  var zCounter = 310;
+  var activeWindow = null;
 
-  function ensureModal() {
-    if (modal) return;
-    modal = document.createElement("div");
-    modal.className = "tty-modal";
-    modal.id = "tty-modal";
-    modal.hidden = true;
-    modal.innerHTML = [
-      '<div class="tty-modal__backdrop" data-close></div>',
-      '<div class="tty-modal__panel" role="dialog" aria-modal="true" aria-labelledby="tty-modal-title" tabindex="-1">',
-      '<div class="tty-modal__bar"><span id="tty-modal-title">panel</span><button type="button" class="tty-modal__close" data-close aria-label="Close panel">&times;</button></div>',
-      '<div class="tty-modal__body" id="tty-modal-body"></div>',
-      '<p class="tty-modal__status" id="tty-modal-status" aria-live="polite" hidden></p>',
-      '<form class="tty-modal__form" id="tty-modal-form">',
-      '<label class="tty__sr" for="tty-modal-input">Type exit to close</label>',
+  function ensureLayer() {
+    if (layer) return layer;
+    layer = document.createElement("div");
+    layer.className = "tty-window-layer";
+    document.body.appendChild(layer);
+    return layer;
+  }
+
+  function focusWindow(win) {
+    if (!win || !win.root) return;
+    activeWindow = win;
+    zCounter += 1;
+    win.root.style.zIndex = String(zCounter);
+    Object.keys(windows).forEach(function (key) {
+      windows[key].root.classList.toggle("is-focused", windows[key] === win);
+    });
+  }
+
+  function topWindow() {
+    return Object.keys(windows)
+      .map(function (key) { return windows[key]; })
+      .sort(function (a, b) { return Number(b.root.style.zIndex) - Number(a.root.style.zIndex); })[0] || null;
+  }
+
+  function placeWindow(root) {
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    var width;
+    var height;
+    var left;
+    var top;
+
+    if (vw <= 700) {
+      width = vw - 16;
+      height = vh - 16;
+      left = 8;
+      top = 8;
+    } else {
+      width = Math.min(980, Math.max(520, vw - 96));
+      height = Math.min(720, Math.max(420, vh - 120));
+      var step = (windowCount - 1) % 6;
+      left = Math.round((vw - width) / 2 + (step - 2.5) * 24);
+      top = Math.round((vh - height) / 2 + (step - 2.5) * 20);
+      left = Math.max(12, Math.min(left, vw - width - 12));
+      top = Math.max(12, Math.min(top, vh - height - 12));
+    }
+
+    root.style.width = width + "px";
+    root.style.height = height + "px";
+    root.style.left = left + "px";
+    root.style.top = top + "px";
+  }
+
+  function startDrag(win, event) {
+    if (event.button !== 0 || event.target.closest("button, a, input, select, textarea")) return;
+    if (window.innerWidth <= 700) return;
+    event.preventDefault();
+    focusWindow(win);
+
+    var root = win.root;
+    var rect = root.getBoundingClientRect();
+    var offsetX = event.clientX - rect.left;
+    var offsetY = event.clientY - rect.top;
+    root.classList.add("is-dragging");
+
+    function move(moveEvent) {
+      var left = Math.max(0, Math.min(moveEvent.clientX - offsetX, window.innerWidth - root.offsetWidth));
+      var top = Math.max(0, Math.min(moveEvent.clientY - offsetY, window.innerHeight - root.offsetHeight));
+      root.style.left = Math.round(left) + "px";
+      root.style.top = Math.round(top) + "px";
+    }
+
+    function up() {
+      root.classList.remove("is-dragging");
+      document.removeEventListener("pointermove", move);
+      document.removeEventListener("pointerup", up);
+    }
+
+    document.addEventListener("pointermove", move);
+    document.addEventListener("pointerup", up);
+  }
+
+  function startResize(win, event) {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    focusWindow(win);
+
+    var root = win.root;
+    var rect = root.getBoundingClientRect();
+    var startX = event.clientX;
+    var startY = event.clientY;
+    var startWidth = rect.width;
+    var startHeight = rect.height;
+
+    function move(moveEvent) {
+      var maxWidth = window.innerWidth - rect.left - 8;
+      var maxHeight = window.innerHeight - rect.top - 8;
+      var width = Math.max(380, Math.min(startWidth + moveEvent.clientX - startX, maxWidth));
+      var height = Math.max(280, Math.min(startHeight + moveEvent.clientY - startY, maxHeight));
+      root.style.width = Math.round(width) + "px";
+      root.style.height = Math.round(height) + "px";
+    }
+
+    function up() {
+      document.removeEventListener("pointermove", move);
+      document.removeEventListener("pointerup", up);
+    }
+
+    document.addEventListener("pointermove", move);
+    document.addEventListener("pointerup", up);
+  }
+
+  function createWindow(key) {
+    ensureLayer();
+    windowCount += 1;
+    var uid = "tty-window-" + windowCount;
+
+    var root = document.createElement("section");
+    root.className = "tty-window";
+    root.dataset.panel = key;
+    root.setAttribute("role", "dialog");
+    root.setAttribute("aria-labelledby", uid + "-title");
+    root.innerHTML = [
+      '<div class="tty-window__bar" data-drag>',
+      '<span class="tty-window__title" id="' + uid + '-title"><span class="tty-window__mark" aria-hidden="true">//</span><span data-window-title>panel</span></span>',
+      '<button type="button" class="tty-modal__close" data-close aria-label="Close panel">&times;</button>',
+      '</div>',
+      '<div class="tty-modal__body" data-window-body></div>',
+      '<p class="tty-modal__status" data-window-status aria-live="polite" hidden></p>',
+      '<form class="tty-modal__form" data-window-form>',
+      '<label class="tty__sr" for="' + uid + '-input">Type exit to close</label>',
       '<span class="tty__prompt" aria-hidden="true">lgl@fedora:~$</span>',
-      '<input class="tty-modal__input" id="tty-modal-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="exit / esc to close">',
+      '<input class="tty-modal__input" id="' + uid + '-input" data-window-input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="exit / esc to close">',
       '</form>',
-      '</div>'
+      '<div class="tty-window__resize" data-resize aria-hidden="true"></div>'
     ].join("");
-    document.body.appendChild(modal);
+    placeWindow(root);
+    layer.appendChild(root);
 
-    body = document.getElementById("tty-modal-body");
-    titleEl = document.getElementById("tty-modal-title");
-    form = document.getElementById("tty-modal-form");
-    input = document.getElementById("tty-modal-input");
-    statusEl = document.getElementById("tty-modal-status");
+    var win = {
+      key: key,
+      root: root,
+      body: root.querySelector("[data-window-body]"),
+      titleEl: root.querySelector("[data-window-title]"),
+      statusEl: root.querySelector("[data-window-status]"),
+      form: root.querySelector("[data-window-form]"),
+      input: root.querySelector("[data-window-input]"),
+      lastFocus: document.activeElement,
+      history: [],
+      historyIndex: 0,
+      completionState: { value: "", matches: [], index: -1 },
+      pendingSudo: false,
+      closed: false
+    };
 
-    modal.addEventListener("click", function (event) {
+    root.addEventListener("pointerdown", function () { focusWindow(win); }, true);
+    root.addEventListener("focusin", function () { focusWindow(win); });
+    root.addEventListener("click", function (event) {
       if (event.target.closest("[data-close]")) {
-        close();
+        closeWindow(win);
         return;
       }
       var commandButton = event.target.closest("[data-cmd]");
-      if (commandButton) {
-        run(commandButton.getAttribute("data-cmd"));
-      }
+      if (commandButton) run(win, commandButton.getAttribute("data-cmd"));
     });
 
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && !modal.hidden) {
-        if (document.querySelector(".tty-joke")) return;
-        event.preventDefault();
-        close();
-      }
-    });
+    var bar = root.querySelector("[data-drag]");
+    bar.addEventListener("pointerdown", function (event) { startDrag(win, event); });
+    var resize = root.querySelector("[data-resize]");
+    resize.addEventListener("pointerdown", function (event) { startResize(win, event); });
 
-    form.addEventListener("submit", function (event) {
+    win.form.addEventListener("submit", function (event) {
       event.preventDefault();
-      var value = input.value;
-      input.value = "";
-      run(value);
+      var value = win.input.value;
+      win.input.value = "";
+      run(win, value);
     });
 
-    input.addEventListener("input", function () {
-      completionState.value = "";
+    win.input.addEventListener("input", function () {
+      win.completionState.value = "";
     });
 
-    input.addEventListener("keydown", function (event) {
+    win.input.addEventListener("keydown", function (event) {
       if (event.key === "ArrowUp" || event.key === "ArrowDown") {
         event.preventDefault();
-        if (!history.length) return;
+        if (!win.history.length) return;
         if (event.key === "ArrowUp") {
-          historyIndex = Math.max(0, historyIndex - 1);
+          win.historyIndex = Math.max(0, win.historyIndex - 1);
         } else {
-          historyIndex = Math.min(history.length, historyIndex + 1);
+          win.historyIndex = Math.min(win.history.length, win.historyIndex + 1);
         }
-        input.value = history[historyIndex] || "";
-        completionState.value = "";
+        win.input.value = win.history[win.historyIndex] || "";
+        win.completionState.value = "";
         return;
       }
       if (event.key === "Tab") {
         event.preventDefault();
         event.stopPropagation();
-        complete();
+        complete(win);
       }
     });
 
-    modal.addEventListener("keydown", function (event) {
-      if (event.key !== "Tab") return;
-      if (document.activeElement === input) return;
-      var focusable = modal.querySelectorAll("a[href], button:not([disabled]), input");
-      if (!focusable.length) return;
-      var first = focusable[0];
-      var last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    });
+    return win;
   }
 
-  function statusGrid(items) {
-    ensureModal();
-    statusEl.hidden = false;
-    statusEl.textContent = "";
+  function statusGrid(win, items) {
+    if (!win) return;
+    win.statusEl.hidden = false;
+    win.statusEl.textContent = "";
     var grid = document.createElement("span");
     grid.className = "tty-help-grid";
     items.forEach(function (item) {
@@ -710,35 +816,36 @@
       cell.textContent = item;
       grid.appendChild(cell);
     });
-    statusEl.appendChild(grid);
+    win.statusEl.appendChild(grid);
   }
 
-  function status(text) {
-    ensureModal();
+  function status(win, text) {
+    if (!win) return;
     if (!text) {
-      statusEl.hidden = true;
-      statusEl.textContent = "";
+      win.statusEl.hidden = true;
+      win.statusEl.textContent = "";
       return;
     }
-    statusEl.hidden = false;
-    statusEl.textContent = text;
+    win.statusEl.hidden = false;
+    win.statusEl.textContent = text;
   }
 
-  function statusLink(text, url, label) {
-    ensureModal();
-    statusEl.hidden = false;
-    statusEl.textContent = text + " ";
+  function statusLink(win, text, url, label) {
+    if (!win) return;
+    win.statusEl.hidden = false;
+    win.statusEl.textContent = text + " ";
     var link = document.createElement("a");
     link.href = url;
     link.target = "_blank";
     link.rel = "noopener";
     link.textContent = label;
-    statusEl.appendChild(link);
+    win.statusEl.appendChild(link);
   }
 
-  function renderProjects() {
-    var list = body.querySelector("[data-projects-list]");
-    var count = body.querySelector("[data-projects-count]");
+  function renderProjects(win) {
+    if (!win) return;
+    var list = win.body.querySelector("[data-projects-list]");
+    var count = win.body.querySelector("[data-projects-count]");
     if (!list) return;
     var data = window.LGL_PROJECTS;
     if (!data || !data.projects) {
@@ -787,43 +894,77 @@
   }
 
   function open(name) {
-    ensureModal();
     var key = ALIASES[name] || name;
     if (!TEMPLATES[key]) return false;
-    lastFocus = document.activeElement;
-    titleEl.textContent = TITLES[key] || key;
-    body.innerHTML = TEMPLATES[key];
-    if (key === "projects") renderProjects();
-    if (key === "launchcommands" && window.LGLLaunchApp) {
-      window.LGLLaunchApp.mount(body.querySelector("[data-launch-app]"));
+    if (windows[key]) {
+      focusWindow(windows[key]);
+      windows[key].input.focus({ preventScroll: true });
+      return true;
     }
-    status("");
-    modal.hidden = false;
-    document.body.classList.add("tty-modal-open");
-    body.scrollTop = 0;
-    input.value = "";
-    historyIndex = history.length;
-    completionState.value = "";
-    pendingSudo = false;
-    input.focus({ preventScroll: true });
+
+    var win = createWindow(key);
+    windows[key] = win;
+    win.titleEl.textContent = TITLES[key] || key;
+    win.body.innerHTML = TEMPLATES[key];
+    if (key === "projects") renderProjects(win);
+    if (key === "launchcommands" && window.LGLLaunchApp) {
+      window.LGLLaunchApp.mount(win.body.querySelector("[data-launch-app]"));
+    }
+    focusWindow(win);
+    win.body.scrollTop = 0;
+    win.input.value = "";
+    win.historyIndex = win.history.length;
+    win.completionState.value = "";
+    win.pendingSudo = false;
+    win.input.focus({ preventScroll: true });
     return true;
   }
 
+  function closeWindow(win) {
+    if (!win || win.closed) return;
+    var target = win.lastFocus;
+    var wasActive = activeWindow === win;
+    win.closed = true;
+    win.root.remove();
+    delete windows[win.key];
+
+    if (!Object.keys(windows).length) {
+      if (layer) layer.remove();
+      layer = null;
+      activeWindow = null;
+      var fallback = document.getElementById("tty-input") || document.getElementById("site-tty-input");
+      if (target && target.isConnected && typeof target.focus === "function") {
+        target.focus({ preventScroll: true });
+      } else if (fallback) {
+        fallback.focus({ preventScroll: true });
+      }
+      return;
+    }
+
+    if (wasActive) {
+      activeWindow = topWindow();
+      if (activeWindow) {
+        activeWindow.root.classList.add("is-focused");
+        activeWindow.input.focus({ preventScroll: true });
+      }
+    }
+  }
+
   function close() {
-    if (!modal || modal.hidden) return;
-    modal.hidden = true;
-    document.body.classList.remove("tty-modal-open");
-    pendingSudo = false;
-    status("");
-    var target = document.getElementById("tty-input") || document.getElementById("site-tty-input") || lastFocus;
-    if (target && typeof target.focus === "function") target.focus({ preventScroll: true });
+    var win = activeWindow || topWindow();
+    if (win) closeWindow(win);
+  }
+
+  function closeAll() {
+    Object.keys(windows).forEach(function (key) { closeWindow(windows[key]); });
   }
 
   function isOpen() {
-    return !!(modal && !modal.hidden);
+    return Object.keys(windows).length > 0;
   }
 
-  function complete() {
+  function complete(win) {
+    if (!win) return;
     var commands = CONTENT.concat([
       "tldr", "exit", "theme", "cd", "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
       "help", "man", "ls", "lsblk", "lspci", "clear", "sudo", "rm", "mkdir", "pwd", "echo",
@@ -832,58 +973,58 @@
       "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11",
       "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"
     ]).concat(Object.keys(window.LGLLinks || {}));
-    var result = window.LGLComplete(input.value, commands, Object.keys(window.LGLTheme.themes), completionState);
+    var result = window.LGLComplete(win.input.value, commands, Object.keys(window.LGLTheme.themes), win.completionState);
     if (!result) return;
-    input.value = result.value;
+    win.input.value = result.value;
     if (result.matches.length > 1) {
-      status(result.matches.join("  "));
+      status(win, result.matches.join("  "));
     } else {
-      status("");
+      status(win, "");
     }
   }
 
-  function run(raw) {
-    ensureModal();
+  function run(win, raw) {
+    if (!win) return;
     var value = String(raw || "").trim();
     if (!value) return;
-    history.push(value);
-    historyIndex = history.length;
+    win.history.push(value);
+    win.historyIndex = win.history.length;
     var parts = value.split(/\s+/);
     var name = parts[0].toLowerCase();
     var argument = parts.slice(1).join(" ");
     var key = ALIASES[name] || name;
 
-    if (pendingSudo) {
-      pendingSudo = false;
+    if (win.pendingSudo) {
+      win.pendingSudo = false;
       if (value.toLowerCase() === "yes") {
-        status("sudo: authentication accepted.");
+        status(win, "sudo: authentication accepted.");
         if (window.LGLHack) window.LGLHack();
-        else status("just kidding. this is a static website.");
+        else status(win, "just kidding. this is a static website.");
       } else {
-        status("sudo: aborted. probably for the best.");
+        status(win, "sudo: aborted. probably for the best.");
       }
       return;
     }
 
     if (name === "sudo") {
-      status("We trust you have received the usual lecture from the local System\nAdministrator. It usually boils down to these three things:\n#1) Respect the privacy of others.\n#2) Think before you type.\n#3) With great power comes great responsibility.\ntype yes to continue");
-      pendingSudo = true;
+      status(win, "We trust you have received the usual lecture from the local System\nAdministrator. It usually boils down to these three things:\n#1) Respect the privacy of others.\n#2) Think before you type.\n#3) With great power comes great responsibility.\ntype yes to continue");
+      win.pendingSudo = true;
       return;
     }
 
     if (name === "rm") {
       if (/(^|\s)-[a-z]*r/i.test(argument)) {
         if (window.LGLJoke) window.LGLJoke("rm -rf /");
-        else status("rm: deleting everything in 5... JUST KIDDING.");
+        else status(win, "rm: deleting everything in 5... JUST KIDDING.");
       } else {
-        status("rm: refusing to delete anything on a website.");
+        status(win, "rm: refusing to delete anything on a website.");
       }
       return;
     }
 
     if (name === "mkdir") {
       if (window.LGLJoke) window.LGLJoke("mkdir");
-      else status("mkdir: creating a very large directory... JUST KIDDING.");
+      else status(win, "mkdir: creating a very large directory... JUST KIDDING.");
       return;
     }
 
@@ -891,9 +1032,9 @@
       var shutdownHead = "Your pc will shutdown in ";
       if (window.LGLCountdown) {
         window.LGLCountdown(function (count) {
-          status(shutdownHead + count);
+          status(win, shutdownHead + count);
         }, function () {
-          status(shutdownHead + "shutdown: just kidding. this is a website.");
+          status(win, shutdownHead + "shutdown: just kidding. this is a website.");
         });
       }
       return;
@@ -908,70 +1049,70 @@
       dnf: "dnf is not available in this terminal. try the toolkit page."
     };
     if (FUNNY[name]) {
-      status(FUNNY[name]);
+      status(win, FUNNY[name]);
       return;
     }
 
     if (name === "pwd") {
-      status("/home/lgl");
+      status(win, "/home/lgl");
       return;
     }
     if (name === "echo") {
-      status(argument);
+      status(win, argument);
       return;
     }
     if (name === "doas") {
-      status(window.LGLDoas || "Sorry, cinnamon rolls are out of stock. Please come back later.");
+      status(win, window.LGLDoas || "Sorry, cinnamon rolls are out of stock. Please come back later.");
       return;
     }
 
     if (name === "gentoo") {
-      status(window.LGLGentoo || "Only strange people use gentoo. Strange people are awesome though.");
+      status(win, window.LGLGentoo || "Only strange people use gentoo. Strange people are awesome though.");
       return;
     }
     if (window.LGLBrowsers && window.LGLBrowsers[name]) {
       var browser = window.LGLBrowsers[name];
-      statusLink(browser.text, browser.url, browser.label);
+      statusLink(win, browser.text, browser.url, browser.label);
       return;
     }
     if (name === "whoami") {
-      status("linuxgamerlife");
+      status(win, "linuxgamerlife");
       return;
     }
     if (name === "cat") {
       if (!argument || argument.toLowerCase() === "manifesto.txt") {
-        status("Left Windows. Kept the games.\nI spent decades gaming on Windows, then moved everything to Linux in 2025.");
+        status(win, "Left Windows. Kept the games.\nI spent decades gaming on Windows, then moved everything to Linux in 2025.");
       } else {
-        status("cat: " + argument + ": No such file or directory");
+        status(win, "cat: " + argument + ": No such file or directory");
       }
       return;
     }
     if (name === "fastfetch") {
-      status(window.LGLFastfetch ? window.LGLFastfetch() : "fastfetch: not available");
+      status(win, window.LGLFastfetch ? window.LGLFastfetch() : "fastfetch: not available");
       return;
     }
 
     if (name === "exit") {
-      close();
+      closeWindow(win);
       return;
     }
     if (name === "clear") {
-      status("");
+      status(win, "");
       return;
     }
     if (name === "man" || name.indexOf("man ") === 0) {
       var topic = value.slice(3).trim();
       if (!topic) {
-        status("What manual page do you want?");
-        statusGrid(window.LGLMan ? window.LGLMan.names() : []);
+        status(win, "What manual page do you want?");
+        statusGrid(win, window.LGLMan ? window.LGLMan.names() : []);
         return;
       }
       var page = window.LGLMan ? window.LGLMan.render(topic) : null;
       if (!page) {
-        status("No manual entry for " + topic);
+        status(win, "No manual entry for " + topic);
         return;
       }
-      status(page);
+      status(win, page);
       return;
     }
     if (name === "help") {
@@ -983,46 +1124,46 @@
         "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11",
         "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"
       ]);
-      statusGrid(items.filter(function (item, index, all) { return all.indexOf(item) === index; }).sort());
+      statusGrid(win, items.filter(function (item, index, all) { return all.indexOf(item) === index; }).sort());
       return;
     }
     if (name === "ls") {
-      status("about/  journey/  principles/  videos/  projects/  toolkit/  launchcommands/  setup/  community/  contact/  discounts/\ntdlr.txt  ai.txt  disclaimer.txt  themes/");
+      status(win, "about/  journey/  principles/  videos/  projects/  toolkit/  launchcommands/  setup/  community/  contact/  discounts/\ntdlr.txt  ai.txt  disclaimer.txt  themes/");
       return;
     }
     if (name === "lsblk") {
-      status(window.LGLLsblk ? window.LGLLsblk() : "lsblk: not available");
+      status(win, window.LGLLsblk ? window.LGLLsblk() : "lsblk: not available");
       return;
     }
     if (name === "lspci") {
-      status(window.LGLLspci ? window.LGLLspci() : "lspci: not available");
+      status(win, window.LGLLspci ? window.LGLLspci() : "lspci: not available");
       return;
     }
     if (name === "theme") {
       if (!argument) {
-        status("current: " + window.LGLTheme.current() + "\navailable: " + Object.keys(window.LGLTheme.themes).join("  ") + "\nusage: theme blue");
+        status(win, "current: " + window.LGLTheme.current() + "\navailable: " + Object.keys(window.LGLTheme.themes).join("  ") + "\nusage: theme blue");
       } else if (argument.toLowerCase() === "reset") {
         window.LGLTheme.reset();
-        status("theme reset to " + window.LGLTheme.current());
+        status(win, "theme reset to " + window.LGLTheme.current());
       } else if (window.LGLTheme.apply(argument.toLowerCase())) {
-        status("theme set to " + argument.toLowerCase());
+        status(win, "theme set to " + argument.toLowerCase());
       } else {
-        status("unknown theme: " + argument);
+        status(win, "unknown theme: " + argument);
       }
       return;
     }
     if ((name === "cd" && /^(~\/)?merch\/?$/i.test(argument)) || name === "./merch") {
       window.LGLOpenMerch();
-      statusLink("opening the full shop", window.LGLMerch.url, window.LGLMerch.url);
+      statusLink(win, "opening the full shop", window.LGLMerch.url, window.LGLMerch.url);
       return;
     }
     if (window.LGLOpenLink && window.LGLOpenLink(name)) {
-      status("opening " + name + "...");
+      status(win, "opening " + name + "...");
       return;
     }
     if (/^(cd|open|go)(\s|$)/i.test(value)) {
       if (window.LGLNavigate && window.LGLNavigate(value)) return;
-      status("cd: no such directory: " + argument);
+      status(win, "cd: no such directory: " + argument);
       return;
     }
     var video = window.LGLVideo && window.LGLVideo(name);
@@ -1032,18 +1173,45 @@
 
     if (TEMPLATES[key]) {
       open(key);
-      if (key === "merch") {
-        statusLink("shop", window.LGLMerch.url, window.LGLMerch.url);
-      }
       return;
     }
     if (window.LGLNavigate && window.LGLNavigate(name)) return;
-    status('command not found: "' + value + '". type help.');
+    status(win, 'command not found: "' + value + '". type help.');
   }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape" || !activeWindow) return;
+    if (document.querySelector(".tty-joke")) return;
+    event.preventDefault();
+    closeWindow(activeWindow);
+  });
+
+  window.addEventListener("resize", function () {
+    Object.keys(windows).forEach(function (key) {
+      var win = windows[key];
+      var root = win.root;
+      if (window.innerWidth <= 700) {
+        root.style.width = (window.innerWidth - 16) + "px";
+        root.style.height = (window.innerHeight - 16) + "px";
+        root.style.left = "8px";
+        root.style.top = "8px";
+        return;
+      }
+      var width = Math.min(parseFloat(root.style.width) || root.offsetWidth, window.innerWidth - 24);
+      var height = Math.min(parseFloat(root.style.height) || root.offsetHeight, window.innerHeight - 24);
+      var left = Math.min(parseFloat(root.style.left) || 0, window.innerWidth - width - 8);
+      var top = Math.min(parseFloat(root.style.top) || 0, window.innerHeight - height - 8);
+      root.style.width = Math.max(380, width) + "px";
+      root.style.height = Math.max(280, height) + "px";
+      root.style.left = Math.max(0, left) + "px";
+      root.style.top = Math.max(0, top) + "px";
+    });
+  });
 
   window.LGLPanels = {
     open: open,
     close: close,
+    closeAll: closeAll,
     isOpen: isOpen,
     content: CONTENT,
     aliases: ALIASES
