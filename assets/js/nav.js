@@ -651,7 +651,7 @@
       synopsis: "theme <name> | theme reset",
       description: [
         "Changes the theme for the whole site and remembers it for this browser.",
-        "Available themes: forest, monochrome, pink, blue, green and purple. theme reset returns to pink."
+        "Available themes: forest, monochrome, pink, blue, green, purple, gruvbox, tokyo, nord, mocha, dracula, everforest, kanagawa, rosepine, solarized, onedark, monokai and halloween. theme reset returns to pink."
       ],
       seeAlso: "man help"
     },
