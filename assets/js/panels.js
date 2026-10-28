@@ -440,6 +440,13 @@
       '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/toolkit">cd ~/toolkit</button> <span class="tty-comment"># install guide</span></p>'
     ].join(""),
 
+    launchcommands: [
+      '<p class="tty-modal__cmd">$ launchcommands</p>',
+      '<p class="tty-note">Build a Steam launch string: choose flags and environment variables, check for conflicting renderers or vendor options, then copy the output. <span class="tty-comment">Community-reported</span> options are widely used but not vendor-documented.</p>',
+      '<div data-launch-app></div>',
+      '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/launchcommands">cd ~/launchcommands</button> <span class="tty-comment"># full page</span></p>'
+    ].join(""),
+
     merch: [
       '<div class="merch-app__head">',
       '<div><p class="tty-modal__cmd">$ merch</p><h3>Linux Gamer Life merch</h3><p>A collection of really amazing LGL products.</p></div>',
@@ -569,7 +576,8 @@
     ].join("")
   };
 
-  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "ubuntu", "wayland", "x11", "projects", "toolkit", "merch", "setup", "mainmachine", "testmachine", "nsm", "macmini", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
+  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "ubuntu", "wayland", "x11", "projects", "toolkit", "launchcommands", "merch", "setup", "mainmachine", "testmachine", "nsm", "macmini", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
+  var TITLES = { launchcommands: "launch commands" };
   var ALIASES = {
     tldr: "tdlr",
     story: "about",
@@ -577,6 +585,7 @@
     legal: "disclaimer",
     pc1: "mainmachine",
     pc2: "testmachine",
+    launch: "launchcommands",
     nix: "nixos",
     regata: "regataos",
     pika: "pikaos",
@@ -782,9 +791,12 @@
     var key = ALIASES[name] || name;
     if (!TEMPLATES[key]) return false;
     lastFocus = document.activeElement;
-    titleEl.textContent = key;
+    titleEl.textContent = TITLES[key] || key;
     body.innerHTML = TEMPLATES[key];
     if (key === "projects") renderProjects();
+    if (key === "launchcommands" && window.LGLLaunchApp) {
+      window.LGLLaunchApp.mount(body.querySelector("[data-launch-app]"));
+    }
     status("");
     modal.hidden = false;
     document.body.classList.add("tty-modal-open");
@@ -975,7 +987,7 @@
       return;
     }
     if (name === "ls") {
-      status("about/  journey/  principles/  videos/  projects/  toolkit/  setup/  community/  contact/  discounts/\ntdlr.txt  ai.txt  disclaimer.txt  themes/");
+      status("about/  journey/  principles/  videos/  projects/  toolkit/  launchcommands/  setup/  community/  contact/  discounts/\ntdlr.txt  ai.txt  disclaimer.txt  themes/");
       return;
     }
     if (name === "lsblk") {

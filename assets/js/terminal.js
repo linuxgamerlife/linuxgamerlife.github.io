@@ -9,7 +9,7 @@
 
   var COMMANDS = [
     "about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nix", "nixos", "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11", "projects",
-    "toolkit", "merch", "setup", "community", "discounts", "ai", "disclaimer", "tdlr",
+    "toolkit", "launchcommands", "merch", "setup", "community", "discounts", "ai", "disclaimer", "tdlr",
     "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
     "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floorp",
     "ls", "lsblk", "lspci", "fastfetch", "theme", "clear", "exit", "help", "man"
@@ -293,7 +293,7 @@
         break;
 
       case "ls":
-        line("about/  journey/  principles/  videos/  projects/  toolkit/  merch/  setup/  community/  contact/  discounts/");
+        line("about/  journey/  principles/  videos/  projects/  toolkit/  launchcommands/  merch/  setup/  community/  contact/  discounts/");
         line("ai.txt  disclaimer.txt  tdlr.txt  manifesto.txt  themes/");
         break;
 

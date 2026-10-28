@@ -1,0 +1,355 @@
+/* Steam launch-command builder, shared by launchcommands.html and its app panel. */
+
+.lo-app {
+  --lo-danger: #ff9b9b;
+  --lo-warn: #e8c56f;
+  --lo-info: #9fc8df;
+  --lo-nvidia: #a8d96f;
+  --lo-amd: #f09aa0;
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bg-2) 92%, transparent);
+  color: var(--ink);
+}
+
+.lo-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-3) 62%, transparent);
+}
+.lo-search {
+  display: flex;
+  flex: 1 1 260px;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 220px;
+  padding: 0.38rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--faint);
+}
+.lo-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+.lo-search input::placeholder { color: var(--faint); }
+
+.lo-btn {
+  padding: 0.36rem 0.58rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--accent) 4%, transparent);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+.lo-btn:hover,
+.lo-btn:focus-visible {
+  color: var(--ink);
+  border-color: var(--line-strong);
+  background: var(--accent-soft);
+}
+.lo-btn--primary { color: var(--ink); border-color: var(--line-strong); }
+.lo-btn--warn { color: var(--lo-danger); }
+
+.lo-filterbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+}
+.lo-group-label {
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.lo-fchips { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.lo-fchip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.18rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  cursor: pointer;
+}
+.lo-fchip:hover { color: var(--ink); border-color: var(--line-strong); }
+.lo-fchip.is-active {
+  color: var(--ink);
+  border-color: var(--line-strong);
+  background: var(--accent-soft);
+}
+.lo-fchip__n { color: var(--faint); font-size: 0.54rem; }
+.lo-fchip.is-active .lo-fchip__n { color: var(--muted); }
+.lo-selects { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; margin-left: auto; }
+.lo-selects label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.lo-selects select {
+  padding: 0.3rem 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+}
+.lo-hint { color: var(--faint); font-family: var(--font-mono); font-size: 0.57rem; }
+
+.lo-warnings { display: grid; gap: 0.45rem; }
+.lo-warnings:not(:empty) {
+  padding: 0.7rem;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+}
+.lo-warn {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--lo-info);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--bg-3) 70%, transparent);
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+.lo-warn--danger { border-left-color: var(--lo-danger); }
+.lo-warn--warn { border-left-color: var(--lo-warn); }
+.lo-warn__icon { flex: 0 0 auto; line-height: 1.4; }
+.lo-warn__title { color: var(--ink); font-weight: 600; }
+.lo-warn__msg { color: var(--muted); }
+
+.lo-tablewrap {
+  max-height: 62vh;
+  min-height: 320px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  resize: vertical;
+}
+.lo-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+.lo-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 0.7rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-3) 94%, transparent);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+}
+.lo-table tbody td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px dashed var(--line);
+  overflow-wrap: anywhere;
+  vertical-align: top;
+  font-size: 0.7rem;
+  line-height: 1.55;
+}
+.lo-table tbody tr:last-child td { border-bottom: 0; }
+.lo-table tbody tr:hover { background: color-mix(in srgb, var(--accent) 3%, transparent); }
+.lo-table tbody tr.is-selected { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.lo-table tbody tr.is-selected .lo-k { color: var(--ink); }
+.lo-pick-col { width: 42px; }
+.lo-option-col { width: 24%; }
+.lo-scope-col { width: 16%; }
+.lo-when-col { width: 28%; }
+
+.lo-table input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--accent);
+}
+.lo-k {
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.67rem !important;
+  font-weight: 600;
+}
+.lo-ex { color: var(--muted); }
+.lo-usewhen { color: var(--muted); }
+
+.lo-pairs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.22rem;
+  margin-top: 0.4rem;
+}
+.lo-pairs__label {
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.51rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.lo-pairchip {
+  max-width: 100%;
+  padding: 0 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  line-height: 1.7;
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.lo-pairchip:hover { color: var(--ink); border-color: var(--line-strong); }
+.lo-pairchip.is-on { color: var(--ink); border-color: var(--line-strong); background: var(--accent-soft); }
+
+.lo-badges { display: flex; flex-wrap: wrap; gap: 0.22rem; }
+.lo-badge {
+  max-width: 100%;
+  padding: 0.04rem 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 3%, transparent);
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+.lo-badge--nvidia { color: var(--lo-nvidia); border-color: color-mix(in srgb, var(--lo-nvidia) 30%, transparent); }
+.lo-badge--amd { color: var(--lo-amd); border-color: color-mix(in srgb, var(--lo-amd) 30%, transparent); }
+.lo-badge--proton { color: var(--lo-info); border-color: color-mix(in srgb, var(--lo-info) 30%, transparent); }
+.lo-badge--engine { color: var(--accent-2); }
+.lo-badge--tool { color: var(--lo-warn); border-color: color-mix(in srgb, var(--lo-warn) 28%, transparent); }
+.lo-badge--community { color: var(--lo-warn); border-style: dashed; }
+.lo-empty { padding: 2rem 0.75rem; color: var(--muted); text-align: center; }
+
+.lo-builder {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0.7rem;
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-3) 55%, transparent);
+}
+.lo-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; }
+.lo-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.lo-chip {
+  padding: 0.08rem 0.42rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+.lo-chip--flag { color: var(--accent-2); border-color: var(--line-strong); }
+.lo-output {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--bg);
+}
+.lo-output input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+.lo-copyok { color: var(--ok); font-family: var(--font-mono); font-size: 0.55rem; }
+
+.tty-modal__body .lo-app { margin-top: 0.2rem; }
+.tty-modal__body .lo-tablewrap { max-height: 42vh; min-height: 240px; resize: none; }
+.tty-modal__body .lo-tools,
+.tty-modal__body .lo-filterbar { padding: 0.55rem; }
+.tty-modal__body .lo-search { flex-basis: 200px; }
+
+@media (max-width: 700px) {
+  .lo-tools { padding: 0.5rem; }
+  .lo-filterbar { padding: 0.5rem; }
+  .lo-selects { width: 100%; margin-left: 0; }
+  .lo-tablewrap { max-height: 58vh; min-height: 260px; resize: none; }
+  .lo-table { min-width: 560px; }
+  .lo-table thead th,
+  .lo-table tbody td { padding: 0.5rem; font-size: 0.64rem; }
+  .lo-k { font-size: 0.61rem !important; }
+  .lo-scope-col,
+  .lo-table th:nth-child(3),
+  .lo-table td:nth-child(3) { display: none; }
+  .lo-badge { font-size: 0.46rem; }
+  .lo-pairchip { font-size: 0.5rem; }
+  .lo-output { flex-wrap: wrap; }
+  .lo-output input { flex-basis: 100%; }
+  .lo-copyok { margin-left: 0.35rem; }
+}
+
+.lo-launch-page { padding-block: 1.6rem 2.4rem; }
+.lo-launch-intro {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.7fr);
+  align-items: end;
+  column-gap: clamp(1rem, 3vw, 2.4rem);
+  margin: 1rem 0 1.15rem;
+}
+.lo-launch-intro .eyebrow { grid-column: 1; grid-row: 1; margin: 0 0 0.35rem; }
+.lo-launch-intro .page-head__title { grid-column: 1; grid-row: 2; margin: 0; font-size: clamp(1.8rem, 3.2vw, 2.45rem); }
+.lo-launch-intro .lede { grid-column: 2; grid-row: 1 / span 2; align-self: end; max-width: 86ch; margin: 0; font-size: 0.94rem; }
+@media (max-width: 900px) {
+  .lo-launch-intro { display: block; }
+  .lo-launch-intro .eyebrow { margin-bottom: 0.45rem; }
+  .lo-launch-intro .page-head__title { margin-bottom: 0.55rem; font-size: clamp(2rem, 7vw, 2.7rem); }
+}
+
+.lo-page-app { margin: 0 0 1rem; }
+.lo-page-note {
+  margin: 1rem 0 0;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1.75;
+}

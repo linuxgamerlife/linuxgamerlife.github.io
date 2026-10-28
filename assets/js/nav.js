@@ -9,6 +9,8 @@
     community: "community.html",
     projects: "projects.html",
     toolkit: "toolkit.html",
+    launchcommands: "launchcommands.html",
+    launch: "launchcommands.html",
     setup: "mysetup.html",
     mysetup: "mysetup.html",
     ai: "ai.html",
@@ -78,8 +80,8 @@
     fedora: "https://fedoraproject.org/"
   };
 
-  var PATHS = ["~/videos", "~/projects", "~/about", "~/community", "~/toolkit", "~/setup", "~/mainmachine", "~/testmachine", "~/nsm", "~/macmini", "~/merch", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "discounts", "pc1", "pc2", "theblackdon", "finley", "keychron"];
-  var NAV_COMMANDS = ["./home", "./about", "./videos", "./community", "./projects", "./toolkit", "./setup", "./mainmachine", "./testmachine", "./nsm", "./macmini", "./merch", "./youtube", "./twitch", "./kick"];
+  var PATHS = ["~/videos", "~/projects", "~/about", "~/community", "~/toolkit", "~/launchcommands", "~/setup", "~/mainmachine", "~/testmachine", "~/nsm", "~/macmini", "~/merch", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "discounts", "pc1", "pc2", "theblackdon", "finley", "keychron"];
+  var NAV_COMMANDS = ["./home", "./about", "./videos", "./community", "./projects", "./toolkit", "./launchcommands", "./setup", "./mainmachine", "./testmachine", "./nsm", "./macmini", "./merch", "./youtube", "./twitch", "./kick"];
 
   function commonPrefix(a, b) {
     var i = 0;
@@ -541,6 +543,16 @@
       ],
       seeAlso: "man projects, toolkit.html"
     },
+    launchcommands: {
+      name: "launchcommands",
+      summary: "build Steam launch options for Linux games",
+      synopsis: "launchcommands",
+      description: [
+        "Opens the interactive Steam launch-command builder. Pick flags and environment variables, check for conflicting renderers or vendor options, and copy the finished string.",
+        "Use cd ~/launchcommands or ./launchcommands for the full page."
+      ],
+      seeAlso: "man videos, launchcommands.html"
+    },
     setup: {
       name: "setup",
       summary: "the machines, the desk and the gear",
@@ -679,6 +691,7 @@
     legal: "disclaimer",
     pc1: "mainmachine",
     pc2: "testmachine",
+    launch: "launchcommands",
     nix: "nixos",
     regata: "regataos",
     pika: "pikaos",
