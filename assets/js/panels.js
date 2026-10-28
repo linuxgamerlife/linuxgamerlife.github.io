@@ -573,10 +573,12 @@
       '<p class="tty-note">I am not a Linux professional, and I am not a developer. I am learning as I go, using AI tools carefully, picking up tips from other people, and improving my setup along the way. Sometimes I still reach for the Mac for DaVinci Resolve or Ableton, and I know I am lucky to have that option.</p>',
       '<p class="tty-note">This site is about the journey: what works, what does not, and how I deal with the challenges in between. If you are thinking about switching, or you are just curious what gaming and everyday life on Linux is really like, I hope you will stick around.</p>',
       '<p class="tty-note">Happy Linux-ing. lgl</p>'
-    ].join("")
+    ].join(""),
+
+    terminal: '<div class="tty-window__log" data-window-log aria-live="polite"></div>'
   };
 
-  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "ubuntu", "wayland", "x11", "projects", "toolkit", "launchcommands", "merch", "setup", "mainmachine", "testmachine", "nsm", "macmini", "community", "contact", "discounts", "ai", "disclaimer", "tdlr"];
+  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "ubuntu", "wayland", "x11", "projects", "toolkit", "launchcommands", "merch", "setup", "mainmachine", "testmachine", "nsm", "macmini", "community", "contact", "discounts", "ai", "disclaimer", "tdlr", "terminal"];
   var TITLES = { launchcommands: "launch commands" };
   var ALIASES = {
     tldr: "tdlr",
@@ -743,6 +745,7 @@
       key: key,
       root: root,
       body: root.querySelector("[data-window-body]"),
+      logEl: null,
       titleEl: root.querySelector("[data-window-title]"),
       statusEl: root.querySelector("[data-window-status]"),
       form: root.querySelector("[data-window-form]"),
@@ -763,7 +766,14 @@
         return;
       }
       var commandButton = event.target.closest("[data-cmd]");
-      if (commandButton) run(win, commandButton.getAttribute("data-cmd"));
+      if (commandButton) {
+        run(win, commandButton.getAttribute("data-cmd"));
+        return;
+      }
+      if (win.key === "terminal" && !event.target.closest("a, button, input, select, textarea")) {
+        var selection = window.getSelection();
+        if (!selection || !selection.toString().length) win.input.focus({ preventScroll: true });
+      }
     });
 
     var bar = root.querySelector("[data-drag]");
@@ -771,8 +781,11 @@
     var resize = root.querySelector("[data-resize]");
     resize.addEventListener("pointerdown", function (event) { startResize(win, event); });
 
+    win.form.noValidate = true;
+    win.form.setAttribute("autocomplete", "off");
     win.form.addEventListener("submit", function (event) {
       event.preventDefault();
+      event.stopPropagation();
       var value = win.input.value;
       win.input.value = "";
       run(win, value);
@@ -783,6 +796,15 @@
     });
 
     win.input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.isComposing) return;
+        var value = win.input.value;
+        win.input.value = "";
+        run(win, value);
+        return;
+      }
       if (event.key === "ArrowUp" || event.key === "ArrowDown") {
         event.preventDefault();
         if (!win.history.length) return;
@@ -805,10 +827,35 @@
     return win;
   }
 
+  function terminalScroll(win) {
+    if (!win || !win.logEl) return;
+    win.logEl.scrollTop = win.logEl.scrollHeight;
+  }
+
+  function terminalEcho(win, text) {
+    if (!win || !win.logEl) return;
+    var line = document.createElement("p");
+    line.className = "tty-log-line";
+    var prompt = document.createElement("span");
+    prompt.className = "tty__prompt";
+    prompt.textContent = "lgl@fedora:~$";
+    line.appendChild(prompt);
+    line.appendChild(document.createTextNode(" " + text));
+    win.logEl.appendChild(line);
+    terminalScroll(win);
+  }
+
+  function terminalWrite(win, text, className) {
+    if (!win || !win.logEl) return;
+    var line = document.createElement("p");
+    line.className = "tty-log-line" + (className ? " " + className : "");
+    line.textContent = text;
+    win.logEl.appendChild(line);
+    terminalScroll(win);
+  }
+
   function statusGrid(win, items) {
     if (!win) return;
-    win.statusEl.hidden = false;
-    win.statusEl.textContent = "";
     var grid = document.createElement("span");
     grid.className = "tty-help-grid";
     items.forEach(function (item) {
@@ -816,11 +863,26 @@
       cell.textContent = item;
       grid.appendChild(cell);
     });
+    if (win.key === "terminal") {
+      win.logEl.appendChild(grid);
+      terminalScroll(win);
+      return;
+    }
+    win.statusEl.hidden = false;
+    win.statusEl.textContent = "";
     win.statusEl.appendChild(grid);
   }
 
   function status(win, text) {
     if (!win) return;
+    if (win.key === "terminal") {
+      if (!text) {
+        if (win.logEl) win.logEl.replaceChildren();
+        return;
+      }
+      terminalWrite(win, text);
+      return;
+    }
     if (!text) {
       win.statusEl.hidden = true;
       win.statusEl.textContent = "";
@@ -832,13 +894,22 @@
 
   function statusLink(win, text, url, label) {
     if (!win) return;
-    win.statusEl.hidden = false;
-    win.statusEl.textContent = text + " ";
     var link = document.createElement("a");
     link.href = url;
     link.target = "_blank";
     link.rel = "noopener";
     link.textContent = label;
+    if (win.key === "terminal") {
+      var line = document.createElement("p");
+      line.className = "tty-log-line";
+      line.appendChild(document.createTextNode(text + " "));
+      line.appendChild(link);
+      win.logEl.appendChild(line);
+      terminalScroll(win);
+      return;
+    }
+    win.statusEl.hidden = false;
+    win.statusEl.textContent = text + " ";
     win.statusEl.appendChild(link);
   }
 
@@ -895,7 +966,7 @@
 
   function open(name) {
     var key = ALIASES[name] || name;
-    if (!TEMPLATES[key]) return false;
+    if (!(key in TEMPLATES)) return false;
     if (windows[key]) {
       focusWindow(windows[key]);
       windows[key].input.focus({ preventScroll: true });
@@ -906,12 +977,16 @@
     windows[key] = win;
     win.titleEl.textContent = TITLES[key] || key;
     win.body.innerHTML = TEMPLATES[key];
+    win.logEl = win.body.querySelector("[data-window-log]");
+    win.root.classList.toggle("is-terminal", key === "terminal");
+    if (key === "terminal") win.input.placeholder = "type help / exit / esc to close";
     if (key === "projects") renderProjects(win);
     if (key === "launchcommands" && window.LGLLaunchApp) {
       window.LGLLaunchApp.mount(win.body.querySelector("[data-launch-app]"));
     }
     focusWindow(win);
     win.body.scrollTop = 0;
+    if (win.logEl) win.logEl.scrollTop = 0;
     win.input.value = "";
     win.historyIndex = win.history.length;
     win.completionState.value = "";
@@ -971,14 +1046,14 @@
       "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floorp",
       "solus", "opensuse", "debian", "arch", "void", "nix", "nixos",
       "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11",
-      "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"
+      "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf", "terminal"
     ]).concat(Object.keys(window.LGLLinks || {}));
     var result = window.LGLComplete(win.input.value, commands, Object.keys(window.LGLTheme.themes), win.completionState);
     if (!result) return;
     win.input.value = result.value;
     if (result.matches.length > 1) {
       status(win, result.matches.join("  "));
-    } else {
+    } else if (win.key !== "terminal") {
       status(win, "");
     }
   }
@@ -993,6 +1068,8 @@
     var name = parts[0].toLowerCase();
     var argument = parts.slice(1).join(" ");
     var key = ALIASES[name] || name;
+
+    if (win.key === "terminal") terminalEcho(win, value);
 
     if (win.pendingSudo) {
       win.pendingSudo = false;
@@ -1122,7 +1199,7 @@
         "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floorp",
         "solus", "opensuse", "debian", "arch", "void", "nix", "nixos",
         "playtron", "regata", "regataos", "bazzite", "pika", "pikaos", "garuda", "nobara", "steam", "steamos", "cachy", "cachyos", "gentoo", "ubuntu", "wayland", "x11",
-        "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf"
+        "whoami", "cat", "fastfetch", "vim", "nano", "shutdown", "reboot", "apt", "pacman", "dnf", "terminal"
       ]);
       statusGrid(win, items.filter(function (item, index, all) { return all.indexOf(item) === index; }).sort());
       return;
@@ -1171,7 +1248,7 @@
       window.LGLAppendLink(video.title + " · video", video.url, video.label);
     }
 
-    if (TEMPLATES[key]) {
+    if (key in TEMPLATES) {
       open(key);
       return;
     }

@@ -651,9 +651,18 @@
       synopsis: "theme <name> | theme reset",
       description: [
         "Changes the theme for the whole site and remembers it for this browser.",
-        "Available themes: forest, monochrome, pink, blue, green, purple, gruvbox, tokyo, nord, mocha, dracula, everforest, kanagawa, rosepine, solarized, onedark, monokai and halloween. theme reset returns to pink."
+        "Available themes: forest, monochrome, pink, blue, green, purple, gruvbox, tokyo, nord, mocha, dracula, everforest, kanagawa, rosepine, solarized, onedark, monokai, halloween, cream and gold. theme reset returns to pink."
       ],
       seeAlso: "man help"
+    },
+    terminal: {
+      name: "terminal",
+      summary: "open an empty terminal app",
+      synopsis: "terminal",
+      description: [
+        "Opens a blank terminal window. Type commands in it like any other panel; exit or Escape closes it."
+      ],
+      seeAlso: "man theme, man help"
     },
     home: {
       name: "home",

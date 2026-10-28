@@ -12,7 +12,7 @@
     "toolkit", "launchcommands", "merch", "setup", "community", "discounts", "ai", "disclaimer", "tdlr",
     "story", "contact", "statement", "mainmachine", "testmachine", "nsm", "macmini", "legal",
     "doas", "brave", "vivaldi", "helium", "zen", "firefox", "waterfox", "floorp",
-    "ls", "lsblk", "lspci", "fastfetch", "theme", "clear", "exit", "help", "man"
+    "ls", "lsblk", "lspci", "fastfetch", "theme", "terminal", "clear", "exit", "help", "man"
   ];
   var history = [];
   var historyIndex = -1;

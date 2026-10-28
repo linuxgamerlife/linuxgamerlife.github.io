@@ -218,6 +218,30 @@
         "--ink": "#fff0dd", "--muted": "#d3b596", "--faint": "#96765b",
         "--ok": "#ffb347", "--glow": "0 0 32px -22px rgba(255, 140, 26, 0.35)"
       }
+    },
+    cream: {
+      logo: "assets/theme/cream/logo.svg",
+      apple: "assets/theme/cream/apple-touch-icon.png",
+      vars: {
+        "--bg": "#0c0a06", "--bg-2": "#13100a", "--bg-3": "#1c170f",
+        "--line": "rgba(232, 210, 170, 0.16)", "--line-strong": "rgba(240, 222, 188, 0.34)",
+        "--accent": "#e6c99a", "--accent-2": "#c69a5e", "--accent-3": "#6f5632",
+        "--accent-soft": "rgba(230, 201, 154, 0.13)",
+        "--ink": "#fbf3e2", "--muted": "#c9bba3", "--faint": "#93846c",
+        "--ok": "#b7d39a", "--glow": "0 0 32px -22px rgba(230, 201, 154, 0.32)"
+      }
+    },
+    gold: {
+      logo: "assets/theme/gold/logo.svg",
+      apple: "assets/theme/gold/apple-touch-icon.png",
+      vars: {
+        "--bg": "#080b05", "--bg-2": "#0d1208", "--bg-3": "#151b0c",
+        "--line": "rgba(247, 211, 92, 0.16)", "--line-strong": "rgba(255, 224, 130, 0.34)",
+        "--accent": "#f5c518", "--accent-2": "#9ab55a", "--accent-3": "#5c6b1e",
+        "--accent-soft": "rgba(245, 197, 24, 0.13)",
+        "--ink": "#fdf6d0", "--muted": "#c9c39a", "--faint": "#8f8a63",
+        "--ok": "#a8d17a", "--glow": "0 0 32px -22px rgba(245, 197, 24, 0.34)"
+      }
     }
   };
 

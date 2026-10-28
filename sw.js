@@ -1,6 +1,6 @@
 /* Linux Gamer Life - offline shell and installability. */
 // Bump CACHE when you need to force a fresh offline cache.
-const CACHE = "lgl-v17";
+const CACHE = "lgl-v18";
 
 const CORE = [
   "/",
@@ -86,6 +86,12 @@ const CORE = [
   "/assets/theme/halloween/logo.svg",
   "/assets/theme/halloween/logo.png",
   "/assets/theme/halloween/apple-touch-icon.png",
+  "/assets/theme/cream/logo.svg",
+  "/assets/theme/cream/logo.png",
+  "/assets/theme/cream/apple-touch-icon.png",
+  "/assets/theme/gold/logo.svg",
+  "/assets/theme/gold/logo.png",
+  "/assets/theme/gold/apple-touch-icon.png",
   "/assets/img/logo.svg",
   "/assets/img/logo.png",
   "/assets/img/apple-touch-icon.png",
