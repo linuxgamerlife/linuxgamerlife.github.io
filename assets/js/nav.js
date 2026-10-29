@@ -68,6 +68,8 @@
     kofi: "https://ko-fi.com/linuxgamerlife",
     "ko-fi": "https://ko-fi.com/linuxgamerlife",
     x: "https://x.com/linuxgamerlife",
+    reddit: "https://www.reddit.com/r/LinuxGamerLife/",
+    subreddit: "https://www.reddit.com/r/LinuxGamerLife/",
     gitlab: "https://theblackdon.dev/kineticwe",
     kineticwe: "https://theblackdon.dev/kineticwe",
     kineticos: "https://theblackdon.dev/kineticwe",
@@ -80,8 +82,8 @@
     fedora: "https://fedoraproject.org/"
   };
 
-  var PATHS = ["~/videos", "~/projects", "~/about", "~/community", "~/toolkit", "~/launchcommands", "~/setup", "~/mainmachine", "~/testmachine", "~/nsm", "~/macmini", "~/merch", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "discounts", "pc1", "pc2", "theblackdon", "finley", "keychron"];
-  var NAV_COMMANDS = ["./home", "./about", "./videos", "./community", "./projects", "./toolkit", "./launchcommands", "./setup", "./mainmachine", "./testmachine", "./nsm", "./macmini", "./merch", "./youtube", "./twitch", "./kick"];
+  var PATHS = ["~/videos", "~/projects", "~/about", "~/community", "~/toolkit", "~/launchcommands", "~/setup", "~/mainmachine", "~/testmachine", "~/nsm", "~/macmini", "~/merch", "~/reddit", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "discounts", "pc1", "pc2", "theblackdon", "finley", "keychron"];
+  var NAV_COMMANDS = ["./home", "./about", "./videos", "./community", "./projects", "./toolkit", "./launchcommands", "./setup", "./mainmachine", "./testmachine", "./nsm", "./macmini", "./merch", "./youtube", "./twitch", "./kick", "./reddit"];
 
   function commonPrefix(a, b) {
     var i = 0;
@@ -548,7 +550,7 @@
       summary: "browse every Linux Gamer Life video series",
       synopsis: "videos",
       description: [
-        "Opens the videos app in a panel with all seven series, from I Switched... to Indie Spotlight.",
+        "Opens the videos app in a panel with all ten series, from I Switched… to Live Streams.",
         "Every entry links to YouTube, and the panel leaves a link in the terminal after it closes."
       ],
       seeAlso: "man journey, man projects, videos.html"
@@ -705,9 +707,19 @@
       summary: "get in touch with Linux Gamer Life",
       synopsis: "contact",
       description: [
-        "Opens the contact section with email and social links."
+        "Opens the contact section with the quickest ways to reach me: X and the subreddit."
       ],
-      seeAlso: "man about, about.html#contact"
+      seeAlso: "man about, man reddit, about.html#contact"
+    },
+    reddit: {
+      name: "reddit",
+      summary: "join the Linux Gamer Life subreddit",
+      synopsis: "reddit",
+      description: [
+        "Opens r/LinuxGamerLife in a new tab: questions, screenshots, fixes and general Linux gaming chat.",
+        "Use reddit, cd ~/reddit or ./reddit; all three open the subreddit."
+      ],
+      seeAlso: "man community, man contact"
     },
     theme: {
       name: "theme",

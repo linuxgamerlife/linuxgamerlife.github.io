@@ -954,14 +954,15 @@ body::after {
 .mark-yt { color: #ff0000; }
 .mark-tw { color: #9146ff; }
 .mark-kick { color: #53fc18; }
-html[data-theme="monochrome"] :is(.mark-yt, .mark-tw, .mark-kick) { filter: grayscale(1); }
+html[data-theme="monochrome"] :is(.mark-yt, .mark-tw, .mark-kick, .mark-reddit) { filter: grayscale(1); }
 .mark-gh { color: #fff7fb; }
 .mark-kofi { color: #ff9186; }
 .mark-x { color: #fff7fb; }
+.mark-reddit { color: #ff4500; }
 .mark-copr { color: var(--accent-2); }
 /* Filled accent buttons use the button text colour so marks stay legible
    against the gradient. */
-.btn--primary :is(.mark-yt, .mark-tw, .mark-kick, .mark-gh, .mark-kofi, .mark-x, .mark-copr) { color: currentColor; }
+.btn--primary :is(.mark-yt, .mark-tw, .mark-kick, .mark-gh, .mark-kofi, .mark-x, .mark-reddit, .mark-copr) { color: currentColor; }
 
 @media (min-width: 1101px) and (max-width: 1360px) {
   .nav__watch-group { display: none; }

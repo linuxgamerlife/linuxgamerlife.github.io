@@ -92,11 +92,14 @@
       '<div class="tty-list">',
       '<a class="tty-item" href="https://www.youtube.com/playlist?list=PLLnoZ1SyCjvUGIZjfQHtchwKDyeykM2XX" target="_blank" rel="noopener"><span class="tty-key">01</span><div><h3>I Switched&hellip;</h3><p>The story of leaving Windows after decades, and what actually changed.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
       '<a class="tty-item" href="https://www.youtube.com/playlist?list=PLEzm9EeXX1UE" target="_blank" rel="noopener"><span class="tty-key">02</span><div><h3>Linux Distro Challenge</h3><p>Six distributions, one user, and a fair amount of reinstalling.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
-      '<a class="tty-item" href="videos.html"><span class="tty-key">03</span><div><h3>Playing Games on Linux</h3><p>Actually playing the games, not just benchmarking them.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
-      '<a class="tty-item" href="videos.html"><span class="tty-key">04</span><div><h3>I Installed&hellip;</h3><p>What happens when things get installed: apps, tools and the occasional mess.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
-      '<a class="tty-item" href="https://www.youtube.com/playlist?list=PLLnoZ1SyCjvXUoptxPPi5mZBIlWPTyRUS" target="_blank" rel="noopener"><span class="tty-key">05</span><div><h3>Gaming on Linux</h3><p>What gaming on Linux is really like day to day.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
-      '<a class="tty-item" href="videos.html"><span class="tty-key">06</span><div><h3>In the Comments Section</h3><p>Answering the questions, corrections and suggestions from the community.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
-      '<a class="tty-item" href="https://www.youtube.com/playlist?list=PLLnoZ1SyCjvVTFfZdu8mbn0vjhhSGXOXc" target="_blank" rel="noopener"><span class="tty-key">07</span><div><h3>Indie Spotlight</h3><p>Indie and AA games, tested on Linux and shown off properly.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '<a class="tty-item" href="https://www.youtube.com/playlist?list=PLLnoZ1SyCjvU2zg8ywpO-9kas_RW_iaUb" target="_blank" rel="noopener"><span class="tty-key">03</span><div><h3>Distros for Gaming</h3><p>Gaming-first distros, installed and played one at a time.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '<a class="tty-item" href="https://www.youtube.com/playlist?list=PLLnoZ1SyCjvUBa4jyS1V8NI-rJfBiGqrf" target="_blank" rel="noopener"><span class="tty-key">04</span><div><h3>The Great Spin Experiment</h3><p>A desktop environment each episode, judged on how it feels to use.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '<a class="tty-item" href="https://www.youtube.com/playlist?list=PLLnoZ1SyCjvXT-6g3-BOXVt5AI6DMKhBF" target="_blank" rel="noopener"><span class="tty-key">05</span><div><h3>Playing Games on Linux</h3><p>Actually playing the games, not just benchmarking them.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '<a class="tty-item" href="https://www.youtube.com/playlist?list=PLLnoZ1SyCjvXoLFpuI-TJf-rRPcV4HEk2" target="_blank" rel="noopener"><span class="tty-key">06</span><div><h3>I Installed&hellip;</h3><p>What happens when things get installed: apps, tools and the occasional mess.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '<a class="tty-item" href="https://www.youtube.com/playlist?list=PLLnoZ1SyCjvXUoptxPPi5mZBIlWPTyRUS" target="_blank" rel="noopener"><span class="tty-key">07</span><div><h3>Gaming on Linux</h3><p>What gaming on Linux is really like day to day.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '<a class="tty-item" href="https://www.youtube.com/playlist?list=PLLnoZ1SyCjvVXZ82NPV_V2l9NR6IoQb8M" target="_blank" rel="noopener"><span class="tty-key">08</span><div><h3>In the Comments Section</h3><p>Answering the questions, corrections and suggestions from the community.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '<a class="tty-item" href="https://www.youtube.com/playlist?list=PLLnoZ1SyCjvVTFfZdu8mbn0vjhhSGXOXc" target="_blank" rel="noopener"><span class="tty-key">09</span><div><h3>Indie Spotlight</h3><p>Indie and AA games, tested on Linux and shown off properly.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
+      '<a class="tty-item" href="https://www.youtube.com/playlist?list=PLLnoZ1SyCjvVCIleczFlmJUYdDzK1TfUn" target="_blank" rel="noopener"><span class="tty-key">10</span><div><h3>Live Streams</h3><p>Chill Linux streams, archived for background viewing.</p></div><span class="tty-btn" aria-hidden="true">open</span></a>',
       '</div>',
       '<p class="tty-more"><span class="tty__prompt">lgl@fedora:~$</span> <button type="button" class="tty-command" data-cmd="cd ~/videos">cd ~/videos</button> <span class="tty-comment"># all series</span></p>'
     ].join(""),
@@ -559,10 +562,10 @@
 
     contact: [
       '<p class="tty-modal__cmd">$ cat contact.txt</p>',
-      '<p class="tty-note">There is no contact form and no mailing list. The quickest way to reach me is in the comments on YouTube, in chat on Twitch, or by opening an issue on GitHub. Bug reports with a clear description and the command you ran are always welcome.</p>',
+      '<p class="tty-note">There is no contact form and no mailing list. The quickest way to reach me is on X or Reddit. Bug reports with a clear description and the command you ran are always welcome.</p>',
       '<p class="tty-links">',
-      '<button type="button" class="tty-command" data-cmd="youtube">youtube</button> <span>/</span> ',
-      '<button type="button" class="tty-command" data-cmd="twitch">twitch</button> <span>/</span> ',
+      '<button type="button" class="tty-command" data-cmd="x">x</button> <span>/</span> ',
+      '<button type="button" class="tty-command" data-cmd="reddit">reddit</button> <span>/</span> ',
       '<button type="button" class="tty-command" data-cmd="github">github</button>',
       '</p>'
     ].join(""),
