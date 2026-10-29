@@ -120,6 +120,7 @@
       return;
     }
     if (lower === "fastfetch") {
+      if (window.LGLRenderFastfetch && window.LGLRenderFastfetch(out)) return;
       say(window.LGLFastfetch ? window.LGLFastfetch() : "fastfetch: not available");
       return;
     }

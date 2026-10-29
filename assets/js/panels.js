@@ -477,7 +477,7 @@
       '<div class="machine-app">',
       '<div class="machine-app__head"><span class="machine-app__badge" aria-hidden="true">PC1</span><div><p class="tty-modal__cmd">$ mainmachine</p><h3>The main machine</h3><p class="machine-app__lede">The daily driver: a 9950X3D build on AM5 that games, records and compiles everything on the channel.</p></div></div>',
       '<dl class="tty-facts">',
-      '<div><dt>OS</dt><dd>Fedora Linux 44</dd></div>',
+      '<div><dt>OS</dt><dd>Fedora Linux 44 (Forty Four)</dd></div>',
       '<div><dt>CPU</dt><dd>AMD Ryzen 9 9950X3D</dd></div>',
       '<div><dt>GPU</dt><dd>Radeon RX 9070 XT</dd></div>',
       '<div><dt>Memory</dt><dd>64 GB DDR5</dd></div>',
@@ -539,7 +539,7 @@
     setup: [
       '<p class="tty-modal__cmd">$ cat setup.txt</p>',
       '<dl class="tty-facts">',
-      '<div><dt>OS</dt><dd>Fedora Linux 44</dd></div>',
+      '<div><dt>OS</dt><dd>Fedora Linux 44 (Forty Four)</dd></div>',
       '<div><dt>Kernel</dt><dd>7.2.11-200.fc44</dd></div>',
       '<div><dt>CPU</dt><dd>AMD Ryzen 9 9950X3D</dd></div>',
       '<div><dt>GPU</dt><dd>AMD Radeon RX 9070 XT</dd></div>',
@@ -1165,6 +1165,21 @@
       return;
     }
     if (name === "fastfetch") {
+      if (win.key === "terminal" && win.logEl) {
+        var fastfetchMount = document.createElement("div");
+        fastfetchMount.className = "tty-terminal-ff";
+        win.logEl.appendChild(fastfetchMount);
+        if (window.LGLRenderFastfetch && window.LGLRenderFastfetch(fastfetchMount)) {
+          terminalScroll(win);
+          return;
+        }
+        terminalWrite(win, window.LGLFastfetch ? window.LGLFastfetch() : "fastfetch: not available");
+        return;
+      }
+      if (window.LGLRenderFastfetch && window.LGLRenderFastfetch(win.statusEl)) {
+        win.statusEl.hidden = false;
+        return;
+      }
       status(win, window.LGLFastfetch ? window.LGLFastfetch() : "fastfetch: not available");
       return;
     }

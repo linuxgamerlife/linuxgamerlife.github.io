@@ -320,21 +320,85 @@
 (function () {
   "use strict";
 
+  var FEDORA_LOGO = [
+    "             .',;::::;,'.",
+    "         .';:cccccccccccc:;,.",
+    "      .;cccccccccccccccccccccc;.",
+    "    .:cccccccccccccccccccccccccc:.",
+    "  .;ccccccccccccc;.:dddl:.;ccccccc;.",
+    " .:ccccccccccccc;OWMKOOXMWd;ccccccc:.",
+    ".:ccccccccccccc;KMMc;cc;xMMc;ccccccc:.",
+    ",cccccccccccccc;MMM.;cc;;WW:;cccccccc,",
+    ":cccccccccccccc;MMM.;cccccccccccccccc:",
+    ":ccccccc;oxOOOo;MMM000k.;cccccccccccc:",
+    "cccccc;0MMKxdd:;MMMkddc.;cccccccccccc;",
+    "ccccc;XMO';cccc;MMM.;cccccccccccccccc'",
+    "ccccc;MMo;ccccc;MMW.;ccccccccccccccc;",
+    "ccccc;0MNc.ccc.xMMd;ccccccccccccccc;",
+    "cccccc;dNMWXXXWM0:;cccccccccccccc:,",
+    "cccccccc;.:odl:.;cccccccccccccc:,.",
+    "ccccccccccccccccccccccccccccc:'.",
+    ":ccccccccccccccccccccc:;,..",
+    " ':cccccccccccccccc::;,."
+  ];
+
+  window.LGLFedoraLogo = FEDORA_LOGO;
+
+  var FASTFETCH_ROWS = [
+    ["lgl@fedora", ""],
+    ["-----------", ""],
+    ["OS", "Fedora Linux 44 (Forty Four) x86_64"],
+    ["Host", "PC1"],
+    ["Kernel", "7.2.11-200.fc44.x86_64"],
+    ["DE", "KineticWE"],
+    ["WM", "KWin (Wayland)"],
+    ["Shell", "zsh 5.9"],
+    ["Terminal", "kitty"],
+    ["CPU", "AMD Ryzen 9 9950X3D"],
+    ["GPU", "AMD Radeon RX 9070 XT"],
+    ["Memory", "17.4 GiB / 60.0 GiB"]
+  ];
+
+  window.LGLRenderFastfetch = function (container) {
+    if (!container) return false;
+    var wrap = document.createElement("span");
+    wrap.className = "ff";
+    wrap.setAttribute("aria-label", "Fastfetch system summary");
+
+    var art = document.createElement("span");
+    art.className = "ff__art";
+    art.textContent = FEDORA_LOGO.join("\n");
+    wrap.appendChild(art);
+
+    var fields = document.createElement("span");
+    fields.className = "ff__fields";
+    FASTFETCH_ROWS.forEach(function (row, index) {
+      var line = document.createElement("span");
+      line.className = "ff__row" + (index < 2 ? " ff__head" : "");
+      var key = document.createElement("span");
+      key.className = "ff__key";
+      key.textContent = row[0];
+      line.appendChild(key);
+      if (row[1]) {
+        var value = document.createElement("span");
+        value.className = "ff__value";
+        value.textContent = row[1];
+        line.appendChild(value);
+      }
+      fields.appendChild(line);
+    });
+    wrap.appendChild(fields);
+    container.replaceChildren(wrap);
+    return true;
+  };
+
   window.LGLFastfetch = function () {
-    return [
-      "lgl@fedora",
-      "-----------",
-      "OS: Fedora Linux 44 (Workstation)",
-      "Host: PC1",
-      "Kernel: 7.2.11-200.fc44.x86_64",
-      "DE: KineticWE",
-      "WM: KWin (Wayland)",
-      "Shell: zsh 5.9",
-      "Terminal: kitty",
-      "CPU: AMD Ryzen 9 9950X3D",
-      "GPU: AMD Radeon RX 9070 XT",
-      "Memory: 17.4 GiB / 60.0 GiB"
-    ].join("\n");
+    return FEDORA_LOGO.concat(
+      [""],
+      FASTFETCH_ROWS.map(function (row) {
+        return row[1] ? row[0] + ": " + row[1] : row[0];
+      })
+    ).join("\n");
   };
 })();
 

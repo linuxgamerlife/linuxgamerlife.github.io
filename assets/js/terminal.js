@@ -58,19 +58,32 @@
   }
 
   function printFastfetch() {
+    if (window.LGLRenderFastfetch && window.LGLRenderFastfetch(log)) return;
     var wrap = document.createElement("div");
     wrap.className = "ff";
 
     var art = document.createElement("pre");
     art.className = "ff__art";
     art.textContent = [
-      "       .--.        ",
-      "      |o_o |       ",
-      "      |:_/ |       ",
-      "     //   \\ \\      ",
-      "    (|     | )     ",
-      "   /'\\_   _/`\\    ",
-      "   \\___)=(___/     "
+      "             .',;::::;,'.",
+      "         .';:cccccccccccc:;,.",
+      "      .;cccccccccccccccccccccc;.",
+      "    .:cccccccccccccccccccccccccc:.",
+      "  .;ccccccccccccc;.:dddl:.;ccccccc;.",
+      " .:ccccccccccccc;OWMKOOXMWd;ccccccc:.",
+      ".:ccccccccccccc;KMMc;cc;xMMc;ccccccc:.",
+      ",cccccccccccccc;MMM.;cc;;WW:;cccccccc,",
+      ":cccccccccccccc;MMM.;cccccccccccccccc:",
+      ":ccccccc;oxOOOo;MMM000k.;cccccccccccc:",
+      "cccccc;0MMKxdd:;MMMkddc.;cccccccccccc;",
+      "ccccc;XMO';cccc;MMM.;cccccccccccccccc'",
+      "ccccc;MMo;ccccc;MMW.;ccccccccccccccc;",
+      "ccccc;0MNc.ccc.xMMd;ccccccccccccccc;",
+      "cccccc;dNMWXXXWM0:;cccccccccccccc:,",
+      "cccccccc;.:odl:.;cccccccccccccc:,.",
+      "ccccccccccccccccccccccccccccc:'.",
+      ":ccccccccccccccccccccc:;,..",
+      " ':cccccccccccccccc::;,."
     ].join("\n");
 
     var fields = document.createElement("div");
@@ -78,7 +91,7 @@
     [
       ["lgl@fedora", ""],
       ["-----------", ""],
-      ["OS", "Fedora Linux 44 (Workstation)"],
+      ["OS", "Fedora Linux 44 (Forty Four) x86_64"],
       ["Host", "PC1"],
       ["Kernel", "7.2.11-200.fc44.x86_64"],
       ["DE", "KineticWE"],

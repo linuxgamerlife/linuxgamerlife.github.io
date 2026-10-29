@@ -1452,6 +1452,12 @@ body[data-page="home"] .footer__bottom { border-top: 1px solid var(--line); }
   white-space: pre;
 }
 .ff__fields { display: grid; gap: 0.12rem; font-size: 0.7rem; }
+.site-tty__out .ff,
+.tty-modal__status .ff { margin: 0; gap: 0.9rem; }
+.site-tty__out .ff__art,
+.tty-modal__status .ff__art { font-size: 0.54rem; line-height: 1.12; }
+.site-tty__out .ff__fields,
+.tty-modal__status .ff__fields { gap: 0.08rem; font-size: 0.64rem; }
 .ff__row { margin: 0; display: flex; gap: 0.6rem; color: var(--ink); line-height: 1.5; }
 .ff__head { color: var(--ink); font-weight: 600; }
 .ff__key { color: var(--accent); min-width: 8ch; }
@@ -1716,6 +1722,8 @@ body.tty-modal-open { overflow: hidden; }
   line-height: 1.65;
 }
 .tty-window__log .tty-help-grid { margin: 0.2rem 0 0.45rem; }
+.tty-terminal-ff { margin: 0.45rem 0 0.8rem; }
+.tty-terminal-ff .ff { margin: 0; }
 .tty-window__log .tty-log-line { max-width: 100%; overflow-wrap: anywhere; }
 .tty-window .tty-modal__status { flex: 0 0 auto; }
 .tty-window .tty-modal__form { flex: 0 0 auto; }
