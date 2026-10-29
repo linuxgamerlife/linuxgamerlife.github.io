@@ -2,186 +2,151 @@
 window.OVERLAY_DATA = {
   "youtube": [
     [
+      "KingClawblazer",
+      "Channel Superstar",
+      5.16129
+    ],
+    [
+      "Ariel",
+      "Channel Supporter",
+      0.354839
+    ],
+    [
       "Jacqueline",
       "Channel Supporter",
-      5.25806
+      5.6129
     ],
     [
       "d3fynt",
       "Channel Superstar",
-      3.29032
+      3.64516
     ],
     [
       "_Salience_",
       "Channel Hero",
-      0.483871
+      0.83871
     ],
     [
       "Xtinct",
       "Channel Hero",
-      1.48387
+      1.83871
     ],
     [
       "Neutrino",
       "Channel Hero",
-      0.483871
+      0.83871
     ],
     [
       "NE0N_witch",
       "Channel Hero",
-      0.483871
+      0.83871
     ],
     [
       "Tylor",
       "Channel Hero",
-      0.483871
-    ],
-    [
-      "Fenrirsleash",
-      "Channel Hero",
-      0.7
-    ],
-    [
-      "Brian",
-      "Channel Hero",
-      0.7
-    ],
-    [
-      "Monkey",
-      "Channel Hero",
-      0.7
-    ],
-    [
-      "Brian",
-      "Channel Hero",
-      1.7
-    ],
-    [
-      "ajcd1sc1ple",
-      "Channel Hero",
-      0.7
+      0.83871
     ],
     [
       "Ϟ༅:*RandyPinball*:༅Ϟ",
       "Channel Supporter",
-      0.7
-    ],
-    [
-      "KingClawblazer",
-      "Channel Superstar",
-      4.8
+      1.06452
     ],
     [
       "TheLownoise",
       "Channel Hero",
-      1.86667
+      2.22581
     ],
     [
       "Sharktooth",
       "Channel Supporter",
-      7.06452
+      7.41935
     ],
     [
       "Finley",
       "Channel Supporter",
-      2.73333
+      3.09677
     ],
     [
       "TheBlackDon",
       "Channel Supporter",
-      5.35484
+      5.70968
     ],
     [
       "ertu",
       "Channel Supporter",
-      5.45161
+      5.80645
     ],
     [
       "Enormous",
       "Channel Supporter",
-      3.93333
+      4.29032
     ],
     [
       "Jensen",
       "Channel Supporter",
-      4.8
+      5.16129
     ],
     [
       "warloc2k",
       "Channel Superstar",
-      5.73333
+      6.09677
     ],
     [
       "damnox",
       "Channel Supporter",
-      5.76667
+      6.12903
     ],
     [
       "J. Tekk",
       "Channel Hero",
-      7.86667
+      8.22581
     ],
     [
       "Pingvizu",
       "Channel Supporter",
-      7.86667
+      8.22581
     ],
     [
       "Smitty",
       "Channel Supporter",
-      8.09677
+      8.45161
     ],
     [
       "XeroLinux",
       "Channel Hero",
-      8.32258
+      8.67742
     ],
     [
       "inittux111",
       "Channel Hero",
-      8.32258
+      8.67742
     ],
     [
       "Moji",
       "Channel Hero",
-      8.76667
+      9.12903
     ],
     [
       "WhenLogicDies",
       "Channel Supporter",
-      8.96667
+      9.32258
     ]
   ],
   "twitch": [
     [
-      "jtekk1",
-      "Tier 1",
-      2.0
-    ],
-    [
-      "kingclawblazer",
-      "Tier 3",
-      3.0
-    ],
-    [
-      "theblack_don",
+      "weecrag",
       "Tier 1",
       2.0
     ],
     [
       "tylorkenniston",
       "Tier 1",
-      2.0
-    ],
-    [
-      "yumkicc",
-      "Tier 1",
-      2.0
+      3.0
     ],
     [
       "d3fynt",
       "Tier 3",
-      2.0
+      3.0
     ],
     [
       "slashmonkey",
@@ -189,27 +154,7 @@ window.OVERLAY_DATA = {
       2.0
     ],
     [
-      "itsfennik",
-      "Tier 1",
-      1.0
-    ],
-    [
-      "redandfoxy",
-      "Tier 1",
-      1.0
-    ],
-    [
       "psoewish",
-      "Tier 1",
-      2.0
-    ],
-    [
-      "weecrag",
-      "Tier 1",
-      2.0
-    ],
-    [
-      "smittyfiddy50",
       "Tier 1",
       3.0
     ],
@@ -221,10 +166,20 @@ window.OVERLAY_DATA = {
     [
       "jensend6965",
       "Tier 3",
+      3.0
+    ],
+    [
+      "yumkicc",
+      "Tier 1",
       2.0
     ],
     [
-      "zenniebutt",
+      "noximus237",
+      "Tier 1",
+      1.0
+    ],
+    [
+      "redandfoxy",
       "Tier 1",
       1.0
     ],
@@ -232,6 +187,36 @@ window.OVERLAY_DATA = {
       "warloc2k2",
       "Tier 1",
       2.0
+    ],
+    [
+      "smittyfiddy50",
+      "Tier 1",
+      3.0
+    ],
+    [
+      "jtekk1",
+      "Tier 1",
+      3.0
+    ],
+    [
+      "theblack_don",
+      "Tier 1",
+      3.0
+    ],
+    [
+      "shadowmaxx122",
+      "Tier 1",
+      1.0
+    ],
+    [
+      "kingclawblazer",
+      "Tier 3",
+      3.0
+    ],
+    [
+      "thatgirl40",
+      "Tier 1",
+      1.0
     ]
   ]
 };

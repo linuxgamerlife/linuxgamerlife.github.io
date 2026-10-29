@@ -5,6 +5,9 @@ notes/
 scratch/
 webdesign.md
 
+# Machine-specific helper scripts
+scripts/import-supporters-local.sh
+
 
 # OS and editor cruft
 .DS_Store

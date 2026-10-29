@@ -113,7 +113,7 @@
     if (lower === "cat" || lower.indexOf("cat ") === 0) {
       var file = value.slice(4).trim();
       if (!file || file.toLowerCase() === "manifesto.txt") {
-        say("Left Windows. Kept the games.\nI spent decades gaming on Windows, then moved everything to Linux in 2025.");
+        say("I left Windows after 30+ years\nBut I kept on gaming!\nI spent decades gaming on Windows, then moved everything to Linux in 2025.");
       } else {
         say("cat: " + file + ": No such file or directory");
       }

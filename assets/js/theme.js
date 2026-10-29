@@ -292,7 +292,7 @@
 
   function reset() {
     try { localStorage.removeItem("lgl-theme:" + bakedTheme); } catch (error) { /* no-op */ }
-    return apply("pink", true);
+    return apply(bakedTheme, true);
   }
 
   function init() {

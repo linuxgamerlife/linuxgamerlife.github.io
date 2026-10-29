@@ -1158,7 +1158,7 @@
     }
     if (name === "cat") {
       if (!argument || argument.toLowerCase() === "manifesto.txt") {
-        status(win, "Left Windows. Kept the games.\nI spent decades gaming on Windows, then moved everything to Linux in 2025.");
+        status(win, "I left Windows after 30+ years\nBut I kept on gaming!\nI spent decades gaming on Windows, then moved everything to Linux in 2025.");
       } else {
         status(win, "cat: " + argument + ": No such file or directory");
       }

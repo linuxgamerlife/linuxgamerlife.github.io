@@ -38,7 +38,7 @@ body[data-page="home"] .brand img {
 body[data-page="home"] .brand__name { color: var(--ink); }
 body[data-page="home"] .nav__links a { color: var(--faint); }
 body[data-page="home"] .nav__links a:hover { color: var(--accent); }
-body[data-page="home"] .nav__watch { color: var(--faint); }
+body[data-page="home"] .nav__watch { color: var(--faint); font-family: var(--font-mono); }
 body[data-page="home"] .nav__watch:hover { color: var(--accent); }
 
 .kwe-desk { width: min(1960px, calc(100% - 2rem)); margin: 0 auto; padding: 0.7rem 0 0; }
@@ -54,7 +54,7 @@ body[data-page="home"] .nav__watch:hover { color: var(--accent); }
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   font-family: var(--font-mono);
-  font-size: 0.52rem;
+  font-size: 0.65rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--faint);
@@ -96,7 +96,7 @@ body[data-page="home"] .nav__watch:hover { color: var(--accent); }
 
 .kwe-grid {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr) 380px;
+  grid-template-columns: 240px minmax(0, 1fr) 380px;
   gap: 0.85rem;
   align-items: start;
   padding: 0.85rem 0 0;
@@ -116,11 +116,11 @@ body[data-page="home"] .nav__watch:hover { color: var(--accent); }
   justify-content: space-between;
   align-items: center;
   color: var(--ink);
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.kwe-online { color: var(--accent); font-size: 0.48rem; letter-spacing: 0.08em; }
+.kwe-online { color: var(--accent); font-size: 0.6rem; letter-spacing: 0.08em; }
 .kwe-online::before { content: "●"; margin-right: 0.3em; font-size: 0.5em; vertical-align: middle; }
 .kwe-stat { margin-top: 0.9rem; padding-top: 0.7rem; border-top: 1px solid var(--line); }
 .kwe-stat:first-of-type { border-top: 0; padding-top: 0; }
@@ -128,16 +128,16 @@ body[data-page="home"] .nav__watch:hover { color: var(--accent); }
   display: flex;
   justify-content: space-between;
   color: var(--faint);
-  font-size: 0.52rem;
+  font-size: 0.64rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.kwe-stat__name { margin: 0.25rem 0 0.4rem; color: var(--muted); font-size: 0.6rem; line-height: 1.4; }
+.kwe-stat__name { margin: 0.25rem 0 0.4rem; color: var(--muted); font-size: 0.72rem; line-height: 1.4; }
 .kwe-bar { height: 4px; border: 1px solid var(--line); background: color-mix(in srgb, var(--accent) 6%, transparent); overflow: hidden; }
 .kwe-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent-3), var(--accent)); box-shadow: 0 0 10px var(--accent-soft); }
 .kwe-bar--disk { height: 3px; margin-top: 0.2rem; }
-.kwe-stat__meta { display: flex; justify-content: space-between; gap: 0.4rem; margin-top: 0.3rem; color: var(--faint); font-size: 0.48rem; }
-.kwe-disk { display: flex; justify-content: space-between; margin-top: 0.45rem; color: var(--muted); font-size: 0.52rem; }
+.kwe-stat__meta { display: flex; justify-content: space-between; gap: 0.4rem; margin-top: 0.3rem; color: var(--faint); font-size: 0.6rem; }
+.kwe-disk { display: flex; justify-content: space-between; margin-top: 0.45rem; color: var(--muted); font-size: 0.64rem; }
 .kwe-spark { width: 100%; height: 20px; margin-top: 0.35rem; overflow: visible; }
 .kwe-spark polyline { fill: none; stroke: var(--accent); stroke-width: 1.2; opacity: 0.75; }
 .kwe-stats__foot {
@@ -147,7 +147,7 @@ body[data-page="home"] .nav__watch:hover { color: var(--accent); }
   padding-top: 0.6rem;
   border-top: 1px solid var(--line);
   color: var(--faint);
-  font-size: 0.48rem;
+  font-size: 0.6rem;
 }
 
 .kwe-main { min-width: 0; }
@@ -170,7 +170,7 @@ body[data-page="home"] .tty__bar {
   border-bottom: 1px solid var(--line);
   color: var(--faint);
   font-family: var(--font-mono);
-  font-size: 0.52rem;
+  font-size: 0.64rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -183,7 +183,7 @@ body[data-page="home"] .tty__bar {
   border: 1px solid var(--line-strong);
   background: var(--accent-soft);
   color: var(--accent);
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   line-height: 1;
 }
 .kwe-win-meta { margin-left: auto; color: var(--faint); text-transform: none; letter-spacing: 0.04em; }
@@ -223,8 +223,8 @@ body[data-page="home"] .tty__chips button:hover { color: var(--ink); border-colo
   box-shadow: 0 16px 40px -30px #000;
 }
 .kwe-dock__item {
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   display: grid;
   place-items: center;
   padding: 0;
@@ -236,7 +236,7 @@ body[data-page="home"] .tty__chips button:hover { color: var(--ink); border-colo
 }
 .kwe-dock__item:hover,
 .kwe-dock__item:focus-visible { color: var(--accent); border-color: var(--line-strong); background: var(--accent-soft); }
-.kwe-dock__item svg { width: 18px; height: 18px; }
+.kwe-dock__item svg { width: 20px; height: 20px; }
 
 .kwe-side { min-width: 0; display: grid; gap: 0.85rem; }
 .kwe-window { overflow: hidden; }
@@ -248,7 +248,7 @@ body[data-page="home"] .tty__chips button:hover { color: var(--ink); border-colo
   background: color-mix(in srgb, var(--bg-2) 90%, transparent);
   border-bottom: 1px solid var(--line);
   font-family: var(--font-mono);
-  font-size: 0.52rem;
+  font-size: 0.64rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--faint);
@@ -263,7 +263,7 @@ body[data-page="home"] .tty__chips button:hover { color: var(--ink); border-colo
   margin: 0;
   color: var(--accent);
   font-family: var(--font-mono);
-  font-size: 0.52rem;
+  font-size: 0.64rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -271,12 +271,12 @@ body[data-page="home"] .tty__chips button:hover { color: var(--ink); border-colo
   margin: 0.5rem 0 0.55rem;
   color: var(--ink);
   font-family: var(--font-sans);
-  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  font-size: calc(clamp(1.5rem, 2.4vw, 1.9rem) - 2px);
   font-weight: 750;
   line-height: 1.08;
   letter-spacing: -0.035em;
 }
-.kwe-start__lede { margin: 0; color: var(--faint); font-size: 0.82rem; line-height: 1.6; }
+.kwe-start__lede { margin: 0; color: var(--faint); font-size: calc(0.82rem + 2px); line-height: 1.6; }
 .kwe-cards { display: grid; gap: 0.55rem; margin-top: 1rem; }
 .kwe-card {
   display: grid;
@@ -308,19 +308,19 @@ body[data-page="home"] .tty__chips button:hover { color: var(--ink); border-colo
   display: block;
   color: var(--ink);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.kwe-card__desc { display: block; margin-top: 0.2rem; color: var(--faint); font-size: 0.76rem; line-height: 1.55; }
+.kwe-card__desc { display: block; margin-top: 0.2rem; color: var(--faint); font-size: calc(0.76rem + 2px); line-height: 1.55; }
 .kwe-start__hint {
   margin: 1rem 0 0;
   padding-top: 0.8rem;
   border-top: 1px solid var(--line);
   color: var(--faint);
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.67rem;
   line-height: 1.6;
 }
 .kwe-start__hint button {
@@ -335,7 +335,7 @@ body[data-page="home"] .tty__chips button:hover { color: var(--ink); border-colo
 .kwe-prompt { color: var(--accent); }
 
 .kwe-now__live { margin-left: auto; color: var(--accent); letter-spacing: 0.08em; }
-.kwe-now__body { padding: 0.8rem; font-family: var(--font-mono); font-size: 0.55rem; }
+.kwe-now__body { padding: 0.8rem; font-family: var(--font-mono); font-size: 0.67rem; }
 .kwe-now__row {
   display: flex;
   justify-content: space-between;
@@ -376,7 +376,7 @@ body[data-page="home"] .footer__bottom { color: var(--faint); }
   .kwe-win-meta { display: none; }
   body[data-page="home"] .kwe-main .tty { min-height: 0; }
   .kwe-dock { width: 100%; }
-  .kwe-start__title { font-size: 1.5rem; }
+  .kwe-start__title { font-size: calc(1.5rem - 2px); }
 }
 
 
@@ -438,7 +438,7 @@ body.has-desk .kwe-dock {
 }
 .kwe-page .page-head::before { display: none; }
 .kwe-page .page-head .container { width: 100%; max-width: none; padding: 0; }
-.kwe-page .page-head__title { font-size: clamp(1.7rem, 3.2vw, 2.7rem); }
+.kwe-page .page-head__title { font-size: calc(clamp(1.7rem, 3.2vw, 2.7rem) - 2px); }
 .kwe-page .page-head .lede { max-width: 74ch; }
 
 .kwe-page .container {
@@ -467,7 +467,7 @@ body.has-desk .kwe-dock {
   border-top: 1px solid var(--line);
   color: var(--faint);
   font-family: var(--font-mono);
-  font-size: 0.56rem;
+  font-size: 0.68rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
