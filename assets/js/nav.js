@@ -5,6 +5,7 @@
   var PAGES = {
     home: "index.html",
     about: "about.html",
+    principles: "about.html#principles",
     videos: "videos.html",
     community: "community.html",
     projects: "projects.html",
@@ -82,8 +83,8 @@
     fedora: "https://fedoraproject.org/"
   };
 
-  var PATHS = ["~/videos", "~/projects", "~/about", "~/community", "~/toolkit", "~/launchcommands", "~/setup", "~/mainmachine", "~/testmachine", "~/nsm", "~/macmini", "~/merch", "~/reddit", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "discounts", "pc1", "pc2", "theblackdon", "finley", "keychron"];
-  var NAV_COMMANDS = ["./home", "./about", "./videos", "./community", "./projects", "./toolkit", "./launchcommands", "./setup", "./mainmachine", "./testmachine", "./nsm", "./macmini", "./merch", "./youtube", "./twitch", "./kick", "./reddit"];
+  var PATHS = ["~/videos", "~/projects", "~/about", "~/principles", "~/community", "~/toolkit", "~/launchcommands", "~/setup", "~/mainmachine", "~/testmachine", "~/nsm", "~/macmini", "~/merch", "~/reddit", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "discounts", "pc1", "pc2", "theblackdon", "finley", "keychron"];
+  var NAV_COMMANDS = ["./home", "./about", "./principles", "./videos", "./community", "./projects", "./toolkit", "./launchcommands", "./setup", "./mainmachine", "./testmachine", "./nsm", "./macmini", "./merch", "./youtube", "./twitch", "./kick", "./reddit"];
 
   function commonPrefix(a, b) {
     var i = 0;
@@ -566,12 +567,13 @@
     },
     principles: {
       name: "principles",
-      summary: "what Linux Gamer Life stands for",
+      summary: "the four goals behind Linux Gamer Life",
       synopsis: "principles",
       description: [
-        "Community, the journey, Linux gaming and indie games: the four principles behind the channel and this site."
+        "Community, journey, Linux gaming and indie games: the four goals behind the channel and this site, plus the vision that connects them.",
+        "The full section is available on the About page."
       ],
-      seeAlso: "man about, man community"
+      seeAlso: "man about, about.html#principles"
     },
     about: {
       name: "about",

@@ -79,12 +79,15 @@
 
     principles: [
       '<p class="tty-modal__cmd">$ cat principles.txt</p>',
+      '<p class="tty-note">I create Linux content with four goals in mind. These goals guide everything I do. They keep me focused and ensure the content I produce has purpose.</p>',
       '<ol class="tty-principles">',
-      '<li><span>[01]</span><div><h3>Community</h3><p>A space where people can share what they have learned and nobody has to figure Linux out alone.</p></div></li>',
-      '<li><span>[02]</span><div><h3>The journey</h3><p>The discoveries, mistakes, challenges and fixes, shown as they happen rather than after the fact.</p></div></li>',
-      '<li><span>[03]</span><div><h3>Linux gaming</h3><p>An honest look at gaming on Linux from a relatively new user: the progress and the problems.</p></div></li>',
-      '<li><span>[04]</span><div><h3>Indie games</h3><p>Showing how well indie and AA games run on Linux, and giving the people who make them more visibility.</p></div></li>',
-      '</ol>'
+      '<li><span>[01]</span><div><h3>Community</h3><p><strong>To build and support an amazing community of people interested in Linux as a gaming platform.</strong></p><p>Games and technology bring us together, but the community is what keeps it alive. I want to create a space where we can share what we have learned, support each other, and enjoy the journey together. A strong community means no one has to figure things out alone.</p></div></li>',
+      '<li><span>[02]</span><div><h3>Journey</h3><p><strong>To share my Linux journey with those looking to start their own.</strong></p><p>I have switched fully to Linux and want to show what that really looks like. The journey includes discoveries, mistakes, challenges, and fixes. By sharing my experiences, I hope to make the switch easier for others who are considering taking the same path.</p></div></li>',
+      '<li><span>[03]</span><div><h3>Linux gaming</h3><p><strong>To be a voice for Linux gaming from the perspective of a new user.</strong></p><p>Linux gaming has come a long way, but the real experience includes both progress and problems. I want to explore that honestly, showing what works, what does not, and what Linux gaming is really like day to day.</p></div></li>',
+      '<li><span>[04]</span><div><h3>Indie games</h3><p><strong>To support indie and AA developers through showcasing how well their games run on Linux.</strong></p><p>Many of the most creative and exciting games come from independent and mid-sized studios. By highlighting their work and giving them visibility, I hope to help more players discover great games while supporting developers who embrace Linux gamers.</p></div></li>',
+      '</ol>',
+      '<h3 class="tty-ai__heading">Vision</h3>',
+      '<p class="tty-note">These four goals drive everything I create. They are about community, freedom, honesty, and supporting the developers helping move gaming forward.</p>'
     ].join(""),
 
     videos: [
