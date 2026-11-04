@@ -21,10 +21,27 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TARGET = ROOT / "data" / "supporters.js"
 
-# Supporters who should be listed in full rather than shortened to a first name.
-# Keys are the names as they appear in the export.
+# Exact display names for phrases and handles that are not personal names.
+DISPLAY_NAMES = {
+    "J. Tekk": "J. Tekk",
+    "The King's Partner": "The King's Partner",
+    "kein Kommentar .,.": "kein Kommentar",
+    "XeroLinux Official": "XeroLinux Official",
+    "Enormous Chunks": "Enormous Chunks",
+}
+
+# CamelCase handles that must stay whole instead of becoming NameS.
 KEEP_FULL_NAMES = {
-    "J. Tekk",
+    "MotoPoem",
+    "JuggernautX",
+    "BoltActionJackson",
+    "KingClawblazer",
+    "TheLownoise",
+    "TheBlackDon",
+    "WhenLogicDies",
+    "CyberNinja005",
+    "iFlxy",
+    "Jtadlock91",
 }
 
 
@@ -40,12 +57,22 @@ def load_export(path: Path) -> dict:
 
 
 def display_name(name: object) -> str:
-    value = str(name).strip()
+    value = str(name).strip().replace("＇", "'").replace("’", "'")
     if not value:
         return value
+    if value in DISPLAY_NAMES:
+        return DISPLAY_NAMES[value]
     if value in KEEP_FULL_NAMES:
         return value
-    return value.split()[0]
+    if " " in value:
+        return value.split()[0]
+
+    # NameSurname -> NameS, while leaving digits, symbols and ordinary handles alone.
+    if value.isalpha():
+        parts = re.findall(r"[A-Z][a-z0-9]*|[A-Z]+|[a-z0-9]+", value)
+        if len(parts) == 2 and parts[0][0].isupper() and parts[1][0].isupper():
+            return parts[0] + parts[1][0]
+    return value
 
 
 def main() -> None:
