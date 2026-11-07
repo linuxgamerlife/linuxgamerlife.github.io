@@ -328,8 +328,7 @@
 
       case "cat":
         if (argument === "manifesto.txt" || argument === "") {
-          line("I left Windows after 30+ years");
-          line("But I kept on gaming!");
+          line("One gamer's journey from Windows to Linux");
           line("I spent decades gaming on Windows, then moved everything to Linux in 2025.");
         } else {
           line("cat: " + argument + ": No such file or directory", "is-error");
