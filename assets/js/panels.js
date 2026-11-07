@@ -573,8 +573,8 @@
       '</p>'
     ].join(""),
 
-    tdlr: [
-      '<p class="tty-modal__cmd">$ cat tdlr.txt</p>',
+    tldr: [
+      '<p class="tty-modal__cmd">$ cat tldr.txt</p>',
       '<h3 class="tty-community">The short version</h3>',
       '<p class="tty-note">I am not a Linux professional, and I am not a developer. I am learning as I go, using AI tools carefully, picking up tips from other people, and improving my setup along the way. Sometimes I still reach for the Mac for DaVinci Resolve or Ableton, and I know I am lucky to have that option.</p>',
       '<p class="tty-note">This site is about the journey: what works, what does not, and how I deal with the challenges in between. If you are thinking about switching, or you are just curious what gaming and everyday life on Linux is really like, I hope you will stick around.</p>',
@@ -584,10 +584,9 @@
     terminal: '<div class="tty-window__log" data-window-log aria-live="polite"></div>'
   };
 
-  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "ubuntu", "wayland", "x11", "projects", "toolkit", "launchcommands", "merch", "setup", "mainmachine", "testmachine", "nsm", "macmini", "community", "contact", "discounts", "ai", "disclaimer", "tdlr", "terminal"];
+  var CONTENT = ["about", "journey", "principles", "videos", "solus", "opensuse", "debian", "arch", "void", "nixos", "playtron", "regataos", "bazzite", "pikaos", "garuda", "nobara", "steamos", "cachyos", "ubuntu", "wayland", "x11", "projects", "toolkit", "launchcommands", "merch", "setup", "mainmachine", "testmachine", "nsm", "macmini", "community", "contact", "discounts", "ai", "disclaimer", "tldr", "terminal"];
   var TITLES = { launchcommands: "launch commands" };
   var ALIASES = {
-    tldr: "tdlr",
     story: "about",
     statement: "ai",
     legal: "disclaimer",
@@ -1226,7 +1225,7 @@
       return;
     }
     if (name === "ls") {
-      status(win, "about/  journey/  principles/  videos/  projects/  toolkit/  launchcommands/  setup/  community/  contact/  discounts/\ntdlr.txt  ai.txt  disclaimer.txt  themes/");
+      status(win, "about/  journey/  principles/  videos/  projects/  toolkit/  launchcommands/  setup/  community/  contact/  discounts/\ntldr.txt  ai.txt  disclaimer.txt  themes/");
       return;
     }
     if (name === "lsblk") {

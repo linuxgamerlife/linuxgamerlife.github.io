@@ -773,7 +773,7 @@
 
   var ALIASES = {
     story: "about",
-    tdlr: "about",
+    tldr: "about",
     statement: "ai",
     legal: "disclaimer",
     pc1: "mainmachine",
