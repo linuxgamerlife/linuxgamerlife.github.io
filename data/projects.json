@@ -1,8 +1,8 @@
 {
-  "generated": "2026-11-09T12:55:30Z",
+  "generated": "2026-11-10T12:41:37Z",
   "meta": {
     "repos": 29,
-    "stars": 105,
+    "stars": 106,
     "forks": 14,
     "copr_projects": 12,
     "apps_packaged": 10,
@@ -19,7 +19,7 @@
         "Installer"
       ],
       "featured": true,
-      "stars": 40,
+      "stars": 41,
       "forks": 5,
       "updated": "2026-11-08",
       "repo_url": "https://github.com/linuxgamerlife/lgl-system-loadout",
