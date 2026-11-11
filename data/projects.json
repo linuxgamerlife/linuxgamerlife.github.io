@@ -1,10 +1,10 @@
 {
-  "generated": "2026-11-10T12:41:37Z",
+  "generated": "2026-11-11T11:54:30Z",
   "meta": {
     "repos": 29,
-    "stars": 106,
+    "stars": 107,
     "forks": 14,
-    "copr_projects": 12,
+    "copr_projects": 11,
     "apps_packaged": 10,
     "visible_projects": 26
   },
@@ -132,7 +132,7 @@
         "Hardware"
       ],
       "featured": false,
-      "stars": 4,
+      "stars": 5,
       "forks": 0,
       "updated": "2026-09-06",
       "repo_url": "https://github.com/linuxgamerlife/lgl-keychron-helper",
@@ -191,7 +191,7 @@
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "updated": "2026-08-16",
+      "updated": "2026-11-10",
       "repo_url": "https://github.com/linuxgamerlife/lgl-vm-curator",
       "copr": {
         "project": "linuxgamerlife/lgl-vm-curator",
