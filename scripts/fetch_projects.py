@@ -17,6 +17,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -32,11 +33,19 @@ CATEGORY_ORDER = ["apps", "setup", "desktop", "experiments"]
 
 
 def get_json(url: str, token: str | None = None) -> object:
-    request = urllib.request.Request(url, headers={"User-Agent": "lgl-website/1.0"})
-    if token and "api.github.com" in url:
-        request.add_header("Authorization", f"Bearer {token}")
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return json.load(response)
+    last_error: Exception | None = None
+    for attempt in range(3):
+        request = urllib.request.Request(url, headers={"User-Agent": "lgl-website/1.0"})
+        if token and "api.github.com" in url:
+            request.add_header("Authorization", f"Bearer {token}")
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return json.load(response)
+        except (urllib.error.URLError, TimeoutError, ValueError) as error:
+            last_error = error
+            if attempt < 2:
+                time.sleep(2 * (attempt + 1))
+    raise last_error or RuntimeError("request failed")
 
 
 def github_projects(token: str | None) -> tuple[dict[str, dict], dict]:
@@ -92,21 +101,46 @@ def main() -> None:
     if not entries:
         fail(f"no projects found in {CURATION}")
 
+    previous_payload: dict = {}
+    if OUTPUT.exists():
+        try:
+            previous_payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+        except (ValueError, OSError):
+            previous_payload = {}
+    previous_by_repo = {
+        item.get("repo"): item
+        for item in previous_payload.get("projects", [])
+        if item.get("repo")
+    }
+    previous_meta = previous_payload.get("meta", {})
+
     repos: dict[str, dict] = {}
     gh_meta = {"repos": 0, "stars": 0, "forks": 0}
     copr: dict[str, dict] = {}
     copr_count = 0
+    gh_failed = False
+    copr_failed = False
     warnings = []
 
     try:
         repos, gh_meta = github_projects(token)
-    except (urllib.error.URLError, RuntimeError, ValueError) as error:
+    except (urllib.error.URLError, RuntimeError, ValueError, KeyError, TypeError) as error:
+        gh_failed = True
+        repos = {}
+        gh_meta = {
+            "repos": previous_meta.get("repos", 0),
+            "stars": previous_meta.get("stars", 0),
+            "forks": previous_meta.get("forks", 0),
+        }
         warnings.append(f"GitHub lookup failed ({error}); keeping last known metrics")
 
     try:
         copr, copr_count = copr_projects()
-    except (urllib.error.URLError, ValueError) as error:
-        warnings.append(f"Copr lookup failed ({error}); keeping curation links only")
+    except (urllib.error.URLError, ValueError, KeyError, TypeError) as error:
+        copr_failed = True
+        copr = {}
+        copr_count = previous_meta.get("copr_projects", 0)
+        warnings.append(f"Copr lookup failed ({error}); keeping last known Copr count")
 
     output = []
     for entry in entries:
@@ -114,8 +148,10 @@ def main() -> None:
         if not repo_name:
             continue
         live = repos.get(repo_name, {})
+        if not live and gh_failed:
+            live = previous_by_repo.get(repo_name, {})
         copr_ref = entry.get("copr")
-        if copr_ref and copr and copr_ref.get("project") not in copr:
+        if copr_ref and not copr_failed and copr_ref.get("project") not in copr:
             warnings.append(f"{repo_name}: Copr project {copr_ref['project']} not found")
 
         output.append(

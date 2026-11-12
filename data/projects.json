@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-11T11:54:30Z",
+  "generated": "2026-11-12T15:08:57Z",
   "meta": {
     "repos": 29,
-    "stars": 107,
+    "stars": 108,
     "forks": 14,
     "copr_projects": 11,
-    "apps_packaged": 10,
-    "visible_projects": 26
+    "apps_packaged": 11,
+    "visible_projects": 27
   },
   "projects": [
     {
@@ -19,7 +19,7 @@
         "Installer"
       ],
       "featured": true,
-      "stars": 41,
+      "stars": 42,
       "forks": 5,
       "updated": "2026-11-08",
       "repo_url": "https://github.com/linuxgamerlife/lgl-system-loadout",
@@ -40,7 +40,7 @@
       "featured": true,
       "stars": 15,
       "forks": 1,
-      "updated": "2026-10-20",
+      "updated": "2026-11-11",
       "repo_url": "https://github.com/linuxgamerlife/lgl-papercutter",
       "copr": {
         "project": "linuxgamerlife/lgl-toolkit",
@@ -59,7 +59,7 @@
       "featured": true,
       "stars": 4,
       "forks": 1,
-      "updated": "2026-10-25",
+      "updated": "2026-11-12",
       "repo_url": "https://github.com/linuxgamerlife/lgl-scheduler-manager",
       "copr": {
         "project": "linuxgamerlife/lgl-toolkit",
@@ -96,7 +96,7 @@
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "updated": "2026-10-13",
+      "updated": "2026-11-11",
       "repo_url": "https://github.com/linuxgamerlife/lgl-emoji-picker",
       "copr": {
         "project": "linuxgamerlife/lgl-toolkit",
@@ -180,6 +180,26 @@
       }
     },
     {
+      "repo": "lgl-games-launcher",
+      "title": "LGL Games Launcher",
+      "category": "apps",
+      "blurb": "A native GTK 4 launcher for Steam, Faugus, Epic, EA and Ubisoft libraries, with cover art, search, favourites, achievements and optional game insights.",
+      "tags": [
+        "GTK",
+        "Steam",
+        "Launcher"
+      ],
+      "featured": true,
+      "stars": 0,
+      "forks": 0,
+      "updated": "2026-11-09",
+      "repo_url": "https://github.com/linuxgamerlife/lgl-games-launcher",
+      "copr": {
+        "project": "linuxgamerlife/lgl-toolkit",
+        "package": "lgl-games-launcher"
+      }
+    },
+    {
       "repo": "lgl-vm-curator",
       "title": "LGL VM Curator",
       "category": "apps",
@@ -194,7 +214,7 @@
       "updated": "2026-11-10",
       "repo_url": "https://github.com/linuxgamerlife/lgl-vm-curator",
       "copr": {
-        "project": "linuxgamerlife/lgl-vm-curator",
+        "project": "linuxgamerlife/lgl-essentials",
         "package": "lgl-vm-curator"
       }
     },

@@ -130,6 +130,22 @@
       }
     },
     {
+      "repo": "lgl-games-launcher",
+      "title": "LGL Games Launcher",
+      "category": "apps",
+      "featured": true,
+      "blurb": "A native GTK 4 launcher for Steam, Faugus, Epic, EA and Ubisoft libraries, with cover art, search, favourites, achievements and optional game insights.",
+      "tags": [
+        "GTK",
+        "Steam",
+        "Launcher"
+      ],
+      "copr": {
+        "project": "linuxgamerlife/lgl-toolkit",
+        "package": "lgl-games-launcher"
+      }
+    },
+    {
       "repo": "lgl-vm-curator",
       "title": "LGL VM Curator",
       "category": "apps",
@@ -139,7 +155,7 @@
         "Virtualisation"
       ],
       "copr": {
-        "project": "linuxgamerlife/lgl-vm-curator",
+        "project": "linuxgamerlife/lgl-essentials",
         "package": "lgl-vm-curator"
       }
     },
