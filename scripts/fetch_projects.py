@@ -23,6 +23,8 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+from stamp_assets import stamp as stamp_assets
+
 USER = "linuxgamerlife"
 ROOT = Path(__file__).resolve().parent.parent
 CURATION = ROOT / "data" / "curation.json"
@@ -214,6 +216,7 @@ def main() -> None:
         f"wrote {OUTPUT.relative_to(ROOT)}: {len(output)} projects, "
         f"{gh_meta['repos']} repos, {copr_count} Copr projects"
     )
+    print(stamp_assets())
 
 
 if __name__ == "__main__":

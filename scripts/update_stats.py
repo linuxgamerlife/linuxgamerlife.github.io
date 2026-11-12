@@ -14,6 +14,8 @@ import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
+from stamp_assets import stamp as stamp_assets
+
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_OUT = ROOT / "data" / "stats.js"
 
@@ -224,6 +226,9 @@ def main() -> None:
     print(f"  RAM:    {stats['ram']} ({stats['ramPct']}%)")
     for disk in stats["disks"]:
         print(f"  Disk:   {disk['label']} ({disk['pct']}%)")
+
+    if args.output.resolve() == DEFAULT_OUT.resolve():
+        print(stamp_assets())
 
 
 if __name__ == "__main__":

@@ -18,6 +18,8 @@ import re
 import sys
 from pathlib import Path
 
+from stamp_assets import stamp as stamp_assets
+
 ROOT = Path(__file__).resolve().parent.parent
 TARGET = ROOT / "data" / "supporters.js"
 
@@ -98,6 +100,7 @@ def main() -> None:
 
     total = sum(len(data.get(platform, [])) for platform in ("youtube", "twitch"))
     print(f"wrote {TARGET.relative_to(ROOT)}: {total} supporters, names shortened")
+    print(stamp_assets())
 
 
 if __name__ == "__main__":
