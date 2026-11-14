@@ -1,8 +1,8 @@
 {
-  "generated": "2026-11-12T15:08:57Z",
+  "generated": "2026-11-14T11:31:46Z",
   "meta": {
     "repos": 29,
-    "stars": 108,
+    "stars": 114,
     "forks": 14,
     "copr_projects": 11,
     "apps_packaged": 11,
@@ -19,7 +19,7 @@
         "Installer"
       ],
       "featured": true,
-      "stars": 42,
+      "stars": 43,
       "forks": 5,
       "updated": "2026-11-08",
       "repo_url": "https://github.com/linuxgamerlife/lgl-system-loadout",
@@ -38,7 +38,7 @@
         "Desktop"
       ],
       "featured": true,
-      "stars": 15,
+      "stars": 16,
       "forks": 1,
       "updated": "2026-11-11",
       "repo_url": "https://github.com/linuxgamerlife/lgl-papercutter",
@@ -57,7 +57,7 @@
         "Performance"
       ],
       "featured": true,
-      "stars": 4,
+      "stars": 5,
       "forks": 1,
       "updated": "2026-11-12",
       "repo_url": "https://github.com/linuxgamerlife/lgl-scheduler-manager",
@@ -94,7 +94,7 @@
         "Wayland"
       ],
       "featured": false,
-      "stars": 0,
+      "stars": 1,
       "forks": 0,
       "updated": "2026-11-11",
       "repo_url": "https://github.com/linuxgamerlife/lgl-emoji-picker",
@@ -190,7 +190,7 @@
         "Launcher"
       ],
       "featured": true,
-      "stars": 0,
+      "stars": 1,
       "forks": 0,
       "updated": "2026-11-09",
       "repo_url": "https://github.com/linuxgamerlife/lgl-games-launcher",
@@ -209,7 +209,7 @@
         "Virtualisation"
       ],
       "featured": false,
-      "stars": 0,
+      "stars": 1,
       "forks": 0,
       "updated": "2026-11-10",
       "repo_url": "https://github.com/linuxgamerlife/lgl-vm-curator",
