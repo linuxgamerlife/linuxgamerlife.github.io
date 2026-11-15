@@ -1,24 +1,24 @@
 window.LGL_STATS = {
-  "generated": "2026-10-27T17:33:23Z",
-  "os": "Fedora Linux 44 (Forty Four)",
-  "osShort": "Fedora 44",
-  "kernel": "7.2.11-200.fc44.x86_64",
-  "kernelShort": "7.2.11",
-  "uptime": "8h 38m",
-  "ram": "9.6 / 60 GB",
-  "ramPct": 16,
+  "generated": "2026-11-15T21:05:40Z",
+  "os": "Fedora Linux 45 (Forty Five)",
+  "osShort": "Fedora 45",
+  "kernel": "7.3.3-300.fc45.x86_64",
+  "kernelShort": "7.3.3",
+  "uptime": "10h 13m",
+  "ram": "21.8 / 60 GB",
+  "ramPct": 36,
   "disks": [
     {
       "label": "SN850X 4TB",
-      "pct": 94
+      "pct": 80
     },
     {
       "label": "SN850X 1TB",
-      "pct": 37
+      "pct": 41
     },
     {
       "label": "SN770 2TB",
-      "pct": 9
+      "pct": 11
     },
     {
       "label": "SN7100 1TB",
