@@ -83,7 +83,7 @@
     fedora: "https://fedoraproject.org/"
   };
 
-  var PATHS = ["~/videos", "~/projects", "~/about", "~/principles", "~/community", "~/toolkit", "~/launchcommands", "~/setup", "~/mainmachine", "~/testmachine", "~/nsm", "~/macmini", "~/merch", "~/reddit", "~/ai", "~/disclaimer", "~", "home", "..", ".", "story", "contact", "discounts", "pc1", "pc2", "theblackdon", "finley", "keychron"];
+  var PATHS = ["~/videos", "~/projects", "~/about", "~/principles", "~/community", "~/toolkit", "~/launchcommands", "~/setup", "~/mainmachine", "~/testmachine", "~/nsm", "~/macmini", "~/merch", "~/reddit", "~/ai", "~/disclaimer", "~/themes", "themes", "~", "home", "..", ".", "story", "contact", "discounts", "pc1", "pc2", "theblackdon", "finley", "keychron"];
   var NAV_COMMANDS = ["./home", "./about", "./principles", "./videos", "./community", "./projects", "./toolkit", "./launchcommands", "./setup", "./mainmachine", "./testmachine", "./nsm", "./macmini", "./merch", "./youtube", "./twitch", "./kick", "./reddit"];
 
   function commonPrefix(a, b) {

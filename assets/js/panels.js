@@ -1225,6 +1225,10 @@
       return;
     }
     if (name === "ls") {
+      if (/^(~\/)?themes\/?$/i.test(argument)) {
+        status(win, Object.keys(window.LGLTheme.themes).join("  "));
+        return;
+      }
       status(win, "about/  journey/  principles/  videos/  projects/  toolkit/  launchcommands/  setup/  community/  contact/  discounts/\ntldr.txt  ai.txt  disclaimer.txt  themes/");
       return;
     }
@@ -1247,6 +1251,10 @@
       } else {
         status(win, "unknown theme: " + argument);
       }
+      return;
+    }
+    if (name === "cd" && /^(~\/)?themes\/?$/i.test(argument)) {
+      status(win, "themes/\n" + Object.keys(window.LGLTheme.themes).join("  ") + "\nusage: theme <name>  ·  theme reset returns to monochrome");
       return;
     }
     if ((name === "cd" && /^(~\/)?merch\/?$/i.test(argument)) || name === "./merch") {

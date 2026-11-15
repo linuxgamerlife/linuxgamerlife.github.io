@@ -139,6 +139,10 @@
       say(page);
       return;
     }
+    if (/^cd\s+(~\/)?themes\/?$/i.test(value)) {
+      say("themes/\n" + Object.keys(window.LGLTheme.themes).join("  ") + "\nusage: theme <name>  ·  theme reset returns to monochrome");
+      return;
+    }
     if (lower === "cd merch" || lower === "cd ~/merch" || lower === "./merch") {
       window.LGLOpenMerch();
       sayLink("opening the full shop", window.LGLMerch.url, window.LGLMerch.url);
@@ -153,7 +157,11 @@
       sayGrid(items);
       return;
     }
-    if (lower === "ls") {
+    if (lower === "ls" || lower.indexOf("ls ") === 0) {
+      if (/^ls\s+(~\/)?themes\/?$/i.test(value)) {
+        say(Object.keys(window.LGLTheme.themes).join("  "));
+        return;
+      }
       say("about/  journey/  principles/  videos/  community/  projects/  toolkit/  launchcommands/  merch/  setup/  contact/  discounts/\nai.txt  disclaimer.txt  tldr.txt  themes/");
       return;
     }

@@ -189,6 +189,13 @@
       return;
     }
 
+    if (name === "cd" && /^(~\/)?themes\/?$/i.test(argument)) {
+      line("themes/");
+      line(Object.keys(themeApi.themes).join("  "));
+      line("usage: theme <name>  ·  theme reset returns to monochrome", "is-comment");
+      return;
+    }
+
     if ((name === "cd" && /^(~\/)?merch\/?$/i.test(argument)) || name === "./merch") {
       window.LGLOpenMerch();
       linkLine("opening the full shop", window.LGLMerch.url, true, window.LGLMerch.url);
@@ -306,6 +313,10 @@
         break;
 
       case "ls":
+        if (/^(~\/)?themes\/?$/i.test(argument)) {
+          line(Object.keys(themeApi.themes).join("  "));
+          break;
+        }
         line("about/  journey/  principles/  videos/  projects/  toolkit/  launchcommands/  merch/  setup/  community/  contact/  discounts/");
         line("ai.txt  disclaimer.txt  tldr.txt  manifesto.txt  themes/");
         break;
