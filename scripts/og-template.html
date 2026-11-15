@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LGL Open Graph card</title>
+<style>
+  @font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 100 800;
+    src: url("../assets/fonts/jetbrains-mono-latin.woff2") format("woff2");
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: #070b10;
+  }
+
+  body {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    color: #9fb0c0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .card {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    padding: 52px 64px 44px 68px;
+    background:
+      radial-gradient(130% 120% at 4% 0%, #101d2d 0%, #0a121b 38%, #070b10 72%),
+      linear-gradient(180deg, #080d14, #05080c);
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #5aa9ff;
+    box-shadow: 0 0 24px rgba(90, 169, 255, 0.55);
+  }
+
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0 3px,
+      rgba(255, 255, 255, 0.014) 3px 4px
+    );
+    pointer-events: none;
+  }
+
+  .cmd {
+    position: relative;
+    font-size: 23px;
+    line-height: 1.5;
+    color: #cbd7e4;
+    white-space: nowrap;
+  }
+
+  .prompt { color: #58a9ff; }
+
+  .out {
+    position: relative;
+    margin: 0 0 18px;
+    font-size: 23px;
+    line-height: 1.5;
+    color: #cbd7e4;
+  }
+
+  h1 {
+    position: relative;
+    margin: 8px 0 26px;
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.03;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    color: #f5f9fd;
+  }
+
+  .lead {
+    position: relative;
+    max-width: 1080px;
+    font-size: 23px;
+    line-height: 1.55;
+    color: #9fb0c0;
+  }
+
+  .lead strong { color: #eef5fc; font-weight: 700; }
+
+  .gap { height: 22px; }
+
+  .links {
+    position: relative;
+    margin-top: 22px;
+    font-size: 23px;
+    color: #8c99a8;
+  }
+
+  .links .here { color: #58a9ff; }
+  .links .sep { margin: 0 9px; color: #5d6875; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="scanlines"></div>
+
+    <div class="cmd"><span class="prompt">lgl@fedora:~$</span> whoami</div>
+    <div class="out">linuxgamerlife</div>
+
+    <div class="cmd"><span class="prompt">lgl@fedora:~$</span> cat manifesto.txt</div>
+    <h1>One gamer's journey<br>from Windows to Linux</h1>
+
+    <p class="lead">
+      I spent decades gaming on Windows, then moved everything to<br>
+      Linux in 2025. <strong>Linux Gamer Life</strong> is where I share the journey:<br>
+      what works, what breaks, and what I learn along the way.
+    </p>
+
+    <div class="gap"></div>
+
+    <p class="lead">
+      Use the terminal below to navigate the site, or just use the<br>
+      site buttons like normal people.
+    </p>
+
+    <p class="links"><span class="here">about</span><span class="sep">/</span>youtube<span class="sep">/</span>twitch<span class="sep">/</span>kick</p>
+  </div>
+</body>
+</html>
