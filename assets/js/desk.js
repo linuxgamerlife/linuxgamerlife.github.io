@@ -161,6 +161,7 @@
 
   /* ---------- Side panels ---------- */
   function nowMarkup() {
+    var apps = window.LGL_PROJECTS && window.LGL_PROJECTS.meta ? window.LGL_PROJECTS.meta.apps_packaged : 12;
     return '' +
       '<div class="kwe-window__bar">' +
         '<span class="kwe-window__title"><span class="kwe-win-icon" aria-hidden="true">●</span> LGL://NOW</span>' +
@@ -170,7 +171,7 @@
         '<div class="kwe-now__row"><span>PC1</span><span class="kwe-now__ok">online</span></div>' +
         '<div class="kwe-now__row"><span>Session</span><span>KineticWE · Wayland</span></div>' +
         '<div class="kwe-now__row"><span>Setup</span><span>PC1 · PC2 · NSM · Mac mini</span></div>' +
-        '<div class="kwe-now__row"><span>Toolkit</span><span>8 apps, one Copr repo</span></div>' +
+        '<div class="kwe-now__row"><span>Toolkit</span><span><span data-stat="apps_packaged">' + apps + '</span> apps, one Copr repo</span></div>' +
       '</div>';
   }
 

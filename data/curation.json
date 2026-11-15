@@ -47,6 +47,22 @@
       }
     },
     {
+      "repo": "lgl-eacv2-checker",
+      "title": "LGL EAC v2 Checker",
+      "category": "apps",
+      "featured": true,
+      "blurb": "Check whether your Fedora boot setup meets the detectable Easy Anti-Cheat Linux v2 requirements, with plain explanations and copyable guidance instead of automatic changes.",
+      "tags": [
+        "Fedora",
+        "Anti-Cheat",
+        "GTK"
+      ],
+      "copr": {
+        "project": "linuxgamerlife/lgl-toolkit",
+        "package": "lgl-eacv2-checker"
+      }
+    },
+    {
       "repo": "lgl-colour-picker",
       "title": "LGL Colour Picker",
       "category": "apps",

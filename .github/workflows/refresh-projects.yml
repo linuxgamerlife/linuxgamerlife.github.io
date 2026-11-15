@@ -37,6 +37,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/projects.json data/projects.js
+          git add data/projects.json data/projects.js sw.js ./*.html
           git commit -m "Refresh project data from GitHub and Copr"
           git push

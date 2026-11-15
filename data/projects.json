@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-15T11:58:30Z",
+  "generated": "2026-11-15T12:42:00Z",
   "meta": {
     "repos": 30,
     "stars": 114,
     "forks": 14,
     "copr_projects": 11,
-    "apps_packaged": 11,
-    "visible_projects": 27
+    "apps_packaged": 12,
+    "visible_projects": 28
   },
   "projects": [
     {
@@ -64,6 +64,26 @@
       "copr": {
         "project": "linuxgamerlife/lgl-toolkit",
         "package": "lgl-scheduler-manager"
+      }
+    },
+    {
+      "repo": "lgl-eacv2-checker",
+      "title": "LGL EAC v2 Checker",
+      "category": "apps",
+      "blurb": "Check whether your Fedora boot setup meets the detectable Easy Anti-Cheat Linux v2 requirements, with plain explanations and copyable guidance instead of automatic changes.",
+      "tags": [
+        "Fedora",
+        "Anti-Cheat",
+        "GTK"
+      ],
+      "featured": true,
+      "stars": 0,
+      "forks": 0,
+      "updated": "2026-11-15",
+      "repo_url": "https://github.com/linuxgamerlife/lgl-eacv2-checker",
+      "copr": {
+        "project": "linuxgamerlife/lgl-toolkit",
+        "package": "lgl-eacv2-checker"
       }
     },
     {
