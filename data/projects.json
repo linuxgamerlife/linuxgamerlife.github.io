@@ -1,8 +1,8 @@
 {
-  "generated": "2026-11-16T12:48:28Z",
+  "generated": "2026-11-17T13:29:44Z",
   "meta": {
     "repos": 30,
-    "stars": 110,
+    "stars": 112,
     "forks": 14,
     "copr_projects": 11,
     "apps_packaged": 12,
@@ -19,7 +19,7 @@
         "Installer"
       ],
       "featured": true,
-      "stars": 42,
+      "stars": 43,
       "forks": 5,
       "updated": "2026-11-08",
       "repo_url": "https://github.com/linuxgamerlife/lgl-system-loadout",
@@ -433,7 +433,7 @@
         "Assets"
       ],
       "featured": false,
-      "stars": 6,
+      "stars": 7,
       "forks": 1,
       "updated": "2026-11-15",
       "repo_url": "https://github.com/linuxgamerlife/Wallpapers",
