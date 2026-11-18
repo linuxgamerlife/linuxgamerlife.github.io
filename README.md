@@ -28,7 +28,7 @@ page ships its own shell markup; every other page is wrapped automatically by
 The projects page is generated, not edited by hand. Add or update the copy in
 `data/curation.json`, then run:
 
-```bash
+```bash 
 python3 scripts/fetch_projects.py
 ```
 
@@ -37,7 +37,7 @@ That refreshes GitHub stars, Copr packages and `data/projects.json` /
 nightly `Refresh project data` workflow updates metrics but does not invent
 titles or descriptions.
 
-## App windows
+## App windows 
 
 Terminal apps open as floating windows. Drag a window by its title bar, resize it
 from the bottom-right corner, and open several at once. Click a window to bring it
