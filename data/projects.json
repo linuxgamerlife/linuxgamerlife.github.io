@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-17T13:29:44Z",
+  "generated": "2026-11-18T13:06:37Z",
   "meta": {
     "repos": 30,
     "stars": 112,
@@ -59,7 +59,7 @@
       "featured": true,
       "stars": 4,
       "forks": 1,
-      "updated": "2026-11-12",
+      "updated": "2026-11-17",
       "repo_url": "https://github.com/linuxgamerlife/lgl-scheduler-manager",
       "copr": {
         "project": "linuxgamerlife/lgl-toolkit",
