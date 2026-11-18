@@ -17,6 +17,24 @@
       }
     },
     {
+      "repo": "lgl-text-editor",
+      "title": "LGL Text Editor",
+      "category": "apps",
+      "blurb": "A simple GTK text editor with a live Markdown preview.",
+      "tags": [
+        "GTK",
+        "Editor",
+        "Markdown",
+        "New"
+      ],
+      "github": false,
+      "updated": "2026-11-18",
+      "copr": {
+        "project": "linuxgamerlife/lgl-toolkit",
+        "package": "lgl-text-editor"
+      }
+    },
+    {
       "repo": "lgl-papercutter",
       "title": "LGL Papercutter",
       "category": "apps",

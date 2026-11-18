@@ -2018,6 +2018,7 @@ body[data-page="mysetup"] .page-head .container::before { content: "lgl@fedora:~
 .card__text { color: var(--muted); font-size: calc(0.88rem + 2px); }
 .tag { border-radius: 0; padding: 0.14rem 0.38rem; font-size: 0.54rem; }
 .tag--accent { color: var(--accent); border-color: var(--line-strong); background: transparent; }
+.tag--new { color: var(--bg); border-color: var(--accent); background: var(--accent); font-weight: 700; }
 .panel { border: 1px solid var(--line); background: transparent; }
 .cta-band {
   border: 1px solid var(--line-strong);

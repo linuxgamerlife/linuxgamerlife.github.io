@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-18T13:06:37Z",
+  "generated": "2026-11-18T16:48:55Z",
   "meta": {
     "repos": 30,
     "stars": 112,
     "forks": 14,
     "copr_projects": 11,
-    "apps_packaged": 12,
-    "visible_projects": 28
+    "apps_packaged": 13,
+    "visible_projects": 29
   },
   "projects": [
     {
@@ -26,6 +26,27 @@
       "copr": {
         "project": "linuxgamerlife/lgl-toolkit",
         "package": "lgl-system-loadout"
+      }
+    },
+    {
+      "repo": "lgl-text-editor",
+      "title": "LGL Text Editor",
+      "category": "apps",
+      "blurb": "A simple GTK text editor with a live Markdown preview.",
+      "tags": [
+        "GTK",
+        "Editor",
+        "Markdown",
+        "New"
+      ],
+      "featured": false,
+      "stars": 0,
+      "forks": 0,
+      "updated": "2026-11-18",
+      "repo_url": null,
+      "copr": {
+        "project": "linuxgamerlife/lgl-toolkit",
+        "package": "lgl-text-editor"
       }
     },
     {

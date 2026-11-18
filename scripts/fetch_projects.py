@@ -152,6 +152,7 @@ def main() -> None:
         live = repos.get(repo_name, {})
         if not live and gh_failed:
             live = previous_by_repo.get(repo_name, {})
+        github = entry.get("github", True)
         copr_ref = entry.get("copr")
         if copr_ref and not copr_failed and copr_ref.get("project") not in copr:
             warnings.append(f"{repo_name}: Copr project {copr_ref['project']} not found")
@@ -164,10 +165,10 @@ def main() -> None:
                 "blurb": entry.get("blurb", ""),
                 "tags": entry.get("tags", []),
                 "featured": bool(entry.get("featured")),
-                "stars": live.get("stars", 0),
-                "forks": live.get("forks", 0),
-                "updated": live.get("updated") or entry.get("updated"),
-                "repo_url": live.get("repo_url") or f"https://github.com/{USER}/{repo_name}",
+                "stars": live.get("stars", 0) if github else 0,
+                "forks": live.get("forks", 0) if github else 0,
+                "updated": (live.get("updated") if github else None) or entry.get("updated"),
+                "repo_url": (live.get("repo_url") or f"https://github.com/{USER}/{repo_name}") if github else None,
                 "copr": copr_ref,
             }
         )

@@ -105,7 +105,7 @@
         return filter === "all" || project.category === filter;
       });
       grid.innerHTML = shown.map(function (project) {
-        var repo = project.repo ? '<a class="project__link" href="https://github.com/linuxgamerlife/' + project.repo + '" target="_blank" rel="noopener">' +
+        var repo = project.repo_url ? '<a class="project__link" href="' + esc(project.repo_url) + '" target="_blank" rel="noopener">' +
           '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.9c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.7 2.7 1.2 3.3.9.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>GitHub</a>' : "";
         var copr = project.copr ? '<a class="project__link" href="https://copr.fedorainfracloud.org/coprs/' + project.copr.project + '/" target="_blank" rel="noopener">' +
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m7.5 4.2 9 5.2"/></svg>Copr</a>' : "";
@@ -114,7 +114,10 @@
           '<div class="project__top"><span class="project__icon">' + svg(ICONS[project.category] || ICONS.experiments) + "</span>" +
           '<h3 class="project__name">' + esc(project.title) + "</h3>" + stars + "</div>" +
           '<p class="project__desc">' + esc(project.blurb) + "</p>" +
-          '<div class="project__meta">' + project.tags.map(function (tag) { return '<span class="tag">' + esc(tag) + "</span>"; }).join("") + "</div>" +
+          '<div class="project__meta">' + project.tags.map(function (tag) {
+            var tagClass = String(tag).toLowerCase() === "new" ? "tag tag--new" : "tag";
+            return '<span class="' + tagClass + '">' + esc(tag) + "</span>";
+          }).join("") + "</div>" +
           '<div class="project__links">' + repo + copr + "</div></article>";
       }).join("");
       if (count) count.textContent = shown.length + (shown.length === 1 ? " project" : " projects");
