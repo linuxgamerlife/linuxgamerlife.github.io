@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-19T13:14:50Z",
+  "generated": "2026-11-20T12:57:24Z",
   "meta": {
     "repos": 30,
     "stars": 112,
@@ -250,7 +250,7 @@
         "Virtualisation"
       ],
       "featured": false,
-      "stars": 1,
+      "stars": 2,
       "forks": 0,
       "updated": "2026-11-10",
       "repo_url": "https://github.com/linuxgamerlife/lgl-vm-curator",
@@ -440,7 +440,7 @@
       "featured": false,
       "stars": 0,
       "forks": 0,
-      "updated": "2026-10-11",
+      "updated": "2026-11-20",
       "repo_url": "https://github.com/linuxgamerlife/lgl-browser-theming",
       "copr": null
     },
