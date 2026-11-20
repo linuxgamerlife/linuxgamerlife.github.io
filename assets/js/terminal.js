@@ -88,12 +88,13 @@
 
     var fields = document.createElement("div");
     fields.className = "ff__fields";
+    var stats = window.LGL_STATS || {};
     [
       ["lgl@fedora", ""],
       ["-----------", ""],
-      ["OS", "Fedora Linux 44 (Forty Four) x86_64"],
+      ["OS", stats.os ? stats.os + " x86_64" : "Fedora Linux 45 (Forty Five) x86_64"],
       ["Host", "PC1"],
-      ["Kernel", "7.2.11-200.fc44.x86_64"],
+      ["Kernel", stats.kernel || "7.3.4-300.fc45.x86_64"],
       ["DE", "KineticWE"],
       ["WM", "KWin (Wayland)"],
       ["Shell", "zsh 5.9"],

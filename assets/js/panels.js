@@ -2,6 +2,11 @@
 (function () {
   "use strict";
 
+  function statText(key, fallback) {
+    var stats = window.LGL_STATS;
+    return stats && stats[key] ? stats[key] : fallback;
+  }
+
   var TEMPLATES = {
     about: [
       '<p class="tty-modal__cmd">$ cat about.txt</p>',
@@ -483,7 +488,7 @@
       '<div class="machine-app">',
       '<div class="machine-app__head"><span class="machine-app__badge" aria-hidden="true">PC1</span><div><p class="tty-modal__cmd">$ mainmachine</p><h3>The main machine</h3><p class="machine-app__lede">The daily driver: a 9950X3D build on AM5 that games, records and compiles everything on the channel.</p></div></div>',
       '<dl class="tty-facts">',
-      '<div><dt>OS</dt><dd>Fedora Linux 44 (Forty Four)</dd></div>',
+      '<div><dt>OS</dt><dd>' + statText("os", "Fedora Linux 45 (Forty Five)") + '</dd></div>',
       '<div><dt>CPU</dt><dd>AMD Ryzen 9 9950X3D</dd></div>',
       '<div><dt>GPU</dt><dd>Radeon RX 9070 XT</dd></div>',
       '<div><dt>Memory</dt><dd>64 GB DDR5</dd></div>',
@@ -545,8 +550,8 @@
     setup: [
       '<p class="tty-modal__cmd">$ cat setup.txt</p>',
       '<dl class="tty-facts">',
-      '<div><dt>OS</dt><dd>Fedora Linux 44 (Forty Four)</dd></div>',
-      '<div><dt>Kernel</dt><dd>7.2.11-200.fc44</dd></div>',
+      '<div><dt>OS</dt><dd>' + statText("os", "Fedora Linux 45 (Forty Five)") + '</dd></div>',
+      '<div><dt>Kernel</dt><dd>' + statText("kernel", "7.3.4-300.fc45.x86_64") + '</dd></div>',
       '<div><dt>CPU</dt><dd>AMD Ryzen 9 9950X3D</dd></div>',
       '<div><dt>GPU</dt><dd>AMD Radeon RX 9070 XT</dd></div>',
       '<div><dt>Memory</dt><dd>64 GB</dd></div>',

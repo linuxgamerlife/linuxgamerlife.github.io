@@ -347,20 +347,23 @@
 
   window.LGLFedoraLogo = FEDORA_LOGO;
 
-  var FASTFETCH_ROWS = [
-    ["lgl@fedora", ""],
-    ["-----------", ""],
-    ["OS", "Fedora Linux 44 (Forty Four) x86_64"],
-    ["Host", "PC1"],
-    ["Kernel", "7.2.11-200.fc44.x86_64"],
-    ["DE", "KineticWE"],
-    ["WM", "KWin (Wayland)"],
-    ["Shell", "zsh 5.9"],
-    ["Terminal", "kitty"],
-    ["CPU", "AMD Ryzen 9 9950X3D"],
-    ["GPU", "AMD Radeon RX 9070 XT"],
-    ["Memory", "17.4 GiB / 60.0 GiB"]
-  ];
+  function fastfetchRows() {
+    var stats = window.LGL_STATS || {};
+    return [
+      ["lgl@fedora", ""],
+      ["-----------", ""],
+      ["OS", stats.os ? stats.os + " x86_64" : "Fedora Linux 45 (Forty Five) x86_64"],
+      ["Host", "PC1"],
+      ["Kernel", stats.kernel || "7.3.4-300.fc45.x86_64"],
+      ["DE", "KineticWE"],
+      ["WM", "KWin (Wayland)"],
+      ["Shell", "zsh 5.9"],
+      ["Terminal", "kitty"],
+      ["CPU", "AMD Ryzen 9 9950X3D"],
+      ["GPU", "AMD Radeon RX 9070 XT"],
+      ["Memory", "17.4 GiB / 60.0 GiB"]
+    ];
+  }
 
   window.LGLRenderFastfetch = function (container) {
     if (!container) return false;
@@ -375,7 +378,7 @@
 
     var fields = document.createElement("span");
     fields.className = "ff__fields";
-    FASTFETCH_ROWS.forEach(function (row, index) {
+    fastfetchRows().forEach(function (row, index) {
       var line = document.createElement("span");
       line.className = "ff__row" + (index < 2 ? " ff__head" : "");
       var key = document.createElement("span");
@@ -398,7 +401,7 @@
   window.LGLFastfetch = function () {
     return FEDORA_LOGO.concat(
       [""],
-      FASTFETCH_ROWS.map(function (row) {
+      fastfetchRows().map(function (row) {
         return row[1] ? row[0] + ": " + row[1] : row[0];
       })
     ).join("\n");

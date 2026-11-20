@@ -130,7 +130,7 @@
           '<div class="kwe-bar kwe-bar--disk"><i style="width:37%"></i></div>' +
         '</div>' +
       '</section>' +
-      '<div class="kwe-stats__foot"><span>uptime <span data-stat="uptime">4d 12h</span></span><span>kernel <span data-stat="kernelShort" title="7.2.11-200.fc44.x86_64">7.2.11</span></span></div>';
+      '<div class="kwe-stats__foot"><span>uptime <span data-stat="uptime">4d 12h</span></span><span>kernel <span data-stat="kernelShort" title="7.3.4-300.fc45.x86_64">7.3.4</span></span></div>';
   }
 
   /* ---------- Top bar ---------- */
@@ -153,7 +153,7 @@
       '</div>' +
       topnavMarkup(currentPage) +
       '<div class="kwe-topbar__right">' +
-        '<span data-stat="osShort">Fedora 44</span>' +
+        '<span data-stat="osShort">Fedora 45</span>' +
         '<span class="kwe-brand-case">KineticWE</span>' +
         '<span id="kwe-clock">12:53 · Tue 27 Oct</span>' +
       '</div>';
