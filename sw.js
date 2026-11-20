@@ -1,6 +1,6 @@
 /* Linux Gamer Life - offline shell and installability. */
 // Bump CACHE when you need to force a fresh offline cache.
-const CACHE = "lgl-v43";
+const CACHE = "lgl-v44";
 
 const CORE = [
   "/",
@@ -27,10 +27,10 @@ const CORE = [
   "/assets/js/terminal.js",
   "/assets/js/site-terminal.js",
   "/assets/js/site.js",
-  "/data/projects.js?v=5e73e4395e",
-  "/data/stats.js?v=5e73e4395e",
+  "/data/projects.js?v=2dfaec0871",
+  "/data/stats.js?v=2dfaec0871",
   "/data/launch-options.js",
-  "/data/supporters.js?v=5e73e4395e",
+  "/data/supporters.js?v=2dfaec0871",
   "/assets/fonts/inter-latin.woff2",
   "/assets/fonts/inter-latin-ext.woff2",
   "/assets/fonts/jetbrains-mono-latin.woff2",
